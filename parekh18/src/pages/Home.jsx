@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   const categoryList = [
     { name: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=60' },
-    { name: 'Leggings', image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=600&auto=format&fit=crop&q=60' },
+    { name: 'Leggings', image: 'https://images.pexels.com/photos/13908744/pexels-photo-13908744.jpeg' },
     { name: 'Kurtis', image: 'https://images.unsplash.com/photo-1669199814244-75e25eb1a1bd?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { name: 'Dress Suits', image: 'https://images.unsplash.com/photo-1631857455684-a54a2f03665f?w=600&auto=format&fit=crop&q=60' },
+    { name: 'Dress Suits', image: 'https://images.pexels.com/photos/18999069/pexels-photo-18999069.jpeg' },
     { name: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&auto=format&fit=crop&q=60' },
     { name: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=600&auto=format&fit=crop&q=60' },
     { name: 'Suiting', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=60' },
     { name: 'Shirting', image: 'https://plus.unsplash.com/premium_photo-1691367279403-aaa787d264f6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     { name: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=60' },
-    { name: 'Formal & Ethnic Wear for Men', image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=60' }
+    { name: 'Formal & Ethnic Wear for Men', image: 'https://images.pexels.com/photos/27687923/pexels-photo-27687923.jpeg' }
   ];
 
   const featuredProducts = [
@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className="w-full bg-pearl-100">
       {/* 1. Hero Section - With full background image /images/hero1.png */}
-      <section 
+      <section
         className="relative w-full min-h-[380px] md:min-h-[480px] flex items-center justify-start px-6 sm:px-10 lg:px-16 py-12 overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero1.png')" }}
       >
@@ -62,19 +62,19 @@ export default function Home() {
 
           {/* Heading */}
           <h1 className="font-playfair text-3xl sm:text-4xl lg:text-[52px] text-[#3D223B] leading-tight font-light tracking-wide border-0 pb-0 mb-0">
-            Woven with <br/> Heritage, <br />
+            Woven with <br /> Heritage, <br />
             <span className="text-[#BD7B88] font-normal italic font-playfair">Designed for You</span>
           </h1>
 
           {/* Description */}
           <p className="text-[#7A6273] text-xs sm:text-sm font-outfit leading-relaxed max-w-lg font-semibold">
-            Discover luxury textiles crafted with tradition, passion and perfection.
+            Discover luxury textiles crafted with tradition.
           </p>
 
           {/* Button */}
           <div className="pt-2">
-            <Link 
-              to="/products" 
+            <Link
+              to="/products"
               className="inline-flex items-center gap-3 bg-[#3D223B] hover:bg-[#4D2D4B] text-white px-8 py-3.5 font-semibold tracking-widest uppercase transition-all duration-300 text-[10px] rounded-lg shadow-md font-outfit"
             >
               Shop Collection <ArrowRight size={13} className="text-white" />
@@ -93,9 +93,9 @@ export default function Home() {
 
       {/* 2. Features Bar - Clean Light Styling under Hero section */}
       <section className="bg-white border-y border-[#BD7B88]/15 py-6 px-6 sm:px-10 lg:px-16 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Feature 1 */}
-          <div className="flex items-center gap-4 lg:border-r border-[#BD7B88]/15 lg:pr-4 last:border-r-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 lg:border-r border-[#BD7B88]/15 lg:pr-4 last:border-r-0">
             <div className="w-10 h-10 rounded-full border border-[#BD7B88]/20 flex items-center justify-center text-[#BD7B88] shrink-0 bg-[#FAF4F6] shadow-sm">
               <ShieldCheck size={18} />
             </div>
@@ -106,7 +106,7 @@ export default function Home() {
           </div>
 
           {/* Feature 2 */}
-          <div className="flex items-center gap-4 lg:border-r border-[#BD7B88]/15 lg:pr-4 last:border-r-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 lg:border-r border-[#BD7B88]/15 lg:pr-4 last:border-r-0">
             <div className="w-10 h-10 rounded-full border border-[#BD7B88]/20 flex items-center justify-center text-[#BD7B88] shrink-0 bg-[#FAF4F6] shadow-sm">
               <Truck size={18} />
             </div>
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
 
           {/* Feature 3 */}
-          <div className="flex items-center gap-4 lg:border-r border-[#BD7B88]/15 lg:pr-4 last:border-r-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 lg:border-r border-[#BD7B88]/15 lg:pr-4 last:border-r-0">
             <div className="w-10 h-10 rounded-full border border-[#BD7B88]/20 flex items-center justify-center text-[#BD7B88] shrink-0 bg-[#FAF4F6] shadow-sm">
               <Award size={18} />
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
           </div>
 
           {/* Feature 4 */}
-          <div className="flex items-center gap-4 last:border-r-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 last:border-r-0">
             <div className="w-10 h-10 rounded-full border border-[#BD7B88]/20 flex items-center justify-center text-[#BD7B88] shrink-0 bg-[#FAF4F6] shadow-sm">
               <Headphones size={18} />
             </div>
@@ -142,7 +142,7 @@ export default function Home() {
 
       {/* Main content body wrapper */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-12 space-y-12">
-        
+
         {/* 3. Shop by Category Title - Spans Full Width */}
         <div className="flex justify-between items-end border-b border-[#BD7B88]/15 pb-4 w-full text-left">
           <div>
@@ -151,8 +151,8 @@ export default function Home() {
               Shop by Category
             </h3>
           </div>
-          <Link 
-            to="/products" 
+          <Link
+            to="/products"
             className="text-[10px] font-bold uppercase text-[#3D223B] hover:text-[#BD7B88] transition-colors flex items-center gap-1.5 tracking-wider font-outfit"
           >
             View All Categories <ArrowRight size={12} className="text-[#BD7B88]" />
@@ -161,7 +161,7 @@ export default function Home() {
 
         {/* Row containing Categories Grid (Left) and Promo Column (Right) */}
         <div className="flex flex-col lg:flex-row gap-8 items-start w-full">
-          
+
           {/* Left Block: Categories Grid */}
           <div className="flex-1 w-full text-left">
             {/* Categories Layout */}
@@ -175,14 +175,14 @@ export default function Home() {
                 >
                   {/* Arched image container */}
                   <div className="aspect-[2/3] overflow-hidden rounded-t-[92px] rounded-b bg-[#FAF4F6] relative">
-                    <img 
-                      src={cat.image} 
-                      alt={cat.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-[#3D223B]/10 group-hover:opacity-0 transition-opacity"></div>
                   </div>
-                  
+
                   {/* Category text content */}
                   <div className="pt-3 pb-2 text-center">
                     <h4 className="font-playfair text-[10px] text-[#3D223B] font-bold uppercase tracking-wider group-hover:text-[#BD7B88] transition-colors truncate">
@@ -196,18 +196,18 @@ export default function Home() {
 
           {/* Right Block: Promo Column */}
           <div className="w-full lg:w-[280px] flex flex-col gap-6 shrink-0 text-left">
-            
+
             {/* Promo Card 1: Exclusive Offer / Wholesale Excellence (Premium Plum Card) */}
             <div className="relative overflow-hidden min-h-[220px] border border-[#BD7B88]/20 shadow-md rounded-xl flex flex-col justify-between p-6 bg-[#3D223B] group">
               {/* Background Image covering full card */}
-              <img 
-                src="https://images.unsplash.com/photo-1623310658847-33f12eaab710?w=600&auto=format&fit=crop&q=60" 
-                alt="Wholesale Fabrics Stack" 
-                className="absolute inset-0 w-full h-full object-cover z-0" 
+              <img
+                src="https://images.unsplash.com/photo-1623310658847-33f12eaab710?w=600&auto=format&fit=crop&q=60"
+                alt="Wholesale Fabrics Stack"
+                className="absolute inset-0 w-full h-full object-cover z-0"
               />
               {/* High-legibility Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#3D223B]/95 via-[#3D223B]/80 to-[#3D223B]/90 z-10"></div>
-              
+
               <div className="space-y-2.5 z-20 relative">
                 <span className="text-[9px] uppercase font-bold text-[#BD7B88] tracking-[0.2em] font-outfit">EXCLUSIVE OFFER</span>
                 <h3 className="font-playfair text-xl font-bold leading-tight text-white uppercase tracking-wider">
@@ -219,8 +219,8 @@ export default function Home() {
               </div>
 
               <div className="z-20 mt-4 relative">
-                <Link 
-                  to="/trade-enquiry" 
+                <Link
+                  to="/trade-enquiry"
                   className="inline-flex items-center gap-2 bg-[#BD7B88] hover:bg-[#A36471] text-white px-4 py-2 text-[9px] font-bold uppercase tracking-wider transition-all duration-300 rounded-lg font-outfit"
                 >
                   Enquire Now <ArrowRight size={11} className="text-white" />
@@ -231,14 +231,14 @@ export default function Home() {
             {/* Promo Card 2: New Arrivals (Deep Mauve/Plum Layout) */}
             <div className="relative overflow-hidden min-h-[160px] border border-[#BD7B88]/15 shadow-sm rounded-xl flex flex-col justify-between p-6 bg-[#4D2D4B] group">
               {/* Background Image covering full card */}
-              <img 
-                src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=1000&auto=format&fit=crop&q=60" 
-                alt="New Arrivals Preview" 
+              <img
+                src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=1000&auto=format&fit=crop&q=60"
+                alt="New Arrivals Preview"
                 className="absolute inset-0 w-full h-full object-cover z-0"
               />
               {/* High-legibility Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#4D2D4B]/95 via-[#4D2D4B]/80 to-[#4D2D4B]/85 z-10"></div>
-              
+
               <div className="space-y-1.5 z-20 relative">
                 <span className="text-[8px] uppercase font-bold text-[#BD7B88] tracking-[0.2em] font-outfit">NEW ARRIVALS</span>
                 <h3 className="font-playfair text-base font-bold leading-tight text-white uppercase tracking-wide">
@@ -247,13 +247,13 @@ export default function Home() {
               </div>
 
               <div className="flex items-center justify-between mt-4 z-20 relative">
-                <Link 
-                  to="/products" 
+                <Link
+                  to="/products"
                   className="text-[9px] font-bold text-white hover:text-[#BD7B88] uppercase tracking-wider font-outfit flex items-center gap-1.5"
                 >
                   Shop Now <ArrowRight size={11} className="text-[#BD7B88]" />
                 </Link>
-                
+
                 <div className="w-6 h-6 rounded-full bg-[#BD7B88] flex items-center justify-center text-white hover:bg-[#A36471] transition-colors cursor-pointer">
                   <ArrowRight size={10} />
                 </div>
@@ -270,8 +270,8 @@ export default function Home() {
               <p className="text-[#BD7B88] font-bold tracking-[0.2em] uppercase text-[9px] mb-1 font-outfit">Curated Masterpieces</p>
               <h2 className="font-playfair text-2xl text-[#3D223B] font-bold uppercase tracking-wide">Featured Collection</h2>
             </div>
-            <Link 
-              to="/products" 
+            <Link
+              to="/products"
               className="inline-flex items-center gap-1.5 text-[#3D223B] hover:text-[#BD7B88] transition-colors font-bold uppercase text-[9px] tracking-wider font-outfit"
             >
               View Catalogue <ArrowRight size={12} className="text-[#BD7B88]" />

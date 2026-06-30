@@ -20,7 +20,7 @@ const allProducts = [
   { id: 107, name: 'Royal English Wool Suiting', category: 'Suiting', image: 'https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=600' },
   { id: 108, name: 'Classic Giza Cotton Shirting', category: 'Shirting', image: 'https://images.pexels.com/photos/769749/pexels-photo-769749.jpeg?auto=compress&cs=tinysrgb&w=600' },
   { id: 109, name: 'Embroidered Festive Lehenga', category: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=60' },
-  { id: 110, name: 'Silk Jacquard Sherwani', category: 'Formal & Ethnic Wear for Men', image: 'https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=600&auto=format&fit=crop&q=60' },
+  { id: 110, name: 'Silk Jacquard Sherwani', category: 'Formal & Ethnic Wear for Men', image: 'https://images.pexels.com/photos/16199169/pexels-photo-16199169.jpeg' },
   { id: 111, name: 'Kids Ethnic Kurta Pajama', category: 'Formal & Ethnic Wear for Children', image: 'https://images.pexels.com/photos/17015459/pexels-photo-17015459.jpeg' },
   { id: 112, name: 'Premium Brocade Upholstery', category: 'Home Upholstery & Furnishing', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=60' },
 ];

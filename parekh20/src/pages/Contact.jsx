@@ -9,15 +9,15 @@ export default function Contact() {
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: '1px solid #E2D9CC' }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: '#2A3325' }}>
+          <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl" style={{ color: '#2A3325' }}>
             Contact Us
           </h1>
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: '#5F6F5E' }} />
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 pb-20">
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
 
           {/* Left: Contact Info Panel */}
           <motion.div
@@ -66,13 +66,13 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="h-full w-full"
           >
-            <div className="w-full h-full rounded-3xl overflow-hidden shadow-sm min-h-[350px]"
+            <div className="w-full h-full rounded-3xl overflow-hidden shadow-sm min-h-[260px] sm:min-h-[350px]"
               style={{ border: '1.5px solid #E2D9CC' }}>
               <iframe
                 src="https://maps.google.com/maps?q=Surat%20Textile%20Market&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '350px' }}
+                style={{ border: 0, minHeight: '260px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

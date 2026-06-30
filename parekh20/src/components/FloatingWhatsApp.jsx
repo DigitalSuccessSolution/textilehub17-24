@@ -7,7 +7,7 @@ const FloatingWhatsApp = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-[100px] right-5 z-50 group"
+      className="fixed bottom-[100px] right-3 sm:right-5 z-50 group"
     >
       {/* Tooltip */}
       <span

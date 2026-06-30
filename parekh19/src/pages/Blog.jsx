@@ -58,7 +58,7 @@ export default function Blog() {
         </div>
       </div>
 
-      <div className="pb-20 max-w-7xl mx-auto px-4 py-8">
+      <div className="pb-20 max-w-7xl mx-auto px-4 pt-1 pb-8">
 
         {/* Short paragraph and category pills above cards */}
         <div className="text-center mb-10">

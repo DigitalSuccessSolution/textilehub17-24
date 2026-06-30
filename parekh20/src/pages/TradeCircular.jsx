@@ -18,12 +18,12 @@ const TradeCircular = () => {
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>Trade Circular</h1>
+          <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl" style={{ color: C.textDark }}>Trade Circular</h1>
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
-      <div className="pb-16 max-w-7xl mx-auto px-4 py-10">
+      <div className="pb-12 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
           {circulars.map((circular) => (
             <motion.div

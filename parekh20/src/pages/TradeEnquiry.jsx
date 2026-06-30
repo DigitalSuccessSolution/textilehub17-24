@@ -10,12 +10,12 @@ export default function TradeEnquiry() {
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>Trade Enquiry</h1>
+          <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl" style={{ color: C.textDark }}>Trade Enquiry</h1>
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <p className="text-center text-[15px] leading-[1.8] mb-10 font-medium" style={{ color: '#4B5563' }}>
           We welcome bulk orders, wholesale partnerships, and custom textile manufacturing requests. Fill out the form below to begin our collaboration.
         </p>
@@ -34,7 +34,7 @@ export default function TradeEnquiry() {
                 <h3 className="font-black text-xl pb-3" style={{ color: C.textDark, borderBottom: `1px solid ${C.border}` }}>
                   Company Details
                 </h3>
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   {[{ label: 'Company Name *', type: 'text' }, { label: 'Contact Person *', type: 'text' }].map((f, i) => (
                     <div key={i} className="space-y-1.5">
                       <label className="text-[13px] font-bold" style={{ color: C.textMid }}>{f.label}</label>
@@ -47,7 +47,7 @@ export default function TradeEnquiry() {
                     </div>
                   ))}
                 </div>
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   {[{ label: 'Email Address *', type: 'email' }, { label: 'Phone Number *', type: 'tel' }].map((f, i) => (
                     <div key={i} className="space-y-1.5">
                       <label className="text-[13px] font-bold" style={{ color: C.textMid }}>{f.label}</label>

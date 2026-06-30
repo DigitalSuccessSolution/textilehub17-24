@@ -17,13 +17,13 @@ const RetailManagement = () => {
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>Our Retail Management</h1>
+          <h1 className="font-black text-2xl sm:text-4xl lg:text-5xl leading-tight" style={{ color: C.textDark }}>Our Retail Management</h1>
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
       <div className="pb-24 max-w-7xl mx-auto px-4 pt-10">
-        <p className="text-center text-[15px] mb-12 max-w-2xl mx-auto leading-relaxed font-medium" style={{ color: '#4B5563' }}>
+        <p className="text-center text-[14px] sm:text-[15px] mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed font-medium px-2" style={{ color: '#4B5563' }}>
           GRAND TEXTILE MART is administered and governed by highly skilled, experienced and qualified Management.
         </p>
 

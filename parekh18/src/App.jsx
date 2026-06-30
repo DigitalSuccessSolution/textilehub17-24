@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -125,12 +125,13 @@ function App() {
                     </p>
 
                     {/* CTA Button */}
-                    <button
+                    <Link
+                      to="/products"
                       onClick={() => setShowPopup(false)}
-                      className="w-full bg-[#BD7B88] hover:bg-[#A36471] text-white font-bold text-xs uppercase tracking-widest py-3.5 px-6 rounded-lg transition-all duration-300 shadow-md cursor-pointer border border-white/10"
+                      className="w-full bg-[#BD7B88] hover:bg-[#A36471] text-white font-bold text-xs uppercase tracking-widest py-3.5 px-6 rounded-lg transition-all duration-300 shadow-md cursor-pointer border border-white/10 text-center block"
                     >
                       Explore Collection
-                    </button>
+                    </Link>
                   </div>
                 </motion.div>
               </div>

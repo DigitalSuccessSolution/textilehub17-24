@@ -77,8 +77,9 @@ export default function Home() {
           HERO SECTION
       ══════════════════════════════════════════ */}
       <section className="w-full" style={{ background: '#F8F5EF' }}>
-        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <div className="grid grid-cols-5 gap-3 h-[250px] sm:h-[350px] lg:h-[450px]">
+        <div className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 lg:py-10">
+          {/* Mobile: 2 cols, Tablet: 3 cols, Desktop: 5 cols */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
             {[
               { label: 'Sarees', image: '/images/hero1.png', path: '/products?category=Sarees' },
               { label: 'Fabrics', image: '/images/hero2.png', path: '/products?category=Dress+Suits' },
@@ -89,13 +90,18 @@ export default function Home() {
               <Link
                 key={idx}
                 to={panel.path}
-                className="group relative rounded-2xl overflow-hidden block w-full h-full shadow-sm hover:shadow-md transition-all duration-300"
+                className="group relative rounded-xl overflow-hidden block w-full shadow-sm hover:shadow-md transition-all duration-300"
+                style={{ height: '160px' }}
               >
                 <img
                   src={panel.image}
                   alt={panel.label}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <span className="absolute bottom-2 left-0 right-0 text-center text-[11px] font-black text-white tracking-wider uppercase">
+                  {panel.label}
+                </span>
               </Link>
             ))}
           </div>
@@ -105,7 +111,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           SHOP BY CATEGORY
       ══════════════════════════════════════════ */}
-      <section className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-14">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-3">
@@ -162,8 +168,8 @@ export default function Home() {
       </section>
 
       {/* ── STATS SECTION ── */}
-      <section className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 my-2 rounded-2xl" style={{ background: COLORS.primaryLight, border: `1px solid ${COLORS.primary}20` }}>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+      <section className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 my-2 rounded-2xl" style={{ background: COLORS.primaryLight, border: `1px solid ${COLORS.primary}20` }}>
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 text-center">
           {stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <span className="text-2xl sm:text-3xl font-black" style={{ color: COLORS.primary }}>
@@ -178,8 +184,8 @@ export default function Home() {
       </section>
 
       {/* ── PROMO BANNERS ── */}
-      <section className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <section className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {/* Wholesale Banner */}
           <div
             className="relative rounded-2xl overflow-hidden p-8 flex flex-col justify-between min-h-[180px]"
@@ -244,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* ── CUSTOMER REVIEWS ── */}
-      <section className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="text-center mb-10">
           <p className="text-[10px] font-black tracking-[0.25em] uppercase mb-1" style={{ color: COLORS.accent }}>Testimonials</p>
           <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-wide" style={{ color: COLORS.textDark }}>
@@ -253,7 +259,7 @@ export default function Home() {
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: COLORS.primary }} />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {reviews.map((review, idx) => (
             <motion.div
               key={idx}
@@ -285,7 +291,7 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT US / MAP CTA SECTION ── */}
-      <section className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-10">
+      <section className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-10 mb-6 sm:mb-10">
         <div className="text-center mb-10">
           <p className="text-[10px] font-black tracking-[0.25em] uppercase mb-1" style={{ color: COLORS.accent }}>Get In Touch</p>
           <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-wide" style={{ color: COLORS.textDark }}>
@@ -294,7 +300,7 @@ export default function Home() {
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: COLORS.primary }} />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Left: Contact Info Panel */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -354,13 +360,13 @@ export default function Home() {
             viewport={{ once: true }}
             className="h-full w-full"
           >
-            <div className="w-full h-full rounded-3xl overflow-hidden shadow-sm min-h-[450px]"
+            <div className="w-full h-full rounded-3xl overflow-hidden shadow-sm min-h-[280px] sm:min-h-[350px] md:min-h-[450px]"
               style={{ border: `1.5px solid ${COLORS.border}` }}>
               <iframe
                 src="https://maps.google.com/maps?q=Surat%20Textile%20Market&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '450px' }}
+                style={{ border: 0, minHeight: '280px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

@@ -57,7 +57,7 @@ export default function Products() {
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center justify-center gap-3">
-          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>
+          <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl" style={{ color: C.textDark }}>
             Our Collections
           </h1>
           <div className="flex items-center gap-2 px-5 py-2 rounded-full shadow-sm bg-white" style={{ border: `1px solid ${C.border}`, color: C.primary }}>
@@ -67,8 +67,8 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-20">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 pb-16 sm:pb-20">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
 
           {/* Desktop Left Sidebar */}
           <aside className="hidden lg:block lg:w-1/4 shrink-0 text-left">
@@ -126,7 +126,7 @@ export default function Products() {
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 text-left">
                 {filteredProducts.map(product => (
                   <motion.div
                     key={product.id}

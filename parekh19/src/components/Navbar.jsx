@@ -1,5 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, ShieldCheck, Heart, User, ShoppingBag } from 'lucide-react';
+import { 
+  Menu, X, ChevronDown, Phone, ShieldCheck, Heart, User, ShoppingBag,
+  Home, Info, PhoneCall, Users, FileText, Gavel, FileDown, BookOpen, 
+  Bell, Briefcase, Star, Image as ImageIcon, HelpCircle, ChevronRight 
+} from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -26,23 +30,23 @@ export default function Navbar() {
   }, [isOpen]);
 
   const mainLinks = [
-    { name: 'HOME', path: '/' },
-    { name: 'ABOUT US', path: '/about' },
-    { name: 'CONTACT US', path: '/contact' },
-    { name: 'PRODUCT', path: '/products' },
-    { name: 'OUR RETAIL MANAGEMENT', path: '/retail-management' },
-    { name: 'e-QUOTATION', path: '/e-quotation' },
-    { name: 'e-AUCTION', path: '/e-auction' },
-    { name: 'TRADE CIRCULAR', path: '/trade-circular' },
+    { name: 'HOME', path: '/', icon: Home },
+    { name: 'ABOUT US', path: '/about', icon: Info },
+    { name: 'CONTACT US', path: '/contact', icon: PhoneCall },
+    { name: 'PRODUCT', path: '/products', icon: ShoppingBag },
+    { name: 'OUR RETAIL MANAGEMENT', path: '/retail-management', icon: Users },
+    { name: 'e-QUOTATION', path: '/e-quotation', icon: FileText },
+    { name: 'e-AUCTION', path: '/e-auction', icon: Gavel },
+    { name: 'TRADE CIRCULAR', path: '/trade-circular', icon: FileDown },
   ];
 
   const moreLinks = [
-    { name: 'BLOG', path: '/blog' },
-    { name: 'NOTICE BOARD', path: '/notice-board' },
-    { name: 'CAREER', path: '/career' },
-    { name: 'CUSTOMER REVIEW', path: '/reviews' },
-    { name: 'BUSINESS MEDIA GALLERY', path: '/gallery' },
-    { name: 'FAQ', path: '/faq' },
+    { name: 'BLOG', path: '/blog', icon: BookOpen },
+    { name: 'NOTICE BOARD', path: '/notice-board', icon: Bell },
+    { name: 'CAREER', path: '/career', icon: Briefcase },
+    { name: 'CUSTOMER REVIEW', path: '/reviews', icon: Star },
+    { name: 'BUSINESS MEDIA GALLERY', path: '/gallery', icon: ImageIcon },
+    { name: 'FAQ', path: '/faq', icon: HelpCircle },
   ];
 
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);
@@ -168,58 +172,65 @@ export default function Navbar() {
 
       {/* ── MOBILE DRAWER NAVIGATION ── */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 top-[70px] bg-white z-40 flex flex-col animate-fade-in">
+        <div className="md:hidden fixed inset-0 top-[58px] bg-[#FAF9F6] z-40 flex flex-col animate-fade-in">
           <div className="flex-1 overflow-y-auto px-4 py-6 pb-20 space-y-1">
             {/* Main Links */}
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;
+              const Icon = link.icon;
               return (
                 <Link
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-[13px] font-bold tracking-wider transition-all duration-200 font-sans ${
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-[12.5px] font-bold tracking-wider transition-all duration-200 font-sans ${
                     isActive
-                      ? 'bg-[#E8F1FA] text-[#244C73] border-l-4 border-[#244C73]'
-                      : 'text-[#152E47] hover:bg-[#FAF9F6] hover:text-[#244C73]'
+                      ? 'bg-[#244C73]/15 text-[#244C73] border-l-4 border-[#244C73]'
+                      : 'text-[#152E47] hover:bg-[#244C73]/5 hover:text-[#244C73]'
                   }`}
                 >
-                  <span>{link.name}</span>
+                  <div className="flex items-center gap-3">
+                    <Icon size={16} className={isActive ? 'text-[#244C73]' : 'text-[#6B7280]'} />
+                    <span>{link.name}</span>
+                  </div>
+                  <ChevronRight size={14} className={isActive ? 'text-[#244C73]' : 'text-[#C5A880]/70'} />
                 </Link>
               );
             })}
 
             {/* Divider */}
-            <div className="h-px bg-[#E8E5DC] my-4" />
-            <p className="px-4 text-[9px] font-bold text-[#6B7280] tracking-[0.2em] uppercase mb-2">More Pages</p>
+            <div className="h-px bg-[#E8E5DC] my-6" />
+            <p className="px-4 text-[9px] font-bold text-[#6B7280] tracking-[0.2em] uppercase mb-3">More Pages</p>
 
-            {/* Dropdown Links */}
-            <div className="space-y-1 pl-2">
+            {/* Dropdown Links (2-column layout) */}
+            <div className="grid grid-cols-2 gap-2 px-1">
               {moreLinks.map((link) => {
                 const isActive = location.pathname === link.path;
+                const Icon = link.icon;
                 return (
                   <Link
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center px-4 py-3 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200 font-sans ${
+                    className={`flex items-center gap-2.5 px-3 py-3 rounded-xl text-[11px] font-bold tracking-wider transition-all duration-200 font-sans ${
                       isActive
-                        ? 'bg-[#FAF7F2] text-[#C5A880]'
-                        : 'text-[#6B7280] hover:bg-[#FAF9F6] hover:text-[#244C73]'
+                        ? 'bg-[#C5A880]/20 text-[#A3855E] border border-[#C5A880]/40'
+                        : 'text-[#4B5563] bg-white border border-[#E8E5DC]/55 hover:bg-[#FAF9F6] hover:text-[#244C73]'
                     }`}
                   >
-                    <span>{link.name}</span>
+                    <Icon size={14} className={isActive ? 'text-[#A3855E]' : 'text-[#6B7280]'} />
+                    <span className="truncate">{link.name}</span>
                   </Link>
                 );
               })}
             </div>
 
             {/* Mobile Trade Enquiry button */}
-            <div className="pt-6 px-4">
+            <div className="pt-6 px-1">
               <Link
                 to="/trade-enquiry"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase text-white bg-[#244C73] hover:bg-[#1E3A5F] transition-all duration-300 shadow-md font-sans w-full"
+                className="flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase text-white bg-[#244C73] hover:bg-[#1E3A5F] transition-all duration-300 shadow-md font-sans w-full border border-[#244C73]/30"
               >
                 <Phone size={13} />
                 Trade Enquiry

@@ -13,78 +13,18 @@ export default function Products() {
   ];
 
   const allProducts = [
-    {
-      id: 101,
-      name: 'Royal Banarasi Silk Saree',
-      category: 'Sarees',
-      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 102,
-      name: 'Comfort Fit Stretch Leggings',
-      category: 'Leggings',
-      image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 103,
-      name: 'Artisanal Embroidered Kurti',
-      category: 'Kurtis',
-      image: 'https://images.unsplash.com/photo-1608748010899-18f300247112?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 104,
-      name: 'Graceful Salwar Suit Set',
-      category: 'Dress Suits',
-      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 105,
-      name: 'Luxury Pure Cotton Bedsheet',
-      category: 'Bedsheets & Linen',
-      image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 106,
-      name: 'Premium Soft-Knit Hosiery Socks',
-      category: 'Hosiery Items',
-      image: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 107,
-      name: 'Classic Woolen Suiting Material',
-      category: 'Suiting',
-      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 108,
-      name: 'Premium Breathable Shirting Fabric',
-      category: 'Shirting',
-      image: 'https://images.unsplash.com/photo-1620012253295-c05518e99309?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 109,
-      name: 'Designer Bridal Lehenga Set',
-      category: 'Formal & Ethnic Wear for Women',
-      image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 110,
-      name: 'Royal Handcrafted Sherwani',
-      category: 'Formal & Ethnic Wear for Men',
-      image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 111,
-      name: 'Festive Children\'s Ethnic Set',
-      category: 'Formal & Ethnic Wear for Children',
-      image: 'https://images.unsplash.com/photo-1621640428383-7c08272b53e7?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 112,
-      name: 'Luxury Velvet Upholstery Fabric',
-      category: 'Home Upholstery & Furnishing',
-      image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&auto=format&fit=crop&q=80'
-    }
+    { id: 101, name: 'Kanjivaram Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80' },
+    { id: 102, name: 'Stretch Premium Leggings', category: 'Leggings', image: 'https://images.pexels.com/photos/8402216/pexels-photo-8402216.jpeg' },
+    { id: 103, name: 'Designer Handloom Kurti', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1669199814244-75e25eb1a1bd?q=80&w=735&auto=format&fit=crop&q=80' },
+    { id: 104, name: 'Anarkali Salwar Suit Set', category: 'Dress Suits', image: 'https://images.pexels.com/photos/13584944/pexels-photo-13584944.jpeg' },
+    { id: 105, name: 'Egyptian Cotton Bedsheet', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&auto=format&fit=crop&q=80' },
+    { id: 106, name: 'Soft Hosiery Daily Pack', category: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=600&auto=format&fit=crop&q=80' },
+    { id: 107, name: 'Premium Blazer Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80' },
+    { id: 108, name: 'Executive Cotton Shirting', category: 'Shirting', image: 'https://plus.unsplash.com/premium_photo-1691367279403-aaa787d264f6?q=80&w=687&auto=format&fit=crop&q=80' },
+    { id: 109, name: 'Grand Bridal Lehenga', category: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80' },
+    { id: 110, name: 'Heritage Silk Sherwani', category: 'Formal & Ethnic Wear for Men', image: 'https://images.pexels.com/photos/16199169/pexels-photo-16199169.jpeg' },
+    { id: 111, name: 'Kids Traditional Wear', category: 'Formal & Ethnic Wear for Children', image: 'https://images.pexels.com/photos/12100636/pexels-photo-12100636.jpeg' },
+    { id: 112, name: 'Luxury Silk Cushion Set', category: 'Home Upholstery & Furnishing', image: 'https://images.pexels.com/photos/6207464/pexels-photo-6207464.jpeg' },
   ];
 
   const categoryDetails = {

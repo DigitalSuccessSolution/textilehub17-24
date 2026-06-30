@@ -18,10 +18,10 @@ export default function Blog() {
       <div className="relative pt-16 sm:pt-24 pb-10 flex flex-col items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="max-w-4xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center">
-          <h1 className="font-black text-4xl sm:text-5xl mb-6" style={{ color: C.textDark }}>
+          <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-6" style={{ color: C.textDark }}>
             Blog & Articles
           </h1>
-          <p className="text-[16px] sm:text-[18px] italic mb-8 leading-relaxed max-w-3xl font-medium" style={{ color: '#4B5563' }}>
+          <p className="text-[14px] sm:text-[16px] lg:text-[18px] italic mb-6 sm:mb-8 leading-relaxed max-w-3xl font-medium" style={{ color: '#4B5563' }}>
             "Join and participate in our nation-wide campaign to digitalize the Textile<br className="hidden md:block"/>
             Sector, one of the largest sectors of India."
           </p>
@@ -38,8 +38,8 @@ export default function Blog() {
         </div>
       </div>
 
-      <div className="pb-20 max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="pb-16 sm:pb-20 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {posts.map((post, idx) => (
             <motion.article
               key={idx}

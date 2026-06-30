@@ -59,7 +59,7 @@ export default function FAQ() {
                 {/* Question Row */}
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full px-6 py-5 flex justify-between items-center text-left text-[#3D223B] font-semibold font-playfair uppercase tracking-wider text-xs md:text-sm cursor-pointer hover:text-[#BD7B88] transition-colors duration-250 bg-white"
+                  className="w-full px-6 py-5 flex justify-between items-center text-left text-[#3D223B] font-semibold font-playfair normal-case tracking-wide text-sm md:text-base cursor-pointer hover:text-[#BD7B88] transition-colors duration-250 bg-white"
                 >
                   <span className="pr-4">{faq.question}</span>
                   <motion.div

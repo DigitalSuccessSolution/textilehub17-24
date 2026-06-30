@@ -10,7 +10,7 @@ export default function Blog() {
       category: "Heritage",
       date: "June 25, 2026",
       description: "Uncover the intricate secrets of ancient Indian handloom weaving techniques, passed down through generations of master artisans in our cooperative.",
-      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80"
+      image: "https://images.pexels.com/photos/36406667/pexels-photo-36406667.jpeg"
     },
     {
       title: "Sustainable Fashion: Why Organic Silk Matters",
@@ -18,7 +18,7 @@ export default function Blog() {
       category: "Sustainability",
       date: "June 18, 2026",
       description: "An in-depth look at how ethical silk cultivation and natural organic dyeing processes are reducing the carbon footprint of contemporary luxury fashion.",
-      image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=600&auto=format&fit=crop&q=80"
+      image: "https://images.pexels.com/photos/6634728/pexels-photo-6634728.jpeg"
     },
     {
       title: "Bridal Couture: The Evolution of Banarasi Sarees",
@@ -26,7 +26,7 @@ export default function Blog() {
       category: "Couture",
       date: "June 05, 2026",
       description: "Tracing the glorious history of Banarasi brocades from royal Mughal courts to the modern Indian wedding runways of today.",
-      image: "https://images.unsplash.com/photo-1610030469668-93535c17b6b3?w=600&auto=format&fit=crop&q=80"
+      image: "https://images.pexels.com/photos/37602133/pexels-photo-37602133.jpeg"
     }
   ];
 
@@ -63,7 +63,7 @@ export default function Blog() {
               className={`px-5 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full border transition-all duration-300 cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-[#3D223B] text-white border-[#BD7B88] shadow-md"
-                  : "bg-white text-[#3D223B] border-[#BD7B88]/20 hover:bg-[#3D223B] hover:text-white"
+                  : "bg-white text-[#3D223B] border-[#BD7B88]/20 hover:!bg-[#3D223B] hover:!text-white"
               }`}
             >
               {cat}

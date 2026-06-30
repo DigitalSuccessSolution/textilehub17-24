@@ -23,7 +23,7 @@ const EAuction = () => {
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1620012253295-c05518e99309?w=600&auto=format&fit=crop&q=80',
+      image: 'https://images.pexels.com/photos/5174199/pexels-photo-5174199.jpeg',
       title: 'Textile Manufacturing Equipment Clearance',
       description: 'Auction for surplus industrial looms and spinning machinery. All machinery is in excellent working condition.',
       date: 'Auction Date: Jul 25, 2026'
@@ -34,13 +34,13 @@ const EAuction = () => {
     <div className="w-full max-w-6xl mx-auto px-6 py-10 md:py-14 text-left">
       {/* Direct Page Heading (No Banner) */}
       <div className="mb-10 text-left">
-        <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
-          e-Auction
+        <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider normal-case font-bold m-0 font-playfair">
+          e-AUCTION
         </h1>
       </div>
 
-      {/* Main Content Area */}
-      <div className="bg-[#FAF4F6] p-3 md:p-10 border border-[#BD7B88]/15 rounded-2xl flex flex-col gap-4 md:gap-8">
+      {/* Main Content Area - Flat Layout */}
+      <div className="flex flex-col gap-8 md:gap-12 w-full">
 
         {/* Active e-Auctions Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-2">

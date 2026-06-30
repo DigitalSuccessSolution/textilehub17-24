@@ -41,12 +41,12 @@ export default function FloatingSocials() {
   ];
 
   return (
-    <div className="fixed left-0 top-[35%] z-[99] flex items-center">
+    <div className="hidden sm:flex fixed left-0 top-[35%] z-[99] items-center">
       <motion.div
         initial={{ x: 0 }}
         animate={{ x: isExpanded ? 0 : -60 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="flex flex-col items-center rounded-r-2xl shadow-2xl py-5 px-3.5 relative"
+        className="flex flex-col items-center rounded-r-2xl shadow-2xl py-3 sm:py-5 px-2.5 sm:px-3.5 relative"
         style={{
           background: 'rgba(59,74,50,0.95)',
           backdropFilter: 'blur(8px)',

@@ -2,11 +2,22 @@ import { Outlet, Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import Chatbot from './Chatbot';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isSidebarOpen]);
 
   return (
     <div className="min-h-screen bg-pearl-100 text-gray-800 flex flex-col relative pt-16 lg:pt-20">
@@ -23,7 +34,7 @@ export default function Layout() {
           </button>
 
           {/* Logo and Branding - ROYAL WEAVES */}
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <svg className="w-8 h-8 text-[#BD7B88]" viewBox="0 0 100 100" fill="currentColor">
               <path d="M50 5C52 20 62 30 77 33C62 36 52 46 50 61C48 46 38 36 23 33C38 30 48 20 50 5Z" fill="none" stroke="currentColor" strokeWidth="2"/>
               <circle cx="50" cy="49" r="3" />
@@ -31,7 +42,7 @@ export default function Layout() {
             <span className="font-playfair text-base sm:text-lg tracking-widest font-bold text-white uppercase">
               ROYAL WEAVES
             </span>
-          </div>
+          </Link>
         </div>
 
         {/* Trade Enquiry Button */}

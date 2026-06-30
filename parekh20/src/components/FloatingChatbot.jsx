@@ -6,10 +6,10 @@ const FloatingChatbot = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <div className="fixed bottom-6 right-3 sm:right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Outfit', sans-serif" }}>
       {isOpen && (
         <div
-          className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden shadow-2xl"
+          className="mb-4 w-[calc(100vw-24px)] sm:w-[340px] lg:w-[370px] rounded-2xl overflow-hidden shadow-2xl"
           style={{ border: '1.5px solid #E2D9CC', background: '#FFFFFF' }}
         >
           {/* Header */}

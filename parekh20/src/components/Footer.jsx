@@ -7,11 +7,11 @@ export default function Footer() {
       {/* Accent top gold bar */}
       <div className="h-0.5 w-full" style={{ background: '#C5A880' }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
 
           {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md"
@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <h3 className="text-white text-base font-black mb-5 tracking-wide uppercase">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">

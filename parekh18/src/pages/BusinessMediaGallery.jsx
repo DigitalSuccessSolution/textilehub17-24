@@ -10,7 +10,7 @@ export default function BusinessMediaGallery() {
       category: "Exhibitions",
       date: "October 10, 2026",
       desc: "Showcasing our signature royal Kanjivaram sarees and heritage brocades at the annual National Textile Expo.",
-      image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80"
+      image: "https://images.pexels.com/photos/23232407/pexels-photo-23232407.jpeg"
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export default function BusinessMediaGallery() {
       category: "Fashion Shoot",
       date: "August 04, 2026",
       desc: "Capturing the elegance of our upcoming bridal silk collection for the luxury autumn/winter catalog shoot.",
-      image: "https://images.unsplash.com/photo-1610030469668-93535c17b6b3?w=800&auto=format&fit=crop&q=80"
+      image: "https://images.pexels.com/photos/31660165/pexels-photo-31660165.jpeg"
     },
     {
       id: 4,
@@ -84,7 +84,7 @@ export default function BusinessMediaGallery() {
                 className={`px-5 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full border transition-all duration-300 cursor-pointer ${
                   selectedCategory === cat
                     ? "bg-[#3D223B] text-white border-[#BD7B88] shadow-md scale-105"
-                    : "bg-white text-[#3D223B] border-[#BD7B88]/20 hover:bg-[#3D223B] hover:text-white hover:border-[#BD7B88]/40"
+                    : "bg-white text-[#3D223B] border-[#BD7B88]/20 hover:!bg-[#3D223B] hover:!text-white hover:border-[#BD7B88]/40"
                 }`}
               >
                 {cat}

@@ -1,8 +1,15 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles } from 'lucide-react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function WelcomePopup({ isOpen, onClose }) {
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    onClose();
+    navigate('/products');
+  };
   // Disable background scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -70,7 +77,7 @@ export default function WelcomePopup({ isOpen, onClose }) {
 
             {/* CTA Button */}
             <button
-              onClick={onClose}
+              onClick={handleExplore}
               className="w-full py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-[#244C73] hover:bg-[#1E3A5F] transition-all duration-300 shadow-md hover:shadow-lg font-sans border border-[#244C73]/30 cursor-pointer"
             >
               Explore Collections

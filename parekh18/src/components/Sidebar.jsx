@@ -26,8 +26,8 @@ export default function Sidebar({ closeSidebar }) {
   ];
 
   const getDisplayName = (name) => {
-    if (name === 'e-Quotation') return 'e-Quotation';
-    if (name === 'e-Auction') return 'e-Auction';
+    if (name === 'e-Quotation') return 'e-QUOTATION';
+    if (name === 'e-Auction') return 'e-AUCTION';
     return name.toUpperCase();
   };
 
@@ -56,7 +56,7 @@ export default function Sidebar({ closeSidebar }) {
                   <Link
                     to={link.path}
                     onClick={closeSidebar}
-                    className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[10px] font-outfit tracking-[0.08em] font-semibold transition-all duration-300 ${
+                    className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[12px] font-outfit tracking-[0.08em] font-semibold transition-all duration-300 ${
                       isActive
                         ? 'text-white bg-[#BD7B88] shadow-sm font-bold'
                         : 'text-[#F6EDF0]/75 hover:text-white hover:bg-white/5'

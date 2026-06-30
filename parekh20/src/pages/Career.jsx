@@ -18,12 +18,12 @@ const Career = () => {
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #EFF3EB 0%, #F8F5EF 100%)', borderBottom: `1px solid ${C.border}` }}>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-black text-4xl sm:text-5xl" style={{ color: C.textDark }}>Careers</h1>
+          <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl" style={{ color: C.textDark }}>Careers</h1>
           <div className="w-12 h-[2.5px] mx-auto mt-3 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
-      <div className="pb-16 max-w-7xl mx-auto px-4 py-10">
+      <div className="pb-12 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         <div className="flex flex-col gap-5 text-left">
           {jobs.map((job, idx) => (
             <motion.div
@@ -31,7 +31,7 @@ const Career = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               key={job.id}
-              className="group flex flex-col lg:flex-row items-start lg:items-center justify-between rounded-2xl bg-white transition-all duration-300 hover:shadow-md p-6 md:p-8"
+              className="group flex flex-col lg:flex-row items-start lg:items-center justify-between rounded-2xl bg-white transition-all duration-300 hover:shadow-md p-5 sm:p-6 md:p-8"
               style={{ border: `1.5px solid ${C.border}` }}
             >
               <div className="flex-grow max-w-4xl lg:pr-8">
