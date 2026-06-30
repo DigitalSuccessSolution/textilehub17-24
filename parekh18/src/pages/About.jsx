@@ -16,7 +16,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-white border border-[#BD7B88]/15 p-8 md:p-12 lg:p-14 flex flex-col lg:flex-row gap-12 items-center rounded-2xl shadow-sm relative overflow-hidden"
+          className="bg-white border border-[#BD7B88]/15 p-5 sm:p-12 lg:p-14 flex flex-col lg:flex-row gap-12 items-center rounded-2xl shadow-sm relative overflow-hidden"
         >
           {/* Decorative Corner Accent */}
           <div className="absolute top-0 right-0 w-24 h-24 border-r-2 border-t-2 border-[#BD7B88]/10 rounded-tr-2xl pointer-events-none" />
@@ -49,7 +49,7 @@ export default function About() {
             <div className="w-full max-w-[340px] aspect-[4/5] relative overflow-hidden bg-white border border-[#BD7B88]/25 p-2.5 rounded-t-[160px] rounded-b-xl shadow-xl">
               <div className="w-full h-full relative overflow-hidden rounded-t-[150px] rounded-b bg-[#FAF4F6]">
                 <img
-                  src="images/about.png"
+                  src="https://images.pexels.com/photos/5264927/pexels-photo-5264927.jpeg"
                   alt="About ROYAL WEAVES TEXTILE MALL Heritage"
                   className="absolute inset-0 w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                 />

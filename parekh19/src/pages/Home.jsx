@@ -9,13 +9,13 @@ const shopCategories = [
   { name: 'Leggings', imageUrl: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=180&h=180&fit=crop&q=80' },
   { name: 'Dress Suits', imageUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=180&h=180&fit=crop&q=80' },
   { name: 'Bedsheets & Linen', imageUrl: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=180&h=180&fit=crop&q=80' },
-  { name: 'Hosiery', imageUrl: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=180&h=180&fit=crop&q=80' },
+  { name: 'Hosiery Items', imageUrl: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=180&h=180&fit=crop&q=80' },
   { name: 'Suiting', imageUrl: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=180&h=180&fit=crop&q=80' },
   { name: 'Shirting', imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=180&h=180&fit=crop&q=80' },
-  { name: 'Women Wear', imageUrl: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=180&h=180&fit=crop&q=80' },
-  { name: 'Men Wear', imageUrl: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=180&h=180&fit=crop&q=80' },
-  { name: 'Children Wear', imageUrl: 'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=180&h=180&fit=crop&q=80' },
-  { name: 'Home Furnishing', imageUrl: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=180&h=180&fit=crop&q=80' },
+  { name: 'Formal & Ethnic Wear for Women', imageUrl: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=180&h=180&fit=crop&q=80' },
+  { name: 'Formal & Ethnic Wear for Men', imageUrl: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=180&h=180&fit=crop&q=80' },
+  { name: 'Formal & Ethnic Wear for Children', imageUrl: 'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=180&h=180&fit=crop&q=80' },
+  { name: 'Home Upholstery & Furnishing', imageUrl: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=180&h=180&fit=crop&q=80' },
 ];
 
 const featuredCollections = [
@@ -39,7 +39,7 @@ const blogPosts = [
   { title: 'Top 10 Fabric Trends in 2026', date: 'May 20, 2026', image: 'https://images.unsplash.com/photo-1705412877691-70f6913aaa1e?w=500&fit=crop&q=80' },
   { title: 'How to Choose the Perfect Saree', date: 'May 18, 2026', image: 'https://images.unsplash.com/photo-1599753931952-654e960af582?w=500&fit=crop&q=80' },
   { title: 'Benefits of Partnering with a Trusted Textile Mall', date: 'May 15, 2026', image: 'https://plus.unsplash.com/premium_photo-1669977749819-d8737b4408f7?w=500&fit=crop&q=80' },
-  { title: 'Retail Business Growth Strategies', date: 'May 10, 2026', image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=500&fit=crop&q=80' },
+  { title: 'Retail Business Growth Strategies', date: 'May 10, 2026', image: 'https://images.pexels.com/photos/5531551/pexels-photo-5531551.jpeg' },
 ];
 
 const reviews = [
@@ -53,12 +53,15 @@ export default function Home() {
     <div className="w-full pb-10" style={{ background: '#FAF9F6', fontFamily: "'Outfit', sans-serif" }}>
 
       {/* ── HERO BANNER ── */}
-      <section className="relative w-full h-[380px] sm:h-[450px] lg:h-[520px] overflow-hidden flex items-center justify-start">
+      <section className="relative w-full h-[330px] sm:h-[420px] lg:h-[500px] overflow-hidden flex items-center justify-start">
         <img
           src="/images/hero1.png"
           alt="Urban Fashion Textile Banner"
           className="absolute inset-0 w-full h-full object-cover object-top filter saturate-[0.85]"
         />
+
+        {/* Soft elegant gradient overlay to ensure text readability on desktop */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#FAF9F6]/85 via-[#FAF9F6]/50 to-transparent pointer-events-none z-1" />
 
         <div className="relative z-10 max-w-7xl w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 flex flex-col items-start text-left">
           <div className="flex items-center gap-2 mb-4 text-[#A3855E] tracking-[0.3em] text-[10px] font-extrabold uppercase">
@@ -76,20 +79,20 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className="text-[#393E46] text-xs sm:text-sm md:text-base leading-relaxed mb-8 max-w-xl font-medium tracking-wide">
+          <p className="hidden sm:block text-[#393E46] text-xs sm:text-sm md:text-base leading-relaxed mb-8 max-w-xl font-semibold tracking-wide">
             Discover luxury textiles crafted with tradition, passion and perfection. Weaving heritage craftsmanship with contemporary designs to define your personal style.
           </p>
 
-          <div className="flex gap-4 font-sans">
+          <div className="flex flex-wrap gap-3 sm:gap-4 font-sans">
             <Link
               to="/products"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.15em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg bg-[#244C73] hover:bg-[#1E3A5F] border border-[#244C73]/20"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-[10.5px] sm:text-[11px] font-bold tracking-[0.15em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg bg-[#244C73] hover:bg-[#1E3A5F] border border-[#244C73]/20"
             >
               SHOP COLLECTION
             </Link>
             <Link
               to="/about"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.15em] uppercase text-[#244C73] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md border border-[#244C73] hover:bg-[#244C73] hover:text-white"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-[10.5px] sm:text-[11px] font-bold tracking-[0.15em] uppercase text-[#244C73] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md border border-[#244C73] hover:bg-[#244C73] hover:text-white"
             >
               EXPLORE MORE
             </Link>
@@ -247,24 +250,24 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-sans">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-sans">
           {blogPosts.map((post, idx) => (
             <Link
               key={idx}
               to="/blog"
               className="bg-white rounded-2xl overflow-hidden border border-[#E8E5DC] hover:border-[#244C73] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group text-left"
             >
-              <div className="h-44 w-full relative overflow-hidden">
+              <div className="h-28 sm:h-44 w-full relative overflow-hidden">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <div className="p-5 flex flex-col justify-between flex-grow">
+              <div className="p-3 sm:p-5 flex flex-col justify-between flex-grow">
                 <div>
-                  <span className="text-[10px] font-bold text-[#C5A880] uppercase tracking-wider">{post.date}</span>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-lg font-bold text-[#152E47] mt-1 line-clamp-2 leading-snug uppercase group-hover:text-[#244C73] transition-colors">
+                  <span className="text-[9px] sm:text-[10px] font-bold text-[#C5A880] uppercase tracking-wider">{post.date}</span>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-xs sm:text-lg font-bold text-[#152E47] mt-1 line-clamp-2 leading-snug uppercase group-hover:text-[#244C73] transition-colors">
                     {post.title}
                   </h3>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-[11px] font-bold text-[#244C73] tracking-wider uppercase">
+                <div className="mt-2 sm:mt-4 flex items-center gap-1 text-[9px] sm:text-[11px] font-bold text-[#244C73] tracking-wider uppercase">
                   READ MORE <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

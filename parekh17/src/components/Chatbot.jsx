@@ -11,6 +11,18 @@ export default function Chatbot() {
   const [inputVal, setInputVal] = useState("");
   const messagesEndRef = useRef(null);
 
+  // Disable body scroll when chatbot is open on mobile
+  useEffect(() => {
+    // Only lock scroll on smaller screens for chatbot if needed, or globally. 
+    // Usually mobile users are affected most. Let's apply globally for consistency.
+    if (isOpen && window.innerWidth < 1024) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }
+  }, [isOpen]);
+
   const quickReplies = [
     { text: "View Products", reply: "I would like to know more about your fabrics and products." },
     { text: "Trade Enquiry", reply: "How can I submit a bulk trade enquiry?" },
@@ -63,13 +75,22 @@ export default function Chatbot() {
       {/* Chatbox Panel */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-40 right-6 w-80 sm:w-96 h-[480px] bg-[#F6F3EB] border border-[#C5A880]/15 shadow-2xl z-50 flex flex-col overflow-hidden rounded-2xl"
-          >
+          <>
+            {/* Mobile Overlay to prevent scrolling and close on click */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm lg:hidden touch-none"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 50, scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 h-[480px] max-h-[75vh] bg-[#F6F3EB] border border-[#C5A880]/15 shadow-2xl z-50 flex flex-col overflow-hidden rounded-2xl"
+            >
             {/* Header - Charcoal */}
             <div className="bg-[#0C0C0C] text-white px-6 py-4 flex items-center justify-between shadow-md shrink-0 border-b border-[#C5A880]/10">
               <div className="flex items-center gap-3">
@@ -119,7 +140,7 @@ export default function Chatbot() {
                   <button
                     key={i}
                     onClick={() => handleSend(reply.reply)}
-                    className="text-[10px] uppercase tracking-wider font-semibold border border-[#C5A880]/30 text-[#0C0C0C] hover:bg-[#0C0C0C]/5 px-2.5 py-1.5 transition-colors cursor-pointer rounded-lg"
+                    className="text-[10px]  tracking-wider font-semibold border border-[#C5A880]/30 text-[#0C0C0C] hover:bg-[#0C0C0C]/5 px-2.5 py-1.5 transition-colors cursor-pointer rounded-lg"
                   >
                     {reply.text}
                   </button>
@@ -151,6 +172,7 @@ export default function Chatbot() {
               </button>
             </form>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

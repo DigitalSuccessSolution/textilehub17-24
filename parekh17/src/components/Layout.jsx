@@ -1,19 +1,29 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import Chatbot from './Chatbot';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // Disable body scroll when mobile sidebar is open
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }
+  }, [isSidebarOpen]);
+
   return (
-    <div className="flex min-h-screen bg-pearl-100 text-gray-800">
+    <div className="flex min-h-screen bg-pearl-100 text-[#702A3C]">
       {/* Mobile Header / Hamburger */}
-      <div className="lg:hidden fixed top-0 w-full bg-[#0C0C0C] text-[#C5A880] z-50 flex items-center justify-between px-6 py-4 shadow-sm border-b border-[#C5A880]/15">
-        <span className="font-playfair text-lg tracking-widest font-bold text-[#C5A880] border-b-0 pb-0 mb-0">VARA WEAVES</span>
-        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-[#C5A880] cursor-pointer">
+      <div className="lg:hidden fixed top-0 w-full bg-[#FFF0F2] text-[#702A3C] z-50 flex items-center justify-between px-6 py-4 shadow-sm border-b border-[#C88E9B]/20">
+        <Link to="/" onClick={() => setIsSidebarOpen(false)} className="font-playfair text-lg tracking-widest font-bold text-[#702A3C] border-b-0 pb-0 mb-0 cursor-pointer">VARA WEAVES</Link>
+        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-[#702A3C] cursor-pointer">
           {isSidebarOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -21,14 +31,14 @@ export default function Layout() {
       {/* Sidebar Navigation */}
       <div
         className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          } lg:translate-x-0 transition duration-300 ease-in-out z-40 w-72 bg-[#0C0C0C] shadow-lg flex flex-col`}
+          } lg:translate-x-0 transition duration-300 ease-in-out z-40 w-72 bg-[#FFF0F2] shadow-lg flex flex-col`}
       >
         <Sidebar closeSidebar={() => setIsSidebarOpen(false)} />
       </div>
 
       {/* Main Content Area */}
       <div className="flex-1 lg:ml-72 flex flex-col min-h-screen transition-all duration-300">
-        <main className="flex-grow pt-20 lg:pt-0 w-full overflow-x-hidden">
+        <main className="flex-grow pt-[60px] lg:pt-0 w-full overflow-x-hidden">
           <Outlet />
         </main>
         <Footer />

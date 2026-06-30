@@ -1,13 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bell, ChevronRight } from 'lucide-react';
+import { Bell } from 'lucide-react';
 
 const NoticeBoard = () => {
   const notices = [
-    { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', isNew: true },
-    { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026', isNew: true },
-    { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', isNew: true },
-    { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', isNew: true },
+    {
+      id: 1,
+      title: 'Annual General Meeting 2026',
+      description: 'The Annual General Meeting of Vara Weaves Textile Mall is scheduled to be held in the corporate office boardroom to discuss the fiscal results and expansion plans.',
+      date: 'Nov 01, 2026'
+    },
+    {
+      id: 2,
+      title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)',
+      description: 'The Mumbai depot warehouse will remain temporarily closed for bi-annual structural safety maintenance, stock auditing, and machinery alignment.',
+      date: 'Oct 20, 2026'
+    },
+    {
+      id: 3,
+      title: 'Introduction of e-Way Bill Integration in Partner Portal',
+      description: 'We are rolling out an automated GST e-Way Bill generation utility inside our wholesale trade partner login dashboard for quicker dispatch clearances.',
+      date: 'Sep 15, 2026'
+    },
+    {
+      id: 4,
+      title: 'Recruitment Drive for Zonal Sales Managers',
+      description: 'Applications are invited from experienced textile sales professionals to lead our retail and distribution networks in Western and Southern territories.',
+      date: 'Aug 22, 2026'
+    },
   ];
 
   return (
@@ -22,35 +42,29 @@ const NoticeBoard = () => {
       </div>
       
       <div className="max-w-4xl mx-auto px-6">
-
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
-        {notices.map((notice) => (
-          <div
-            key={notice.id}
-            className={`group bg-white border px-8 py-6 cursor-pointer flex items-center justify-between hover:shadow-lg transition-all duration-300 ${
-              notice.isNew ? 'border-l-8 border-rosegold-500' : 'border-gray-200'
-            }`}
-          >
-            <div className="flex items-start gap-5">
-              <div className={`p-3 shrink-0 ${notice.isNew ? 'bg-rosegold-500/10' : 'bg-pearl-100'}`}>
-                <Bell size={20} className={notice.isNew ? 'text-rosegold-500' : 'text-gray-450'} />
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
+          {notices.map((notice) => (
+            <div
+              key={notice.id}
+              className="group bg-white border border-gray-200 px-6 py-5 flex items-start gap-4 hover:shadow-md transition-all duration-300 rounded-xl"
+            >
+              <div className="p-3 shrink-0 bg-pearl-100 rounded-lg text-gray-500 border border-gray-200">
+                <Bell size={20} className="text-[#C5A880]" />
               </div>
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{notice.date}</span>
-                  {notice.isNew && (
-                    <span className="bg-rosegold-500 text-pearl-100 text-[9px] px-2 py-0.5 uppercase tracking-widest font-bold shadow-sm">NEW</span>
-                  )}
-                </div>
-                <h3 className="text-base font-semibold text-gray-900 group-hover:text-rosegold-500 transition-colors uppercase tracking-wide">{notice.title}</h3>
+              <div className="flex-grow">
+                <span className="text-[10px] text-gray-400 font-bold block mb-1 uppercase tracking-wider">{notice.date}</span>
+                <h3 className="text-base font-playfair font-bold text-gray-900 group-hover:text-[#C5A880] transition-colors uppercase tracking-wide mb-2">
+                  {notice.title}
+                </h3>
+                <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-outfit">
+                  {notice.description}
+                </p>
               </div>
             </div>
-            <ChevronRight size={20} className="text-gray-400 group-hover:text-rosegold-500 transition-colors shrink-0" />
-          </div>
-        ))}
-      </motion.div>
-    </div>
+          ))}
+        </motion.div>
       </div>
+    </div>
   );
 };
 

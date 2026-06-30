@@ -24,13 +24,17 @@ export default function CustomerReview() {
   ];
 
   return (
-    <div className="pb-20 w-full">
+    <div className="pb-20 w-full relative min-h-screen bg-[#FFF5F6]">
       {/* Page Header Banner */}
-      <div className="w-full bg-rosegold-500 text-white py-12 px-6 mb-10 text-center relative overflow-hidden border-b border-[#C5A880]/20">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 z-0" />
-        <div className="relative z-10">
-          <h1 className="text-[#F3ECE0] border-0 pb-0 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 text-center">Customer Reviews</h1>
-          <p className="text-[#C5A880] text-[10px] md:text-xs uppercase tracking-widest mt-2 font-semibold">What Our Partners Say About Us</p>
+      <div className="w-full bg-rosegold-500 text-white py-12 px-6 mb-10 text-center relative overflow-hidden border-b border-rosegold-400/20">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 z-0" />
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-[#702A3C] border-0 pb-0 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 text-center font-playfair">
+            Customer Reviews
+          </h1>
+          <p className="text-[#C88E9B] text-[10px] md:text-xs uppercase tracking-widest mt-2 font-semibold font-outfit">
+            What Our Partners Say About Us
+          </p>
         </div>
       </div>
 
@@ -50,43 +54,43 @@ export default function CustomerReview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="bg-white p-6 rounded-3xl border border-[#ebdcb9]/40 shadow-sm flex flex-col justify-between relative hover:border-[#C3A87E] hover:shadow-md transition-all duration-300 group text-left"
+              className="bg-white p-6 rounded-3xl border border-[#C88E9B]/15 shadow-sm flex flex-col justify-between relative hover:border-[#C88E9B] hover:shadow-md transition-all duration-300 group text-left"
             >
               <div>
                 {/* Top Row with Quote and Stars */}
                 <div className="flex justify-between items-start mb-4">
-                  <Quote className="text-[#C3A87E]/30 fill-current rotate-180 animate-pulse" size={24} />
+                  <Quote className="text-[#C88E9B]/30 fill-current rotate-180" size={24} />
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="text-[#C3A87E] fill-current" size={12} />
+                      <Star key={star} className="text-[#C88E9B] fill-current" size={12} />
                     ))}
                   </div>
                 </div>
 
                 {/* Tag */}
                 <div className="mb-4">
-                  <span className="bg-[#132C20]/5 text-[#132C20] text-[8px] font-bold uppercase tracking-widest py-1.5 px-3 rounded-lg border border-[#132C20]/10">
+                  <span className="bg-[#FFF5F6] text-[#702A3C] text-[8px] font-bold uppercase tracking-widest py-1.5 px-3 rounded-lg border border-[#C88E9B]/20 font-outfit">
                     {review.tag}
                   </span>
                 </div>
 
                 {/* Review Text */}
-                <p className="text-[#5A6E62] leading-relaxed text-xs md:text-sm mb-6 italic font-medium">
+                <p className="text-[#8E5A67] leading-relaxed text-xs md:text-sm mb-6 italic font-medium font-outfit">
                   "{review.text}"
                 </p>
               </div>
 
               {/* Footer with Avatar Profile Icon and Info */}
-              <div className="border-t border-[#ebdcb9]/30 pt-4 flex items-center gap-3 mt-auto">
+              <div className="border-t border-[#C88E9B]/15 pt-4 flex items-center gap-3 mt-auto">
                 {/* Circular initials avatar */}
-                <div className="w-10 h-10 rounded-full bg-[#132C20]/10 border border-[#ebdcb9]/60 flex items-center justify-center font-playfair font-bold text-xs text-[#132C20] shrink-0 group-hover:bg-[#132C20] group-hover:text-[#eedec9] group-hover:border-[#132C20] transition-colors duration-300">
+                <div className="w-10 h-10 rounded-full bg-[#C88E9B]/10 border border-[#C88E9B]/20 flex items-center justify-center font-playfair font-bold text-xs text-[#702A3C] shrink-0 group-hover:bg-[#C88E9B] group-hover:text-white group-hover:border-[#C88E9B] transition-colors duration-300">
                   {initials}
                 </div>
                 <div>
-                  <h4 className="text-[#132C20] font-playfair font-bold text-xs uppercase tracking-wide group-hover:text-[#C3A87E] transition-colors">
+                  <h4 className="text-[#702A3C] font-playfair font-bold text-xs uppercase tracking-wide group-hover:text-[#C88E9B] transition-colors">
                     {review.name}
                   </h4>
-                  <p className="text-[#5A6E62]/80 text-[8px] font-outfit uppercase mt-0.5 tracking-wider font-semibold">
+                  <p className="text-[#8E5A67]/80 text-[8px] font-outfit uppercase mt-0.5 tracking-wider font-semibold">
                     {review.role}
                   </p>
                 </div>

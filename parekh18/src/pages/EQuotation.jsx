@@ -1,19 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Inbox, FileText, Send, Mail } from 'lucide-react';
+import { ClipboardCheck, FileText, Send } from 'lucide-react';
 
 const EQuotation = () => {
+  const activeQuotations = [
+    {
+      id: 1,
+      title: 'Bulk Mulberry Silk Yarn Procurement',
+      description: 'Bids invited for high-grade raw Mulberry silk yarn procurement for Q4 manufacturing operations. Minimum order volume: 500 kg.',
+      date: 'Closing Date: Jul 15, 2026'
+    },
+    {
+      id: 2,
+      title: 'Organic Cotton Weaving Supply Tender',
+      description: 'Submission of quotations requested for supplying GOTS certified organic cotton thread blends of 40s and 60s count.',
+      date: 'Closing Date: Jul 22, 2026'
+    }
+  ];
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-6 py-10 md:py-14 text-left">
+    <div className="w-full max-w-6xl mx-auto px-6 py-10 md:py-14 text-left">
       {/* Direct Page Heading (No Banner) */}
-      <div className="mb-10 border-b border-[#BD7B88]/20 pb-4">
-        <h1 className="text-[#3D223B] text-3xl md:text-4xl tracking-wider font-bold m-0 font-playfair normal-case">
+      <div className="mb-10 text-left">
+        <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
           e-Quotation
         </h1>
       </div>
 
       {/* Main Content Area */}
-      <div className="bg-[#FAF4F6] p-6 md:p-10 border border-[#BD7B88]/15 rounded-2xl flex flex-col gap-8">
+      <div className="bg-[#FAF4F6] p-3 md:p-10 border border-[#BD7B88]/15 rounded-2xl flex flex-col gap-4 md:gap-8">
 
         {/* Active Quotation Requests Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-2">
@@ -24,11 +39,28 @@ const EQuotation = () => {
             </h2>
           </div>
 
-          <div className="bg-white py-16 flex flex-col items-center justify-center border border-[#BD7B88]/10 rounded-xl shadow-sm">
-            <Inbox size={40} className="text-[#BD7B88]/30 mb-4 stroke-1" />
-            <p className="text-[#BD7B88] font-semibold text-xs tracking-widest">
-              ( At present, No e-Quotation published )
-            </p>
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+            {activeQuotations.map((quote) => (
+              <div
+                key={quote.id}
+                className="bg-white border border-[#BD7B88]/15 rounded-xl p-3 sm:p-6 shadow-sm hover:shadow-md hover:border-[#BD7B88]/30 transition-all duration-300 flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4"
+              >
+                <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg border border-[#BD7B88]/15 bg-[#FAF4F6] flex items-center justify-center shrink-0">
+                  <FileText size={14} className="text-[#BD7B88]" />
+                </div>
+                <div className="flex-grow text-left">
+                  <h3 className="font-playfair text-[#3D223B] font-semibold text-[10px] sm:text-sm uppercase tracking-wide mb-1 sm:mb-2 line-clamp-2">
+                    {quote.title}
+                  </h3>
+                  <p className="text-gray-600 text-[9px] sm:text-xs font-outfit mb-2 sm:mb-4 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                    {quote.description}
+                  </p>
+                  <span className="text-[8px] sm:text-[10px] uppercase font-bold text-[#BD7B88] tracking-widest font-outfit block">
+                    {quote.date}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -74,7 +106,7 @@ const EQuotation = () => {
 
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-[#3D223B] font-bold mb-2">
-                  Business Address with PIN Code <span className="text-[#BD7B88]">*</span>
+                  Business Address with Pin Code <span className="text-[#BD7B88]">*</span>
                 </label>
                 <input
                   type="text"
@@ -148,13 +180,6 @@ const EQuotation = () => {
               >
                 <Send size={14} /> Submit Quotation Request
               </button>
-            </div>
-
-            <div className="pt-6 text-center flex items-center justify-center gap-2">
-              <Mail size={14} className="text-[#BD7B88]" />
-              <a href="mailto:info@royalweaves.com" className="text-[#BD7B88] text-[10px] font-semibold tracking-widest hover:underline uppercase">
-                info@royalweaves.com
-              </a>
             </div>
           </form>
         </motion.div>

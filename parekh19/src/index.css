@@ -71,6 +71,23 @@
   background: var(--color-primary-600);
 }
 
+/* Custom mini horizontal scrollbar for categories on mobile */
+.custom-mini-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-600) var(--color-cream-300);
+}
+.custom-mini-scrollbar::-webkit-scrollbar {
+  height: 3px;
+}
+.custom-mini-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-cream-300);
+  border-radius: 10px;
+}
+.custom-mini-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary-600);
+  border-radius: 10px;
+}
+
 /* ── Hero Slider ── */
 @keyframes slideIn {
   0%   { transform: translateX(100%); opacity: 0; }

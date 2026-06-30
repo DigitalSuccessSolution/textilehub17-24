@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sapphire-900: #0C0C0C; /* Dark Charcoal/Black - Primary headers/dark text */
-  --color-sapphire-800: #1C1C1C; /* Slightly lighter charcoal - Card backgrounds */
-  --color-sapphire-700: #C5A880; /* Antique Gold - Accents */
+  --color-sapphire-900: #702A3C; /* Deep Berry/Plum - Primary headers/dark text replacement */
+  --color-sapphire-800: #FFF5F6; /* Very light pink - Card highlights */
+  --color-sapphire-700: #C88E9B; /* Metallic Rose Gold - Accents */
 
-  --color-rosegold-500: #0C0C0C; /* Dark Charcoal brand color */
-  --color-rosegold-400: #C5A880; /* Gold Accent */
-  --color-rosegold-300: #F3ECE0; /* Light Warm Sand/Cream */
+  --color-rosegold-500: #FFF0F2; /* Soft Blush Pink brand color */
+  --color-rosegold-400: #C88E9B; /* Rose Gold Accent */
+  --color-rosegold-300: #FFF5F6; /* Light Pink Cream */
 
   --color-pearl-50: #FFFFFF;   /* Clean White Background for Card components */
-  --color-pearl-100: #F6F3EB;  /* Soft Warm Beige for Page Backgrounds */
+  --color-pearl-100: #FFF5F6;  /* Soft Blush Pink for Page Backgrounds */
 
   --font-playfair: 'Cormorant Garamond', serif;
   --font-outfit: 'Outfit', sans-serif;
@@ -27,7 +27,7 @@
   }
 
   h2, h3, h4, h5, h6 {
-    @apply font-playfair font-semibold;
+    @apply font-playfair font-semibold text-[#702A3C];
   }
 }
 
@@ -42,30 +42,26 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Keep default scrollbar style matching the brand theme */
-}
-
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #C5A880;
+  background-color: #C88E9B;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #B89D74;
+  background-color: #B37D8A;
 }
 
-/* Tailwind Overrides for translating hardcoded styles into the Charcoal/Gold Theme */
+/* Tailwind Overrides for translating hardcoded styles into the Light Pink/Berry Theme */
 .bg-white {
   background-color: #FFFFFF !important;
 }
 
 .bg-\[\#fcfbf9\] {
-  background-color: #F6F3EB !important;
+  background-color: #FFF5F6 !important;
 }
 
 .bg-pearl-50 {
@@ -73,92 +69,134 @@
 }
 
 .bg-pearl-100 {
-  background-color: #F6F3EB !important;
+  background-color: #FFF5F6 !important;
 }
 
 .text-\[\#2d0a4e\] {
-  color: #C5A880 !important;
+  color: #C88E9B !important;
 }
 
 .bg-\[\#2d0a4e\] {
-  background-color: #F3ECE0 !important;
-  border-color: #C5A880 !important;
+  background-color: #FFF5F6 !important;
+  border-color: #C88E9B !important;
 }
 
 .hover\:bg-\[\#2d0a4e\]:hover {
-  background-color: #EADDC9 !important;
+  background-color: #FFE4E8 !important;
 }
 
 .hover\:text-\[\#2d0a4e\]:hover {
-  color: #0C0C0C !important;
+  color: #702A3C !important;
 }
 
 .border-\[\#2d0a4e\] {
-  border-color: #C5A880 !important;
+  border-color: #C88E9B !important;
 }
 
 .bg-\[\#d8a5ad\] {
-  background-color: #0C0C0C !important;
+  background-color: #FFF0F2 !important;
 }
 
 .hover\:bg-\[\#d8a5ad\]:hover {
-  background-color: #1E1E1E !important;
+  background-color: #FFE4E8 !important;
 }
 
 .text-\[\#d8a5ad\] {
-  color: #C5A880 !important;
+  color: #C88E9B !important;
 }
 
 .hover\:text-\[\#d8a5ad\]:hover {
-  color: #F3ECE0 !important;
+  color: #FFF5F6 !important;
 }
 
 .border-\[\#d8a5ad\] {
-  border-color: #0C0C0C !important;
+  border-color: #FFF0F2 !important;
 }
 
 .hover\:border-\[\#d8a5ad\]:hover {
-  border-color: #C5A880 !important;
+  border-color: #C88E9B !important;
 }
 
 .bg-\[\#d8a5ad\]\/10 {
-  background-color: rgba(197, 168, 128, 0.1) !important;
+  background-color: rgba(200, 142, 155, 0.1) !important;
 }
 
 .border-gray-100,
 .border-gray-200,
 .border-pearl-100 {
-  border-color: #EADDC9 !important;
+  border-color: #FFE4E8 !important;
 }
 
 .text-gray-900,
 .text-gray-800,
 .text-gray-700 {
-  color: #0C0C0C !important;
+  color: #702A3C !important;
 }
 
 .text-gray-650,
 .text-gray-600,
 .text-gray-500,
 .text-gray-400 {
-  color: #666666 !important;
+  color: #8E5A67 !important;
 }
 
 /* Ensure form controls have readable text in light mode */
 input, select, textarea {
-  color: #0C0C0C !important;
+  color: #702A3C !important;
 }
 
 .hover\:text-gray-900:hover,
 .hover\:text-gray-800:hover {
-  color: #0C0C0C !important;
+  color: #702A3C !important;
 }
 
 /* Custom background helper for preloader and overlays */
 .bg-sapphire-900 {
-  background-color: #0C0C0C !important;
+  background-color: #FFF0F2 !important;
 }
 
 .bg-sapphire-800 {
-  background-color: #1C1C1C !important;
+  background-color: #FFF5F6 !important;
+}
+
+/* Override hardcoded black and dark charcoal colors globally to ensure light pink theme */
+.bg-\[\#0C0C0C\],
+.bg-\[\#121212\],
+.bg-\[\#1C1C1C\],
+.bg-\[\#090909\],
+.bg-black {
+  background-color: #FFF0F2 !important;
+  color: #702A3C !important;
+}
+
+.text-\[\#C5A880\],
+.text-\[\#dfc39a\] {
+  color: #C88E9B !important;
+}
+
+.text-\[\#dfc39a\]\/80 {
+  color: rgba(112, 42, 60, 0.8) !important;
+}
+
+.text-\#F3ECE0,
+.text-\[\#F3ECE0\] {
+  color: #702A3C !important;
+}
+
+.text-white {
+  /* Only override text-white inside previously dark containers */
+  .bg-\[\#0C0C0C\] &,
+  .bg-\[\#121212\] &,
+  .bg-\[\#1C1C1C\] &,
+  .bg-black &,
+  .bg-rosegold-500 & {
+    color: #702A3C !important;
+  }
+}
+
+.border-\[\#C5A880\]\/10,
+.border-\[\#C5A880\]\/15,
+.border-\[\#C5A880\]\/20,
+.border-rosegold-400\/20 {
+  border-color: rgba(200, 142, 155, 0.25) !important;
 }

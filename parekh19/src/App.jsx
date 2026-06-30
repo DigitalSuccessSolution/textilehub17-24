@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,17 +14,21 @@ import NoticeBoard from './pages/NoticeBoard';
 import Career from './pages/Career';
 import CustomerReview from './pages/CustomerReview';
 import BusinessMediaGallery from './pages/BusinessMediaGallery';
+import FAQ from './pages/FAQ';
+import WelcomePopup from './components/WelcomePopup';
 import Preloader from './components/Preloader';
 import ScrollToTop from './components/ScrollToTop';
 import { useState, useEffect } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     // Premium preloader timing
     const timer = setTimeout(() => {
       setLoading(false);
+      setShowPopup(true);
     }, 3700);
     return () => clearTimeout(timer);
   }, []);
@@ -48,9 +52,12 @@ function App() {
           <Route path="career" element={<Career />} />
           <Route path="reviews" element={<CustomerReview />} />
           <Route path="gallery" element={<BusinessMediaGallery />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
       {loading && <Preloader />}
+      <WelcomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </Router>
   );
 }

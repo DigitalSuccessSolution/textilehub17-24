@@ -9,7 +9,7 @@ const FloatingChatbot = () => {
     <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end" style={{ fontFamily: "'Outfit', sans-serif" }}>
       {isOpen && (
         <div
-          className="mb-4 w-[340px] sm:w-[370px] rounded-2xl overflow-hidden shadow-2xl"
+          className="mb-4 w-[calc(100vw-40px)] sm:w-[370px] rounded-2xl overflow-hidden shadow-2xl"
           style={{
             border: '1.5px solid #E8E5DC',
             background: '#FFFFFF',

@@ -39,11 +39,11 @@ export default function FAQ() {
 
   return (
     <div className="pb-16 w-full min-h-screen bg-pearl-100">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-8">
-        {/* Direct Page Heading */}
-        <div className="mb-10 border-b border-[#BD7B88]/20 pb-4 text-left">
-          <h1 className="text-[#3D223B] text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
-            Frequently Asked Questions
+      <div className="max-w-6xl mx-auto px-6 pt-10 md:pt-14">
+        {/* Direct Page Heading (No Banner) */}
+        <div className="mb-10 text-left">
+          <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
+            FAQ
           </h1>
         </div>
 

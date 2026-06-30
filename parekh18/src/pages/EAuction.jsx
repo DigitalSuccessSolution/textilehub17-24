@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Gavel, Inbox, UploadCloud, Send, Mail } from 'lucide-react';
+import { Gavel, UploadCloud, Send } from 'lucide-react';
 
 const EAuction = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -13,17 +13,34 @@ const EAuction = () => {
     }
   };
 
+  const activeAuctions = [
+    {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80',
+      title: 'Premium Raw Silk Batch #802',
+      description: 'Auction for premium grade Chinese raw silk yarn rolls. Grade A quality yarn for fine brocades.',
+      date: 'Auction Date: Jul 18, 2026'
+    },
+    {
+      id: 2,
+      image: 'https://images.unsplash.com/photo-1620012253295-c05518e99309?w=600&auto=format&fit=crop&q=80',
+      title: 'Textile Manufacturing Equipment Clearance',
+      description: 'Auction for surplus industrial looms and spinning machinery. All machinery is in excellent working condition.',
+      date: 'Auction Date: Jul 25, 2026'
+    }
+  ];
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-6 py-10 md:py-14 text-left">
+    <div className="w-full max-w-6xl mx-auto px-6 py-10 md:py-14 text-left">
       {/* Direct Page Heading (No Banner) */}
-      <div className="mb-10 border-b border-[#BD7B88]/20 pb-4">
-        <h1 className="text-[#3D223B] text-3xl md:text-4xl tracking-wider font-bold m-0 font-playfair normal-case">
+      <div className="mb-10 text-left">
+        <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
           e-Auction
         </h1>
       </div>
 
       {/* Main Content Area */}
-      <div className="bg-[#FAF4F6] p-6 md:p-10 border border-[#BD7B88]/15 rounded-2xl flex flex-col gap-8">
+      <div className="bg-[#FAF4F6] p-3 md:p-10 border border-[#BD7B88]/15 rounded-2xl flex flex-col gap-4 md:gap-8">
 
         {/* Active e-Auctions Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-2">
@@ -34,11 +51,34 @@ const EAuction = () => {
             </h2>
           </div>
 
-          <div className="bg-white py-16 flex flex-col items-center justify-center border border-[#BD7B88]/10 rounded-xl shadow-sm">
-            <Inbox size={40} className="text-[#BD7B88]/30 mb-4 stroke-1" />
-            <p className="text-[#BD7B88] font-semibold text-xs tracking-widest">
-              At present, No e-Auction published
-            </p>
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+            {activeAuctions.map((auction) => (
+              <div
+                key={auction.id}
+                className="bg-white border border-[#BD7B88]/15 rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-[#BD7B88]/30 transition-all duration-300 flex flex-col sm:flex-row gap-2 sm:gap-4"
+              >
+                <div className="w-full sm:w-36 h-24 sm:h-auto shrink-0 relative bg-[#FAF4F6]">
+                  <img
+                    src={auction.image}
+                    alt={auction.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-3 sm:p-5 flex-grow text-left flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-playfair text-[#3D223B] font-semibold text-[10px] sm:text-sm uppercase tracking-wide mb-1 sm:mb-2 line-clamp-2">
+                      {auction.title}
+                    </h3>
+                    <p className="text-gray-650 text-[9px] sm:text-xs font-outfit mb-2 sm:mb-4 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                      {auction.description}
+                    </p>
+                  </div>
+                  <span className="text-[8px] sm:text-[10px] uppercase font-bold text-[#BD7B88] tracking-widest font-outfit block">
+                    {auction.date}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -84,7 +124,7 @@ const EAuction = () => {
 
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-[#3D223B] font-bold mb-2">
-                  Business Address with PIN Code <span className="text-[#BD7B88]">*</span>
+                  Business Address with Pin Code <span className="text-[#BD7B88]">*</span>
                 </label>
                 <input
                   type="text"
@@ -126,7 +166,7 @@ const EAuction = () => {
 
             <div className="pt-4">
               <label className="block text-[10px] uppercase tracking-widest text-[#3D223B] font-bold mb-3">
-                Upload GST Certificate
+                Upload GST Certificate <span className="text-[#BD7B88]">*</span>
               </label>
 
               <input
@@ -135,6 +175,7 @@ const EAuction = () => {
                 onChange={handleFileChange}
                 accept=".pdf,.jpg,.jpeg,.png"
                 className="hidden"
+                required
               />
 
               <div
@@ -163,13 +204,6 @@ const EAuction = () => {
               >
                 <Send size={14} /> Submit Registration
               </button>
-            </div>
-
-            <div className="pt-6 text-center flex items-center justify-center gap-2">
-              <Mail size={14} className="text-[#BD7B88]" />
-              <a href="mailto:info@royalweaves.com" className="text-[#BD7B88] text-[10px] font-semibold tracking-widest hover:underline uppercase">
-                info@royalweaves.com
-              </a>
             </div>
           </form>
         </motion.div>

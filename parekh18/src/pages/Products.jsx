@@ -13,12 +13,78 @@ export default function Products() {
   ];
 
   const allProducts = [
-    { id: 101, name: 'Premium Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1609748340041-f5d61e061ebc?w=600&auto=format&fit=crop&q=60' },
-    { id: 105, name: 'Embroidered Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610189013233-0498b89d4fb9?w=600&auto=format&fit=crop&q=60' },
-    { id: 102, name: 'Designer Kurti Set', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60' },
-    { id: 106, name: 'Printed Cotton Kurti', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1745313452052-0e4e341f326c?w=600&auto=format&fit=crop&q=60' },
-    { id: 103, name: 'Luxury Cotton Bedsheet', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60' },
-    { id: 104, name: 'Classic Men Suit Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60' },
+    {
+      id: 101,
+      name: 'Royal Banarasi Silk Saree',
+      category: 'Sarees',
+      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 102,
+      name: 'Comfort Fit Stretch Leggings',
+      category: 'Leggings',
+      image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 103,
+      name: 'Artisanal Embroidered Kurti',
+      category: 'Kurtis',
+      image: 'https://images.unsplash.com/photo-1608748010899-18f300247112?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 104,
+      name: 'Graceful Salwar Suit Set',
+      category: 'Dress Suits',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 105,
+      name: 'Luxury Pure Cotton Bedsheet',
+      category: 'Bedsheets & Linen',
+      image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 106,
+      name: 'Premium Soft-Knit Hosiery Socks',
+      category: 'Hosiery Items',
+      image: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 107,
+      name: 'Classic Woolen Suiting Material',
+      category: 'Suiting',
+      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 108,
+      name: 'Premium Breathable Shirting Fabric',
+      category: 'Shirting',
+      image: 'https://images.unsplash.com/photo-1620012253295-c05518e99309?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 109,
+      name: 'Designer Bridal Lehenga Set',
+      category: 'Formal & Ethnic Wear for Women',
+      image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 110,
+      name: 'Royal Handcrafted Sherwani',
+      category: 'Formal & Ethnic Wear for Men',
+      image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 111,
+      name: 'Festive Children\'s Ethnic Set',
+      category: 'Formal & Ethnic Wear for Children',
+      image: 'https://images.unsplash.com/photo-1621640428383-7c08272b53e7?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      id: 112,
+      name: 'Luxury Velvet Upholstery Fabric',
+      category: 'Home Upholstery & Furnishing',
+      image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&auto=format&fit=crop&q=80'
+    }
   ];
 
   const categoryDetails = {
@@ -70,11 +136,11 @@ export default function Products() {
 
   return (
     <div className="pb-16 w-full relative min-h-screen bg-pearl-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8">
-        {/* Direct Page Heading */}
-        <div className="mb-8 border-b border-[#BD7B88]/20 pb-4 text-left">
-          <h1 className="text-[#3D223B] text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
-            Catalogue
+      <div className="max-w-6xl mx-auto px-6 pt-10 md:pt-14">
+        {/* Direct Page Heading (No Banner) */}
+        <div className="mb-10 text-left">
+          <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
+            Product
           </h1>
         </div>
 
@@ -204,7 +270,7 @@ export default function Products() {
       <div className="space-y-16">
         {activeCategory === "All" ? (
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-8">
               {filteredProducts.map((product, idx) => (
                 <motion.div 
                   key={product.id}
@@ -214,7 +280,7 @@ export default function Products() {
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
                   className="group bg-white rounded-xl border border-[#BD7B88]/15 overflow-hidden shadow-sm hover:shadow-2xl hover:border-[#BD7B88]/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full cursor-pointer"
                 >
-                  <div className="h-72 w-full relative overflow-hidden shrink-0">
+                  <div className="h-40 sm:h-72 w-full relative overflow-hidden shrink-0">
                     <img 
                       src={product.image} 
                       alt={product.name} 
@@ -243,7 +309,7 @@ export default function Products() {
               <h2 className="font-playfair text-xl text-[#3D223B] font-semibold uppercase tracking-wider mb-6 border-b border-[#BD7B88]/20 pb-2">
                 {categoryName}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-8">
                 {products.map((product, idx) => (
                   <motion.div 
                     key={product.id}
@@ -253,7 +319,7 @@ export default function Products() {
                     transition={{ duration: 0.5, delay: idx * 0.08 }}
                     className="group bg-white rounded-xl border border-[#BD7B88]/15 overflow-hidden shadow-sm hover:shadow-2xl hover:border-[#BD7B88]/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full cursor-pointer"
                   >
-                    <div className="h-72 w-full relative overflow-hidden shrink-0">
+                    <div className="h-40 sm:h-72 w-full relative overflow-hidden shrink-0">
                       <img 
                         src={product.image} 
                         alt={product.name} 

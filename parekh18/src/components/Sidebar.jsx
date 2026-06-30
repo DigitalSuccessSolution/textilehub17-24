@@ -17,12 +17,12 @@ export default function Sidebar({ closeSidebar }) {
     { name: 'e-Quotation', path: '/e-quotation', icon: FileText },
     { name: 'e-Auction', path: '/e-auction', icon: FileText },
     { name: 'Trade Circular', path: '/trade-circular', icon: FileText },
-    { name: 'Blog Page', path: '/blog', icon: MessageSquare },
+    { name: 'Blog', path: '/blog', icon: MessageSquare },
     { name: 'Notice Board', path: '/notice-board', icon: Clipboard },
-    { name: 'Career Page', path: '/career', icon: Briefcase },
+    { name: 'Career', path: '/career', icon: Briefcase },
     { name: 'Customer Review', path: '/reviews', icon: Star },
-    { name: 'FAQ', path: '/faq', icon: HelpCircle },
     { name: 'Business Media Gallery', path: '/gallery', icon: ImageIcon },
+    { name: 'FAQ', path: '/faq', icon: HelpCircle },
   ];
 
   const getDisplayName = (name) => {

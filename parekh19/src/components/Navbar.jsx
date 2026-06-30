@@ -37,11 +37,12 @@ export default function Navbar() {
   ];
 
   const moreLinks = [
-    { name: 'BLOG PAGE', path: '/blog' },
+    { name: 'BLOG', path: '/blog' },
     { name: 'NOTICE BOARD', path: '/notice-board' },
-    { name: 'CAREER PAGE', path: '/career' },
+    { name: 'CAREER', path: '/career' },
     { name: 'CUSTOMER REVIEW', path: '/reviews' },
     { name: 'BUSINESS MEDIA GALLERY', path: '/gallery' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);

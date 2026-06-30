@@ -18,22 +18,28 @@ export default function Home() {
 
   const featuredProducts = [
     {
-      name: 'Royal Kanjivaram Silk Saree',
+      name: 'Premium Banarasi Brocade Saree',
       category: 'Sarees',
-      image: 'https://images.unsplash.com/photo-1705164453572-69b94a306f92?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0',
-      desc: 'Woven with pure gold zari and fine mulberry silk, embodying traditional luxury.'
+      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80',
+      desc: 'Exquisite hand-woven Banarasi silk saree with authentic gold zari border patterns.'
     },
     {
-      name: 'Bespoke Heritage Sherwani',
-      category: 'Formal & Ethnic Wear for Men',
-      image: 'https://images.unsplash.com/photo-1678805408312-04e5fd7a9dcc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0',
-      desc: 'Handcrafted embroidery on raw silk, designed for monumental celebrations.'
+      name: 'Luxury Linen Dress Suit',
+      category: 'Dress Suits',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=80',
+      desc: 'Premium linen blend salwar suit with hand-embroidered floral necklines.'
     },
     {
-      name: 'Designer Handloom Kurti Set',
+      name: 'Classic Herringbone Suiting',
+      category: 'Suiting',
+      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80',
+      desc: 'Fine merino wool herringbone suiting fabric, ideal for tailored luxury blazers.'
+    },
+    {
+      name: 'Artisanal Handwoven Kurti Set',
       category: 'Kurtis',
-      image: 'https://images.unsplash.com/photo-1735553816867-88cd8496df58?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0',
-      desc: 'A blend of contemporary silhouettes and artisanal handloom cotton.'
+      image: 'https://images.unsplash.com/photo-1608748010899-18f300247112?w=600&auto=format&fit=crop&q=80',
+      desc: 'Graceful daily wear handloom cotton kurti set detailed with thread embroidery.'
     }
   ];
 
@@ -137,26 +143,27 @@ export default function Home() {
       {/* Main content body wrapper */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-12 space-y-12">
         
-        {/* 3. Row containing Categories (Left) and Promo Column (Right) */}
+        {/* 3. Shop by Category Title - Spans Full Width */}
+        <div className="flex justify-between items-end border-b border-[#BD7B88]/15 pb-4 w-full text-left">
+          <div>
+            <span className="text-[9px] font-bold uppercase text-[#BD7B88] tracking-[0.2em]">EXPLORE COLLECTIONS</span>
+            <h3 className="font-playfair text-2xl text-[#3D223B] font-bold uppercase tracking-wide mt-1">
+              Shop by Category
+            </h3>
+          </div>
+          <Link 
+            to="/products" 
+            className="text-[10px] font-bold uppercase text-[#3D223B] hover:text-[#BD7B88] transition-colors flex items-center gap-1.5 tracking-wider font-outfit"
+          >
+            View All Categories <ArrowRight size={12} className="text-[#BD7B88]" />
+          </Link>
+        </div>
+
+        {/* Row containing Categories Grid (Left) and Promo Column (Right) */}
         <div className="flex flex-col lg:flex-row gap-8 items-start w-full">
           
           {/* Left Block: Categories Grid */}
-          <div className="flex-1 w-full text-left space-y-6">
-            <div className="flex justify-between items-end border-b border-[#BD7B88]/15 pb-4">
-              <div>
-                <span className="text-[9px] font-bold uppercase text-[#BD7B88] tracking-[0.2em]">EXPLORE COLLECTIONS</span>
-                <h3 className="font-playfair text-2xl text-[#3D223B] font-bold uppercase tracking-wide mt-1">
-                  Shop by Category
-                </h3>
-              </div>
-              <Link 
-                to="/products" 
-                className="text-[10px] font-bold uppercase text-[#3D223B] hover:text-[#BD7B88] transition-colors flex items-center gap-1.5 tracking-wider font-outfit"
-              >
-                View All Categories <ArrowRight size={12} className="text-[#BD7B88]" />
-              </Link>
-            </div>
-
+          <div className="flex-1 w-full text-left">
             {/* Categories Layout */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {categoryList.map((cat, idx) => (
@@ -191,20 +198,27 @@ export default function Home() {
           <div className="w-full lg:w-[280px] flex flex-col gap-6 shrink-0 text-left">
             
             {/* Promo Card 1: Exclusive Offer / Wholesale Excellence (Premium Plum Card) */}
-            <div className="bg-[#3D223B] text-white p-6 rounded-lg flex flex-col justify-between relative overflow-hidden min-h-[300px] border border-[#BD7B88]/20 shadow-md">
-              <div className="absolute top-0 right-0 w-16 h-16 border-r border-t border-[#BD7B88]/15 rounded-tr-lg z-0"></div>
+            <div className="relative overflow-hidden min-h-[220px] border border-[#BD7B88]/20 shadow-md rounded-xl flex flex-col justify-between p-6 bg-[#3D223B] group">
+              {/* Background Image covering full card */}
+              <img 
+                src="https://images.unsplash.com/photo-1623310658847-33f12eaab710?w=600&auto=format&fit=crop&q=60" 
+                alt="Wholesale Fabrics Stack" 
+                className="absolute inset-0 w-full h-full object-cover z-0" 
+              />
+              {/* High-legibility Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D223B]/95 via-[#3D223B]/80 to-[#3D223B]/90 z-10"></div>
               
-              <div className="space-y-2.5 z-10 relative">
+              <div className="space-y-2.5 z-20 relative">
                 <span className="text-[9px] uppercase font-bold text-[#BD7B88] tracking-[0.2em] font-outfit">EXCLUSIVE OFFER</span>
                 <h3 className="font-playfair text-xl font-bold leading-tight text-white uppercase tracking-wider">
                   Wholesale <br />Excellence
                 </h3>
-                <p className="text-[#FAF4F6]/75 text-[10px] font-outfit leading-relaxed max-w-[180px]">
+                <p className="text-[#FAF4F6]/75 text-[10px] font-outfit leading-relaxed max-w-[190px]">
                   Special pricing for retailers & bulk buyers
                 </p>
               </div>
 
-              <div className="z-10 mt-4">
+              <div className="z-20 mt-4 relative">
                 <Link 
                   to="/trade-enquiry" 
                   className="inline-flex items-center gap-2 bg-[#BD7B88] hover:bg-[#A36471] text-white px-4 py-2 text-[9px] font-bold uppercase tracking-wider transition-all duration-300 rounded-lg font-outfit"
@@ -212,28 +226,27 @@ export default function Home() {
                   Enquire Now <ArrowRight size={11} className="text-white" />
                 </Link>
               </div>
-
-              {/* Stacked fabric background image */}
-              <div className="absolute right-0 bottom-0 left-0 h-28 overflow-hidden z-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3D223B] via-[#3D223B]/45 to-transparent z-10"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1623310658847-33f12eaab710?w=600&auto=format&fit=crop&q=60" 
-                  alt="Wholesale Fabrics Stack" 
-                  className="w-full h-full object-cover object-center" 
-                />
-              </div>
             </div>
 
             {/* Promo Card 2: New Arrivals (Deep Mauve/Plum Layout) */}
-            <div className="bg-[#4D2D4B] text-white p-5 rounded-lg flex flex-col justify-between border border-[#BD7B88]/15 min-h-[160px] relative overflow-hidden shadow-sm">
-              <div className="space-y-1 z-10">
+            <div className="relative overflow-hidden min-h-[160px] border border-[#BD7B88]/15 shadow-sm rounded-xl flex flex-col justify-between p-6 bg-[#4D2D4B] group">
+              {/* Background Image covering full card */}
+              <img 
+                src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=1000&auto=format&fit=crop&q=60" 
+                alt="New Arrivals Preview" 
+                className="absolute inset-0 w-full h-full object-cover z-0"
+              />
+              {/* High-legibility Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#4D2D4B]/95 via-[#4D2D4B]/80 to-[#4D2D4B]/85 z-10"></div>
+              
+              <div className="space-y-1.5 z-20 relative">
                 <span className="text-[8px] uppercase font-bold text-[#BD7B88] tracking-[0.2em] font-outfit">NEW ARRIVALS</span>
                 <h3 className="font-playfair text-base font-bold leading-tight text-white uppercase tracking-wide">
                   Discover Our Latest Luxury Collection
                 </h3>
               </div>
 
-              <div className="flex items-center justify-between mt-4 z-10">
+              <div className="flex items-center justify-between mt-4 z-20 relative">
                 <Link 
                   to="/products" 
                   className="text-[9px] font-bold text-white hover:text-[#BD7B88] uppercase tracking-wider font-outfit flex items-center gap-1.5"
@@ -241,18 +254,8 @@ export default function Home() {
                   Shop Now <ArrowRight size={11} className="text-[#BD7B88]" />
                 </Link>
                 
-                {/* Circular image with gold hover arrow button */}
-                <div className="flex items-center gap-2">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border border-[#BD7B88]/30 shrink-0 bg-[#3D223B]">
-                    <img 
-                      src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=1000&auto=format&fit=crop&q=60" 
-                      alt="New Arrivals Preview" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-6 h-6 rounded-full bg-[#BD7B88] flex items-center justify-center text-white hover:bg-[#A36471] transition-colors cursor-pointer">
-                    <ArrowRight size={10} />
-                  </div>
+                <div className="w-6 h-6 rounded-full bg-[#BD7B88] flex items-center justify-center text-white hover:bg-[#A36471] transition-colors cursor-pointer">
+                  <ArrowRight size={10} />
                 </div>
               </div>
             </div>
@@ -260,8 +263,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 4. Featured Curated Collection */}
-        <section className="bg-white border border-[#BD7B88]/15 p-8 rounded-2xl text-left shadow-sm">
+        {/* 4. Featured Curated Collection - Clean flat layout blending with page */}
+        <section className="text-left w-full py-4">
           <div className="flex justify-between items-end mb-8 border-b border-[#BD7B88]/15 pb-4">
             <div>
               <p className="text-[#BD7B88] font-bold tracking-[0.2em] uppercase text-[9px] mb-1 font-outfit">Curated Masterpieces</p>
@@ -275,7 +278,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {featuredProducts.map((prod, idx) => (
               <motion.div
                 key={idx}
@@ -285,28 +288,28 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group flex flex-col bg-white border border-[#BD7B88]/10 overflow-hidden hover:border-[#BD7B88]/40 hover:shadow-lg transition-all duration-300 rounded-xl"
               >
-                <div className="relative h-[220px] overflow-hidden bg-[#FAF4F6]">
+                <div className="relative h-28 sm:h-[160px] overflow-hidden bg-[#FAF4F6] shrink-0">
                   <img
                     src={prod.image}
                     alt={prod.name}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <span className="absolute top-4 left-4 bg-[#3D223B] text-[#BD7B88] text-[8px] uppercase tracking-widest px-3 py-1 font-bold rounded-sm border border-[#BD7B88]/15 font-outfit">
+                  <span className="absolute top-2 left-2 bg-[#3D223B] text-[#BD7B88] text-[7px] sm:text-[8px] uppercase tracking-widest px-2 py-0.5 font-bold rounded-sm border border-[#BD7B88]/15 font-outfit">
                     {prod.category}
                   </span>
                 </div>
-                <div className="p-5 flex flex-col flex-grow bg-white">
-                  <h3 className="text-[#3D223B] font-playfair text-base font-bold mb-2 group-hover:text-[#BD7B88] transition-colors uppercase tracking-wide">
+                <div className="p-3 sm:p-4 flex flex-col flex-grow bg-white text-left">
+                  <h3 className="text-[#3D223B] font-playfair text-xs sm:text-sm font-bold mb-1 group-hover:text-[#BD7B88] transition-colors uppercase tracking-wide leading-snug truncate">
                     {prod.name}
                   </h3>
-                  <p className="text-[#7A6273] text-xs leading-relaxed mb-6 flex-grow font-outfit">
+                  <p className="text-[#7A6273] text-[9px] sm:text-[11px] leading-relaxed mb-3 flex-grow font-outfit line-clamp-2">
                     {prod.desc}
                   </p>
                   <Link
                     to="/products"
-                    className="inline-flex items-center gap-1.5 text-[#BD7B88] hover:text-[#3D223B] font-bold uppercase text-[9px] tracking-wider border-b border-transparent hover:border-[#3D223B] w-fit pb-0.5 transition-all duration-250 font-outfit"
+                    className="inline-flex items-center gap-1.5 text-[#BD7B88] hover:text-[#3D223B] font-bold uppercase text-[8px] sm:text-[9px] tracking-wider border-b border-transparent hover:border-[#3D223B] w-fit pb-0.5 transition-all duration-250 font-outfit"
                   >
-                    View Details <ArrowRight size={11} />
+                    View Details <ArrowRight size={10} />
                   </Link>
                 </div>
               </motion.div>

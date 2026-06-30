@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 
 export default function TradeEnquiry() {
   return (
-    <div className="w-full max-w-4xl mx-auto px-6 py-10 md:py-14 text-left">
+    <div className="w-full max-w-6xl mx-auto px-6 py-10 md:py-14 text-left">
       {/* Direct Page Heading (No Banner) */}
-      <div className="mb-8 border-b border-[#BD7B88]/20 pb-4">
-        <h1 className="text-[#3D223B] text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
+      <div className="mb-10 text-left">
+        <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
           Trade Enquiry
         </h1>
       </div>

@@ -6,55 +6,47 @@ export default function BusinessMediaGallery() {
   const galleryItems = [
     {
       id: 1,
-      title: "State-of-the-Art Spinning Mill",
-      category: "Manufacturing",
-      date: "October 2026",
-      desc: "Our automated spinning facilities where premium raw fibers are transformed into high-tenacity yarns.",
-      image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&auto=format&fit=crop&q=80"
+      title: "Exhibition at National Textile Expo 2026",
+      category: "Exhibitions",
+      date: "October 10, 2026",
+      desc: "Showcasing our signature royal Kanjivaram sarees and heritage brocades at the annual National Textile Expo.",
+      image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80"
     },
     {
       id: 2,
-      title: "Artisanal Handloom Heritage",
-      category: "Weaving",
-      date: "September 2026",
-      desc: "Honoring traditional weaving practices where master craftsmen hand-weave intricate silk borders.",
-      image: "https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?w=800&auto=format&fit=crop&q=80"
+      title: "Weaver Empowerment Workshop in Varanasi",
+      category: "Community",
+      date: "September 15, 2026",
+      desc: "Our collaborative training workshop empowering local handloom weavers with modern dye techniques and digital design tools.",
+      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop&q=80"
     },
     {
       id: 3,
-      title: "Fabric Inspection & Quality Check",
-      category: "Quality Control",
-      date: "August 2026",
-      desc: "Ensuring zero defects through rigorous multi-point inspection of every single fabric lot before dispatch.",
-      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&auto=format&fit=crop&q=80"
+      title: "Behind the Scenes: Silk Saree Photo Shoot",
+      category: "Fashion Shoot",
+      date: "August 04, 2026",
+      desc: "Capturing the elegance of our upcoming bridal silk collection for the luxury autumn/winter catalog shoot.",
+      image: "https://images.unsplash.com/photo-1610030469668-93535c17b6b3?w=800&auto=format&fit=crop&q=80"
     },
     {
       id: 4,
-      title: "Flagship Luxury Retail Outlet",
-      category: "Retail Experience",
-      date: "July 2026",
-      desc: "Providing a world-class shopping environment with customized bridal consult rooms and tailoring suites.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80"
+      title: "Launch of Eco-Friendly Organic Cotton Line",
+      category: "Sustainability",
+      date: "July 20, 2026",
+      desc: "Covering the press release and media launch of our sustainable organic cotton shirting and home furnishings collection.",
+      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&auto=format&fit=crop&q=80"
     },
     {
       id: 5,
-      title: "Bespoke Styling & Design Room",
-      category: "Design R&D",
-      date: "June 2026",
-      desc: "Where our design experts sketch contemporary silhouettes and draft custom patterns for the season.",
-      image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80"
-    },
-    {
-      id: 6,
-      title: "Yarn Dyeing & Color Labs",
-      category: "Dyeing",
-      date: "May 2026",
-      desc: "Creating rich, long-lasting colors with eco-friendly dyes and digital color matching technology.",
-      image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&auto=format&fit=crop&q=80"
+      title: "Inauguration of New Retail Showroom in Bangalore",
+      category: "Store Launch",
+      date: "June 30, 2026",
+      desc: "Ribbon cutting and grand inauguration ceremony of our flagship luxury retail experience centre.",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80"
     }
   ];
 
-  const categories = ["All", "Manufacturing", "Weaving", "Quality Control", "Retail Experience", "Design R&D", "Dyeing"];
+  const categories = ["All", "Exhibitions", "Community", "Fashion Shoot", "Sustainability", "Store Launch"];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeItem, setActiveItem] = useState(null);
 
@@ -64,21 +56,27 @@ export default function BusinessMediaGallery() {
 
   return (
     <div className="pb-16 w-full min-h-screen bg-pearl-100">
-      {/* Direct Page Heading */}
-      <div className="mb-10 border-b border-[#BD7B88]/20 pb-4 text-left">
-        <h1 className="text-[#3D223B] text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
-          Business Gallery
-        </h1>
-      </div>
+      <div className="max-w-6xl mx-auto px-6 pt-10 md:pt-14">
+        {/* Direct Page Heading (No Banner) */}
+        <div className="mb-10 text-left">
+          <h1 className="text-[#3D223B] border-b border-[#BD7B88]/20 pb-4 text-3xl md:text-4xl tracking-wider uppercase font-bold m-0 font-playfair">
+            Business Media Gallery
+          </h1>
+        </div>
+        {/* Short description paragraph above categories */}
+        <div className="text-left mb-6 max-w-xl">
+          <p className="text-gray-650 text-xs md:text-sm font-outfit leading-relaxed border-l-2 border-[#BD7B88] pl-3 italic">
+            Explore our media features, press announcements, and latest events from our luxury weaving hubs.
+          </p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Category Filters */}
-        <div className="flex flex-col items-center mb-10">
+        <div className="flex flex-col items-start mb-10 border-b border-[#BD7B88]/15 pb-6">
           <div className="flex items-center gap-2 text-[#BD7B88] text-xs font-bold uppercase tracking-widest mb-4">
             <Filter size={14} />
             <span>Filter Operations</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl font-outfit">
+          <div className="flex flex-wrap justify-start gap-2.5 max-w-4xl font-outfit">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -95,13 +93,13 @@ export default function BusinessMediaGallery() {
           </div>
         </div>
 
-        {/* 3 Column Grid */}
+        {/* Grid Layout */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, idx) => (
+            {filteredItems.map((item) => (
               <motion.div
                 layout
                 key={item.id}
@@ -109,7 +107,7 @@ export default function BusinessMediaGallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="group bg-white rounded-xl border border-[#BD7B88]/15 overflow-hidden shadow-sm hover:shadow-2xl hover:border-[#BD7B88]/40 transition-all duration-300 flex flex-col h-full hover:-translate-y-2 cursor-pointer"
+                className="group bg-white rounded-xl border border-[#BD7B88]/15 overflow-hidden shadow-sm hover:shadow-2xl hover:border-[#BD7B88]/40 transition-all duration-300 flex flex-col h-full hover:-translate-y-2 cursor-pointer text-left"
                 onClick={() => setActiveItem(item)}
               >
                 {/* Image Section */}
@@ -129,23 +127,20 @@ export default function BusinessMediaGallery() {
                     </span>
                   </div>
                   {/* Category Tag */}
-                  <span className="absolute top-4 left-4 bg-[#3D223B] text-[#BD7B88] border border-[#BD7B88]/20 text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm shadow-md z-10 font-outfit">
+                  <span className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-[#3D223B] text-[#BD7B88] border border-[#BD7B88]/20 text-[7px] sm:text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 sm:px-3 sm:py-1 rounded-sm shadow-md z-10 font-outfit">
                     {item.category}
                   </span>
                 </div>
 
                 {/* Details Section */}
-                <div className="p-6 flex flex-col flex-grow bg-white text-left">
-                  <span className="flex items-center gap-1.5 text-[#BD7B88] text-[9px] font-semibold uppercase tracking-wider mb-2.5 font-outfit">
-                    <Calendar size={11} />
+                <div className="p-3 sm:p-6 flex flex-col flex-grow bg-white text-left">
+                  <span className="flex items-center gap-1.5 text-[#BD7B88] text-[7px] sm:text-[9px] font-semibold uppercase tracking-wider mb-2 font-outfit">
+                    <Calendar size={10} />
                     {item.date}
                   </span>
-                  <h3 className="font-playfair text-lg text-[#3D223B] group-hover:text-[#BD7B88] transition-colors duration-300 font-bold uppercase tracking-wide leading-snug mb-2">
+                  <h3 className="font-playfair text-xs sm:text-lg text-[#3D223B] group-hover:text-[#BD7B88] transition-colors duration-300 font-bold uppercase tracking-wide leading-snug mb-1 sm:mb-2 line-clamp-2">
                     {item.title}
                   </h3>
-                  <p className="text-[#7A6273] text-xs leading-relaxed font-outfit line-clamp-3">
-                    {item.desc}
-                  </p>
                 </div>
               </motion.div>
             ))}
