@@ -77,8 +77,43 @@ export default function Home() {
           HERO SECTION
       ══════════════════════════════════════════ */}
       <section className="w-full" style={{ background: '#F8F5EF' }}>
-        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <div className="grid grid-cols-5 gap-3 h-[250px] sm:h-[350px] lg:h-[450px]">
+        <div className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 pt-4 pb-6 sm:py-10">
+
+          {/* ── MOBILE HERO (< sm) — 4 vertical pill cards in a row ── */}
+          <div className="sm:hidden">
+            <div className="flex gap-2 h-[340px]">
+              {[
+                { label: 'Sarees', image: '/images/hero1.png', path: '/products?category=Sarees' },
+                { label: 'Fabrics', image: '/images/hero2.png', path: '/products?category=Dress+Suits' },
+                { label: 'Kids', image: '/images/hero3.png', path: '/products?category=Children+Wear' },
+                { label: 'Bedsheets', image: '/images/hero4.png', path: '/products?category=Bedsheets+%26+Linen' },
+              ].map((panel, idx) => (
+                <Link
+                  key={idx}
+                  to={panel.path}
+                  className="relative flex-1 rounded-[20px] overflow-hidden block shadow-sm active:scale-[0.98] transition-transform duration-200"
+                >
+                  <img
+                    src={panel.image}
+                    alt={panel.label}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                  {/* Dark gradient at bottom for label */}
+                  <div className="absolute inset-x-0 bottom-0 h-24 rounded-b-[20px]"
+                    style={{ background: 'linear-gradient(to top, rgba(42,51,37,0.75) 0%, transparent 100%)' }} />
+                  {/* Label */}
+                  <div className="absolute bottom-3 left-0 right-0 text-center">
+                    <span className="text-white text-[9px] font-black uppercase tracking-widest leading-none drop-shadow">
+                      {panel.label}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ── DESKTOP HERO (sm+) — 5 panel grid ── */}
+          <div className="hidden sm:grid grid-cols-5 gap-3 h-[350px] lg:h-[450px]">
             {[
               { label: 'Sarees', image: '/images/hero1.png', path: '/products?category=Sarees' },
               { label: 'Fabrics', image: '/images/hero2.png', path: '/products?category=Dress+Suits' },
@@ -101,6 +136,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* ══════════════════════════════════════════
           SHOP BY CATEGORY

@@ -46,6 +46,7 @@ export default function Navbar() {
     { name: 'CAREER', path: '/career' },
     { name: 'CUSTOMER REVIEW', path: '/reviews' },
     { name: 'BUSINESS MEDIA GALLERY', path: '/gallery' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);

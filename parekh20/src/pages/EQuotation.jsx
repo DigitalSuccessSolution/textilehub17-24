@@ -1,8 +1,23 @@
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Inbox, FileText, Send, Mail } from 'lucide-react';
+import { ClipboardCheck, FileText, Send } from 'lucide-react';
 
 const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325', textMid: '#3D3D30' };
 const inputStyle = { background: C.bg, border: `1.5px solid ${C.border}`, color: C.textDark };
+
+const activeQuotations = [
+  {
+    id: 1,
+    title: "Bulk Supply of Premium Combed Cotton Yarn",
+    description: "Submit pricing for 5000 kg of premium combed cotton yarn, 40s count, suitable for luxury bedsheets weaving.",
+    date: "June 25, 2026",
+  },
+  {
+    id: 2,
+    title: "Procurement of Varanasi Zari Silk Fabrics",
+    description: "Submit quotes for 1200 meters of double warp Banarasi zari border silk fabrics in wedding collection colorways.",
+    date: "June 28, 2026",
+  },
+];
 
 const EQuotation = () => {
   return (
@@ -19,17 +34,35 @@ const EQuotation = () => {
 
       <div className="pb-20 max-w-3xl mx-auto px-4 md:px-8 py-10">
 
-        {/* Active Quotations */}
+        {/* Active Quotation Cards */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8 text-left">
           <div className="flex items-center gap-3 mb-4">
             <ClipboardCheck size={20} color={C.primary} />
             <h2 className="font-black text-lg uppercase tracking-wide" style={{ color: C.textDark }}>Active Quotation Requests</h2>
           </div>
-          <div className="rounded-2xl py-16 flex flex-col items-center justify-center bg-white" style={{ border: `1.5px solid ${C.border}` }}>
-            <Inbox size={40} className="mb-4" color={C.primary} strokeWidth={1} />
-            <p className="text-[12px] font-black tracking-widest" style={{ color: '#4B5563' }}>
-              ( At present, No e-Quotation request published )
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {activeQuotations.map((quote) => (
+              <div
+                key={quote.id}
+                className="bg-white p-5 rounded-2xl flex items-start gap-4 transition-all duration-300 hover:shadow-md"
+                style={{ border: `1.5px solid ${C.border}` }}
+              >
+                {/* Icon */}
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: 'rgba(95,111,94,0.1)', border: '1px solid rgba(95,111,94,0.2)' }}>
+                  <FileText size={18} color={C.primary} />
+                </div>
+                <div className="flex-grow">
+                  <span className="text-[9px] font-black block mb-1 uppercase tracking-widest" style={{ color: C.accent }}>{quote.date}</span>
+                  <h3 className="text-[13px] font-black mb-1.5 uppercase tracking-wide leading-snug" style={{ color: C.textDark }}>
+                    {quote.title}
+                  </h3>
+                  <p className="text-[11px] leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
+                    {quote.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -54,7 +87,7 @@ const EQuotation = () => {
                 {[
                   { label: 'Name of the Trader *', type: 'text', req: true },
                   { label: 'Business Name *', type: 'text', req: true },
-                  { label: 'Business Address with PIN Code *', type: 'text', req: true },
+                  { label: 'Business Address with Pin Code *', type: 'text', req: true },
                   { label: 'GST No.', type: 'text', req: false },
                   { label: 'Mobile No. *', type: 'tel', req: true },
                   { label: 'Email ID *', type: 'email', req: true },
@@ -102,15 +135,6 @@ const EQuotation = () => {
               >
                 <Send size={16} /> Submit Quotation Request
               </button>
-
-              <div className="pt-2 text-center flex items-center justify-center gap-2">
-                <Mail size={14} color={C.primary} />
-                <a href="mailto:info@grandtextilemart.com"
-                  className="text-[11px] font-black tracking-widest hover:underline"
-                  style={{ color: C.primary }}>
-                  info@grandtextilemart.com
-                </a>
-              </div>
             </form>
           </div>
         </motion.div>
