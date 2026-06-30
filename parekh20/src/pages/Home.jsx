@@ -77,9 +77,8 @@ export default function Home() {
           HERO SECTION
       ══════════════════════════════════════════ */}
       <section className="w-full" style={{ background: '#F8F5EF' }}>
-        <div className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 lg:py-10">
-          {/* Mobile: 2 cols, Tablet: 3 cols, Desktop: 5 cols */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
+        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+          <div className="grid grid-cols-5 gap-3 h-[250px] sm:h-[350px] lg:h-[450px]">
             {[
               { label: 'Sarees', image: '/images/hero1.png', path: '/products?category=Sarees' },
               { label: 'Fabrics', image: '/images/hero2.png', path: '/products?category=Dress+Suits' },
@@ -90,18 +89,13 @@ export default function Home() {
               <Link
                 key={idx}
                 to={panel.path}
-                className="group relative rounded-xl overflow-hidden block w-full shadow-sm hover:shadow-md transition-all duration-300"
-                style={{ height: '160px' }}
+                className="group relative rounded-2xl overflow-hidden block w-full h-full shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <img
                   src={panel.image}
                   alt={panel.label}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <span className="absolute bottom-2 left-0 right-0 text-center text-[11px] font-black text-white tracking-wider uppercase">
-                  {panel.label}
-                </span>
               </Link>
             ))}
           </div>

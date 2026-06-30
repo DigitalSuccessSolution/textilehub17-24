@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Quote, ArrowRight } from 'lucide-react';
 
-const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325', textMid: '#3D3D30' };
+const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325' };
 
 const reviews = [
   { text: "Grand Textile Mart has been our trusted partner for years. The quality, prices and service are unmatched in the entire industry.", name: "Rajesh Sharma", role: "Retailer, Delhi", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
@@ -34,15 +34,18 @@ export default function CustomerReview() {
               transition={{ delay: idx * 0.1 }}
               className="group p-7 rounded-2xl flex flex-col bg-white cursor-pointer transition-all duration-300 hover:shadow-md"
               style={{ border: `1.5px solid ${C.border}` }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = C.primary; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; }}
             >
+              {/* Quote Icon */}
               <div className="mb-5">
                 <Quote size={30} color={C.primary} className="rotate-180" fill="rgba(95,111,94,0.15)" />
               </div>
-              <p className="leading-relaxed text-[13.5px] mb-6 flex-grow line-clamp-4 font-medium italic" style={{ color: C.textMid }}>
+
+              {/* Text */}
+              <p className="leading-relaxed text-[13.5px] mb-6 flex-grow line-clamp-4 font-medium" style={{ color: '#3D3D30' }}>
                 "{review.text}"
               </p>
+
+              {/* Footer */}
               <div className="flex items-center justify-between mt-auto pt-5" style={{ borderTop: `1px solid ${C.border}60` }}>
                 <div className="flex items-center gap-3">
                   <img

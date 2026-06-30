@@ -62,12 +62,12 @@ export default function About() {
                 <p className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#6B7280' }}>Outlets Supplied</p>
               </div>
               <div className="w-px" style={{ background: '#E2D9CC' }} />
-              <div className="flex-1">
+              <div className="flex-1 min-w-[80px]">
                 <p className="font-black text-xl" style={{ color: '#5F6F5E' }}>10M+</p>
                 <p className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#6B7280' }}>Meters Produced</p>
               </div>
               <div className="w-px" style={{ background: '#E2D9CC' }} />
-              <div className="flex-1">
+              <div className="flex-1 min-w-[80px]">
                 <p className="font-black text-xl" style={{ color: '#5F6F5E' }}>100%</p>
                 <p className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#6B7280' }}>Quality Assured</p>
               </div>

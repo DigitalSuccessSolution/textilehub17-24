@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail } from 'lucide-react';
 
-const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325', textMid: '#3D3D30' };
+const C = { primary: '#5F6F5E', accent: '#C5A880', bg: '#F8F5EF', border: '#E2D9CC', textDark: '#2A3325' };
 
 const jobs = [
-  { id: 1, title: 'Retail Operations Manager', location: 'Mumbai, India', type: 'Full-time', experience: '5-8 Years', description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.' },
-  { id: 2, title: 'Senior Fabric Technologist', location: 'Surat, India', type: 'Full-time', experience: '7+ Years', description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.' },
-  { id: 3, title: 'B2B Sales Executive', location: 'Delhi, India', type: 'Full-time', experience: '2-4 Years', description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.' },
-  { id: 4, title: 'Digital Marketing Specialist', location: 'Remote', type: 'Full-time', experience: '3+ Years', description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.' },
+  { id: 1, title: 'Retail Operations Manager', location: 'Mumbai, India', salary: '₹6.0 Lakhs - ₹9.0 Lakhs P.A.', description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.' },
+  { id: 2, title: 'Senior Fabric Technologist', location: 'Surat, India', salary: '₹8.0 Lakhs - ₹12.0 Lakhs P.A.', description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.' },
+  { id: 3, title: 'B2B Sales Executive', location: 'Delhi, India', salary: '₹4.0 Lakhs - ₹6.5 Lakhs P.A.', description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.' },
+  { id: 4, title: 'Digital Marketing Specialist', location: 'Remote', salary: '₹5.0 Lakhs - ₹8.0 Lakhs P.A.', description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.' },
 ];
 
 const Career = () => {
@@ -38,12 +38,13 @@ const Career = () => {
                 <h3 className="text-xl sm:text-2xl font-black mb-3 leading-tight" style={{ color: C.textDark }}>
                   {job.title}
                 </h3>
+
                 <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-4">
                   <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: '#4B5563' }}>
                     <MapPin size={14} color={C.primary} /> {job.location}
                   </div>
                   <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: '#4B5563' }}>
-                    <Briefcase size={14} color={C.primary} /> {job.type} · {job.experience}
+                    <Briefcase size={14} color={C.primary} /> {job.salary}
                   </div>
                   <div className="flex items-center gap-2 text-[13px] font-semibold" style={{ color: '#4B5563' }}>
                     <Mail size={14} color={C.primary} />
@@ -52,15 +53,14 @@ const Career = () => {
                     </a>
                   </div>
                 </div>
-                <p className="text-[13.5px] leading-relaxed mb-6 lg:mb-0 font-medium" style={{ color: C.textMid }}>{job.description}</p>
+
+                <p className="text-[13.5px] leading-relaxed mb-6 lg:mb-0 font-medium" style={{ color: '#3D3D30' }}>{job.description}</p>
               </div>
 
-              <div className="w-full lg:w-auto shrink-0 border-t lg:border-t-0 lg:border-l pt-5 lg:pt-0 lg:pl-8" style={{ borderColor: `${C.border}60` }}>
+              <div className="w-full lg:w-auto shrink-0 pt-5 lg:pt-0 lg:pl-8" style={{ borderTop: 'none', borderLeft: 'none' }}>
                 <button
-                  className="w-full lg:w-44 py-3.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-200 hover:opacity-95 text-white shadow-sm"
-                  style={{ background: C.primary }}
-                  onMouseEnter={e => e.currentTarget.style.background = '#3B4A32'}
-                  onMouseLeave={e => e.currentTarget.style.background = C.primary}
+                  className="w-full lg:w-44 py-3.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-200 text-white shadow-sm"
+                  style={{ background: `linear-gradient(135deg, ${C.primary} 0%, #3B4A32 100%)` }}
                 >
                   Apply Now
                 </button>
