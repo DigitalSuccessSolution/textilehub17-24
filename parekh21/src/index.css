@@ -76,6 +76,26 @@
   background: #721C2B;
 }
 
+/* Thin horizontal scrollbar for mobile categories */
+.thin-horizontal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #CDA75E #FAF6F0;
+}
+.thin-horizontal-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+.thin-horizontal-scrollbar::-webkit-scrollbar-track {
+  background: #FAF6F0;
+  border-radius: 10px;
+}
+.thin-horizontal-scrollbar::-webkit-scrollbar-thumb {
+  background: #CDA75E;
+  border-radius: 10px;
+}
+.thin-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #721C2B;
+}
+
 /* ── Preloader animations ── */
 @keyframes shimmer {
   0%   { background-position: -200% center; }

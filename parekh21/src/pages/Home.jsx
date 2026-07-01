@@ -45,19 +45,19 @@ const newArrivalProducts = [
     name: 'Embroidered Anarkali Suit',
     category: 'Kurtis',
     price: '₹3,899',
-    imageUrl: 'https://images.unsplash.com/photo-1608748010899-18f300247112?w=600&fit=crop&q=80'
+    imageUrl: 'https://images.pexels.com/photos/35741388/pexels-photo-35741388.jpeg'
   },
   {
     name: 'Designer Lehenga',
     category: 'Formal & Ethnic Wear for Women',
     price: '₹8,999',
-    imageUrl: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&fit=crop&q=80'
+    imageUrl: 'https://images.pexels.com/photos/30541606/pexels-photo-30541606.jpeg'
   },
   {
     name: 'Pure Kanchipuram Silk Fabric',
     category: 'Suiting',
     price: '₹1,699 / mtr',
-    imageUrl: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&fit=crop&q=80'
+    imageUrl: 'https://images.pexels.com/photos/32086790/pexels-photo-32086790.jpeg'
   },
   {
     name: 'Luxury Cotton Bedsheet Set',
@@ -166,7 +166,7 @@ export default function Home() {
                           marginTop: isActive ? '12px' : '0px'
                         }}
                       >
-                        <p className="text-[13px] md:text-[14px] leading-relaxed mb-6 font-medium text-white/90 max-w-md">
+                        <p className="text-[13px] md:text-[14px] leading-relaxed mb-3 md:mb-6 font-medium text-white/90 max-w-md">
                           {panel.desc}
                         </p>
                         <div>
@@ -222,7 +222,7 @@ export default function Home() {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {newArrivalProducts.slice(0,4).map((product, idx) => (
             <motion.div
               key={idx}
@@ -234,7 +234,7 @@ export default function Home() {
               style={{ borderColor: COLORS.border }}
             >
               {/* Product Image */}
-              <div className="relative h-56 sm:h-64 overflow-hidden">
+              <div className="relative h-40 sm:h-64 overflow-hidden">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
@@ -245,7 +245,7 @@ export default function Home() {
                 />
                 {/* Accent Tag */}
                 <div 
-                  className="absolute top-4 left-4 px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase text-white shadow-sm"
+                  className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[8px] font-bold tracking-widest uppercase text-white shadow-sm"
                   style={{ background: COLORS.primary }}
                 >
                   NEW
@@ -253,22 +253,22 @@ export default function Home() {
               </div>
               
               {/* Card Label */}
-              <div className="p-4">
-                <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: COLORS.accent }}>
+              <div className="p-3 sm:p-4">
+                <span className="text-[9px] sm:text-[10px] font-bold tracking-widest uppercase" style={{ color: COLORS.accent }}>
                   {product.category}
                 </span>
-                <h3 className="text-lg font-black mt-1 mb-2 leading-snug" style={{ color: COLORS.textDark }}>
+                <h3 className="text-xs sm:text-lg font-black mt-1 mb-2 leading-snug line-clamp-2" style={{ color: COLORS.textDark }}>
                   {product.name}
                 </h3>
-                <div className="flex justify-between items-center mt-4 pt-4 border-t" style={{ borderColor: `${COLORS.border}50` }}>
+                <div className="flex justify-between items-center mt-3 pt-3 border-t text-[10px] sm:text-xs" style={{ borderColor: `${COLORS.border}50` }}>
                   <Link
                     to={`/products?category=${encodeURIComponent(product.category)}`}
-                    className="inline-flex items-center gap-1.5 text-[10px] font-black tracking-wider uppercase transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-black tracking-wider uppercase transition-colors"
                     style={{ color: COLORS.textDark }}
                     onMouseEnter={e => e.currentTarget.style.color = COLORS.primary}
                     onMouseLeave={e => e.currentTarget.style.color = COLORS.textDark}
                   >
-                    View Details <ArrowRight size={11} />
+                    Details <ArrowRight size={10} className="shrink-0" />
                   </Link>
                 </div>
               </div>

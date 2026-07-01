@@ -7,7 +7,7 @@ export default function Footer() {
       {/* Accent top gold bar */}
       <div className="h-0.5 w-full" style={{ background: '#C5A880' }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 pb-5 sm:pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
 
           {/* Brand Column - full width on mobile */}
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="mt-8 pt-4 pb-1 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
           <p className="text-xs tracking-wide font-semibold" style={{ color: 'rgba(248,245,239,0.6)' }}>
             © 2026 · All Rights Reserved · GRAND TEXTILE MART
           </p>

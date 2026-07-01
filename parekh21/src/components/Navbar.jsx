@@ -41,12 +41,12 @@ export default function Navbar() {
   ];
 
   const moreLinks = [
-    { name: 'BLOG PAGE', path: '/blog' },
+    { name: 'BLOG', path: '/blog' },
     { name: 'NOTICE BOARD', path: '/notice-board' },
-    { name: 'CAREER PAGE', path: '/career' },
+    { name: 'CAREER', path: '/career' },
     { name: 'CUSTOMER REVIEW', path: '/reviews' },
     { name: 'BUSINESS MEDIA GALLERY', path: '/gallery' },
-    { name: 'FAQ PAGE', path: '/faq' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);
@@ -185,7 +185,7 @@ export default function Navbar() {
 
       {/* ── MOBILE DRAWER NAVIGATION ── */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 top-[70px] bg-white z-40 flex flex-col" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <div className="md:hidden fixed inset-0 bg-white z-40 flex flex-col" style={{ top: scrolled ? '53px' : '61px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           <div className="flex-1 overflow-y-auto px-4 py-6 pb-20 space-y-1 text-left">
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;

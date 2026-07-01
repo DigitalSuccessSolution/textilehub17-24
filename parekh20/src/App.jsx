@@ -16,18 +16,29 @@ import CustomerReview from './pages/CustomerReview';
 import BusinessMediaGallery from './pages/BusinessMediaGallery';
 import FAQ from './pages/FAQ';
 import Preloader from './components/Preloader';
+import WelcomePopup from './components/WelcomePopup';
 import ScrollToTop from './components/ScrollToTop';
 import { useState, useEffect } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // Premium preloader timing
-    const timer = setTimeout(() => {
+    // Preloader timing
+    const preloaderTimer = setTimeout(() => {
       setLoading(false);
     }, 3700);
-    return () => clearTimeout(timer);
+
+    // Popup appears 500ms after preloader finishes
+    const popupTimer = setTimeout(() => {
+      setShowPopup(true);
+    }, 4200);
+
+    return () => {
+      clearTimeout(preloaderTimer);
+      clearTimeout(popupTimer);
+    };
   }, []);
 
   return (
@@ -52,7 +63,12 @@ function App() {
           <Route path="faq" element={<FAQ />} />
         </Route>
       </Routes>
+
+      {/* Preloader */}
       {loading && <Preloader />}
+
+      {/* Welcome Popup — appears after preloader */}
+      <WelcomePopup show={showPopup} onClose={() => setShowPopup(false)} />
     </Router>
   );
 }

@@ -1,17 +1,25 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const C = { primary: '#721C2B', primaryDark: '#4A0E17', accent: '#CDA75E', bg: '#FAF6F0', bgLight: '#FCEEF1', border: '#E6D8C5', textDark: '#330A10', textMid: '#554447', textMuted: '#7D6A6D' };
 
+const categories = ["All", "Event", "Exhibition", "Showroom", "Workshop"];
+
 const galleryItems = [
-  { title: "Global Textile Summit 2026", desc: "Our leadership team presenting the future of sustainable fabrics to international delegates and industry leaders.", category: "Event", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=60" },
-  { title: "New Manufacturing Unit Inauguration", desc: "Expanding our footprint with a state-of-the-art facility in Gujarat, boosting our production capacity by 40%.", category: "Infrastructure", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=60" },
-  { title: "Award for Excellence in Exports", desc: "Receiving the national award for outstanding contribution to textile exports from the Ministry of Commerce.", category: "Achievement", image: "https://images.unsplash.com/photo-1561489422-45de3d015e3e?w=800&auto=format&fit=crop&q=60" },
-  { title: "Annual Retailers Meet", desc: "Celebrating success and building stronger bonds with our 50,000+ retail partners across India.", category: "Community", image: "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=800&auto=format&fit=crop&q=60" },
-  { title: "Launch of Eco-Weave Collection", desc: "A milestone event marking our commitment to 100% organic materials and environmentally friendly dyes.", category: "Product Launch", image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=60" },
-  { title: "Skill Development Workshop", desc: "Empowering local artisans and weavers with modern textile technologies to preserve heritage crafts.", category: "CSR Initiative", image: "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=800&auto=format&fit=crop&q=60" },
+  { title: "Grand Showroom Launch in Mumbai", date: "Oct 12, 2026", category: "Exhibition", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80" },
+  { title: "National Handloom Day Celebrations", date: "Aug 07, 2026", category: "Event", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&auto=format&fit=crop&q=80" },
+  { title: "Unveiling the Royal Bridal Collection", date: "Sep 01, 2026", category: "Showroom", image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&auto=format&fit=crop&q=80" },
+  { title: "Weavers & Artisans Development Workshop", date: "Jun 24, 2026", category: "Workshop", image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&auto=format&fit=crop&q=80" },
+  { title: "Annual Textile Merchants Summit", date: "Nov 10, 2026", category: "Event", image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80" }
 ];
 
 export default function BusinessMediaGallery() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredItems = activeCategory === "All"
+    ? galleryItems
+    : galleryItems.filter(item => item.category === activeCategory);
+
   return (
     <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
 
@@ -26,42 +34,72 @@ export default function BusinessMediaGallery() {
         </div>
       </div>
 
-      <div className="pb-20 max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-          {galleryItems.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
-              className="group rounded-2xl overflow-hidden flex flex-col bg-white cursor-pointer transition-all duration-300 hover:shadow-md"
-              style={{ border: `1.5px solid ${C.border}` }}
-            >
-              <div className="relative w-full aspect-[4/3] overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter saturate-[0.9]"
-                />
-                <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-white shadow-sm"
-                  style={{ background: 'rgba(42,51,37,0.7)', backdropFilter: 'blur(8px)' }}>
-                  {item.category}
-                </div>
-              </div>
+      {/* Intro & Categories Navigation */}
+      <div className="max-w-7xl mx-auto px-4 pt-12 text-center">
+        {/* Short 1-line paragraph above categories */}
+        <p className="text-[13px] sm:text-sm font-semibold tracking-wide mb-5 max-w-xl mx-auto" style={{ color: '#6B7280' }}>
+          Explore key business highlights, collection reveals, and artisan meets at Ethnic Elegance.
+        </p>
 
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="font-black text-base mb-2 leading-snug transition-colors"
-                  style={{ color: C.textDark }}>
-                  {item.title}
-                </h3>
-                <p className="text-[12.5px] font-medium leading-relaxed line-clamp-3" style={{ color: C.textMid }}>
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
+        {/* Categories navigation */}
+        <div className="flex justify-center flex-wrap gap-2 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className="px-4 py-2 rounded-full text-[12px] font-bold transition-all duration-200 cursor-pointer shadow-sm"
+              style={activeCategory === cat
+                ? { background: C.primary, color: '#fff' }
+                : { background: '#FFFFFF', color: C.textMid, border: `1.5px solid ${C.border}` }
+              }
+            >
+              {cat}
+            </button>
           ))}
         </div>
+      </div>
+
+      <div className="pb-20 max-w-7xl mx-auto px-4">
+        {filteredItems.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
+            {filteredItems.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="group rounded-2xl overflow-hidden flex flex-col bg-white transition-all duration-300 hover:shadow-md"
+                style={{ border: `1.5px solid ${C.border}` }}
+              >
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-white shadow-sm"
+                    style={{ background: 'rgba(114,28,43,0.9)', backdropFilter: 'blur(8px)' }}>
+                    {item.category}
+                  </div>
+                </div>
+
+                <div className="p-5 flex flex-col flex-1">
+                  <span className="text-[10px] font-black uppercase tracking-widest mb-1.5" style={{ color: C.accent }}>
+                    {item.date}
+                  </span>
+                  <h3 className="font-black text-sm leading-snug" style={{ color: C.textDark }}>
+                    {item.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-sm font-semibold" style={{ color: C.textMuted }}>No gallery items found in this category.</p>
+          </div>
+        )}
       </div>
     </div>
   );

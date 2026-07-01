@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const BRAND = {
   name: 'Grand Textile Mart',
@@ -183,66 +184,121 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── MOBILE DRAWER NAVIGATION ── */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 top-[70px] bg-white z-40 flex flex-col" style={{ fontFamily: "'Outfit', sans-serif" }}>
-          <div className="flex-1 overflow-y-auto px-4 py-6 pb-20 space-y-1">
-            {mainLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-[13px] font-bold tracking-wider transition-all duration-200"
-                  style={{
-                    background: isActive ? '#EFF3EB' : 'transparent',
-                    color: isActive ? '#5F6F5E' : '#2A3325',
-                    borderLeft: isActive ? '4px solid #5F6F5E' : '4px solid transparent',
-                  }}
-                >
-                  <span>{link.name}</span>
-                </Link>
-              );
-            })}
+      {/* ── MOBILE DRAWER NAVIGATION (Slide-out Panel) ── */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[3px]"
+            />
 
-            <div className="h-px my-4" style={{ background: '#E2D9CC' }} />
-            <p className="px-4 text-[9px] font-bold tracking-[0.2em] uppercase mb-2" style={{ color: '#6B7280' }}>More Pages</p>
-
-            <div className="space-y-1 pl-2">
-              {moreLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center px-4 py-3 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200"
-                    style={{
-                      background: isActive ? '#F8F5EF' : 'transparent',
-                      color: isActive ? '#C5A880' : '#6B7280',
-                    }}
+            {/* Sidebar Panel */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="md:hidden fixed inset-y-0 right-0 w-[80%] max-w-[320px] bg-white z-50 shadow-2xl flex flex-col"
+              style={{ fontFamily: "'Outfit', sans-serif" }}
+            >
+              {/* Drawer Header */}
+              <div className="p-4 border-b flex justify-between items-center bg-[#F8F5EF]" style={{ borderColor: '#E2D9CC' }}>
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ background: 'linear-gradient(135deg, #5F6F5E, #3B4A32)' }}
                   >
-                    <span>{link.name}</span>
-                  </Link>
-                );
-              })}
-            </div>
+                    <svg viewBox="0 0 100 100" className="w-5 h-5 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 35 C20 35, 50 20, 80 35 L80 55 C80 70, 65 80, 50 80 C35 80, 20 70, 20 55 Z"
+                        stroke="currentColor" strokeWidth="4" fill="none" strokeLinejoin="round" />
+                      <path d="M30 45 L50 55 L70 45" stroke="#C5A880" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-sm font-black tracking-[0.05em] uppercase" style={{ color: '#2A3325' }}>
+                      Grand Textile
+                    </span>
+                    <span className="text-[7px] tracking-[0.2em] uppercase font-bold" style={{ color: '#C5A880' }}>
+                      textile hub
+                    </span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-1.5 rounded-lg hover:bg-black/5 transition-colors"
+                  style={{ color: '#2A3325' }}
+                >
+                  <X size={20} />
+                </button>
+              </div>
 
-            <div className="pt-6 px-4">
-              <Link
-                to="/trade-enquiry"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase text-white transition-all duration-300 shadow-md w-full"
-                style={{ background: '#5F6F5E' }}
-              >
-                <Phone size={13} />
-                Trade Enquiry
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+              {/* Drawer Links */}
+              <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
+                {mainLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between px-4 py-3 rounded-xl text-[12px] font-bold tracking-wider transition-all duration-200"
+                      style={{
+                        background: isActive ? '#EFF3EB' : 'transparent',
+                        color: isActive ? '#5F6F5E' : '#2A3325',
+                        borderLeft: isActive ? '3.5px solid #5F6F5E' : '3.5px solid transparent',
+                      }}
+                    >
+                      <span>{link.name}</span>
+                    </Link>
+                  );
+                })}
+
+                <div className="h-px my-3" style={{ background: '#E2D9CC' }} />
+                <p className="px-4 text-[9px] font-black tracking-[0.2em] uppercase mb-1.5" style={{ color: '#C5A880' }}>More Pages</p>
+
+                <div className="space-y-0.5 pl-1">
+                  {moreLinks.map((link) => {
+                    const isActive = location.pathname === link.path;
+                    return (
+                      <Link
+                        key={link.name}
+                        to={link.path}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center px-4 py-2.5 rounded-lg text-[12px] font-bold tracking-wider transition-all duration-200"
+                        style={{
+                          background: isActive ? '#F8F5EF' : 'transparent',
+                          color: isActive ? '#5F6F5E' : '#6B7280',
+                          borderLeft: isActive ? '3px solid #C5A880' : '3px solid transparent',
+                        }}
+                      >
+                        <span>{link.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Drawer Footer Call to Action */}
+              <div className="p-4 border-t bg-white" style={{ borderColor: '#E2D9CC' }}>
+                <Link
+                  to="/trade-enquiry"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 py-3 rounded-full text-xs font-bold tracking-wider uppercase text-white transition-all duration-300 shadow-md w-full active:scale-95"
+                  style={{ background: 'linear-gradient(135deg, #5F6F5E, #3B4A32)' }}
+                >
+                  <Phone size={13} />
+                  Trade Enquiry
+                </Link>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

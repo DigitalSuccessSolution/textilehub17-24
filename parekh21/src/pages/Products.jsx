@@ -11,12 +11,18 @@ const categories = [
 ];
 
 const allProducts = [
-  { id: 101, name: 'Premium Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1609748340041-f5d61e061ebc?w=600&auto=format&fit=crop&q=60' },
-  { id: 105, name: 'Embroidered Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610189013233-0498b89d4fb9?w=600&auto=format&fit=crop&q=60' },
-  { id: 102, name: 'Designer Kurti Set', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60' },
-  { id: 106, name: 'Printed Cotton Kurti', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1745313452052-0e4e341f326c?w=600&auto=format&fit=crop&q=60' },
-  { id: 103, name: 'Luxury Cotton Bedsheet', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60' },
-  { id: 104, name: 'Classic Men Suit Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60' },
+  { id: 101, name: 'Royal Banarasi Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=60' },
+  { id: 102, name: 'Premium Stretch Leggings', category: 'Leggings', image: 'https://images.pexels.com/photos/16701772/pexels-photo-16701772.jpeg' },
+  { id: 103, name: 'Chanderi Embroidered Kurti', category: 'Kurtis', image: 'https://images.pexels.com/photos/22064227/pexels-photo-22064227.jpeg' },
+  { id: 104, name: 'Corporate Slim-Fit Dress Suit', category: 'Dress Suits', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=60' },
+  { id: 105, name: 'Luxury Egyptian Bed Linen', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60' },
+  { id: 106, name: 'Premium Cotton Hosiery Wear', category: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=600&auto=format&fit=crop&q=60' },
+  { id: 107, name: 'Royal English Wool Suiting', category: 'Suiting', image: 'https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=600' },
+  { id: 108, name: 'Classic Giza Cotton Shirting', category: 'Shirting', image: 'https://images.pexels.com/photos/769749/pexels-photo-769749.jpeg?auto=compress&cs=tinysrgb&w=600' },
+  { id: 109, name: 'Embroidered Festive Lehenga', category: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&auto=format&fit=crop&q=60' },
+  { id: 110, name: 'Silk Jacquard Sherwani', category: 'Formal & Ethnic Wear for Men', image: 'https://images.pexels.com/photos/16199169/pexels-photo-16199169.jpeg' },
+  { id: 111, name: 'Kids Ethnic Kurta Pajama', category: 'Formal & Ethnic Wear for Children', image: 'https://images.pexels.com/photos/17015459/pexels-photo-17015459.jpeg' },
+  { id: 112, name: 'Premium Brocade Upholstery', category: 'Home Upholstery & Furnishing', image: 'https://images.pexels.com/photos/6987726/pexels-photo-6987726.jpeg' },
 ];
 
 const C = {
@@ -105,7 +111,7 @@ export default function Products() {
           <div className="flex-grow w-full">
 
             {/* Mobile Categories — horizontal scroll */}
-            <div className="lg:hidden flex overflow-x-auto gap-2 pb-5 mb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="lg:hidden flex overflow-x-auto gap-2 pb-3 mb-4 thin-horizontal-scrollbar">
               {['All', ...categories].map(cat => {
                 const isActive = activeCategory === cat;
                 return (
@@ -126,7 +132,7 @@ export default function Products() {
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-left">
                 {filteredProducts.map(product => (
                   <motion.div
                     key={product.id}
@@ -136,7 +142,7 @@ export default function Products() {
                     className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-white"
                     style={{ border: `1.5px solid ${C.border}` }}
                   >
-                    <div className="h-60 w-full relative overflow-hidden">
+                    <div className="h-40 sm:h-60 w-full relative overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.name}
@@ -146,10 +152,10 @@ export default function Products() {
                         style={{ background: 'rgba(42,51,37,0.2)' }} />
                     </div>
                     <div className="p-4 text-center" style={{ borderTop: `1px solid ${C.border}` }}>
-                      <p className="text-[10px] uppercase tracking-widest font-black mb-1.5" style={{ color: C.accent }}>
+                      <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-black mb-1.5" style={{ color: C.accent }}>
                         {product.category}
                       </p>
-                      <h3 className="font-black text-base" style={{ color: C.textDark }}>
+                      <h3 className="font-black text-xs sm:text-base line-clamp-2" style={{ color: C.textDark }}>
                         {product.name}
                       </h3>
                     </div>

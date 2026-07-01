@@ -4,10 +4,10 @@ import { Bell, ChevronRight } from 'lucide-react';
 const C = { primary: '#721C2B', primaryDark: '#4A0E17', accent: '#CDA75E', bg: '#FAF6F0', bgLight: '#FCEEF1', border: '#E6D8C5', textDark: '#330A10', textMid: '#554447', textMuted: '#7D6A6D' };
 
 const notices = [
-  { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', isNew: true },
-  { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026', isNew: true },
-  { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', isNew: true },
-  { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', isNew: true },
+  { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', description: 'Notice is hereby given that the Annual General Meeting of Ethnic Elegance partners and stakeholders will be held to discuss fiscal performance and expansion plans.' },
+  { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026', description: 'Our Mumbai central warehouse will remain closed for standard bi-annual maintenance and technical systems integration from October 24 to October 26.' },
+  { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', description: 'To streamline distribution, we are integrating automated e-Way bill generations inside our partner merchant portal starting next month.' },
+  { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', description: 'We are expanding our retail footprint. Applications are invited for the post of Zonal Sales Managers across West and South India regions.' },
 ];
 
 const NoticeBoard = () => {
@@ -28,10 +28,9 @@ const NoticeBoard = () => {
           {notices.map((notice) => (
             <div
               key={notice.id}
-              className="group rounded-2xl p-5 bg-white cursor-pointer flex flex-col justify-between transition-all duration-300 hover:shadow-md"
+              className="group rounded-2xl p-6 bg-white flex flex-col justify-between transition-all duration-300 hover:shadow-md"
               style={{
-                border: notice.isNew ? `1.5px solid rgba(114,28,43,0.3)` : `1.5px solid ${C.border}`,
-                borderTop: notice.isNew ? `4px solid ${C.primary}` : `1.5px solid ${C.border}`,
+                border: `1.5px solid ${C.border}`,
               }}
             >
               <div>
@@ -40,23 +39,16 @@ const NoticeBoard = () => {
                     style={{ background: 'rgba(114,28,43,0.08)', border: '1px solid rgba(114,28,43,0.2)' }}>
                     <Bell size={18} color={C.primary} />
                   </div>
-                  {notice.isNew && (
-                    <span className="text-[9px] px-2.5 py-1 rounded-full font-black uppercase tracking-widest"
-                      style={{ color: C.primary, background: C.bgLight }}>
-                      NEW
-                    </span>
-                  )}
                 </div>
-                <div className="flex flex-col mb-4">
-                  <span className="text-[11px] font-black uppercase tracking-wider mb-2" style={{ color: '#6B7280' }}>{notice.date}</span>
-                  <h3 className="text-[14px] font-black leading-snug line-clamp-3" style={{ color: C.textDark }}>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-black uppercase tracking-wider mb-2" style={{ color: C.accent }}>{notice.date}</span>
+                  <h3 className="text-[14.5px] font-black leading-snug mb-3.5" style={{ color: C.textDark }}>
                     {notice.title}
                   </h3>
+                  <p className="text-[12.5px] leading-relaxed font-medium" style={{ color: C.textMid }}>
+                    {notice.description}
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-center justify-between pt-4 mt-auto" style={{ borderTop: `1px solid ${C.border}60` }}>
-                <span className="text-[11px] font-black tracking-wide" style={{ color: C.primary }}>Read More</span>
-                <ChevronRight size={16} className="shrink-0 transition-transform group-hover:translate-x-1" color={C.primary} />
               </div>
             </div>
           ))}

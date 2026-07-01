@@ -16,16 +16,19 @@ import CustomerReview from './pages/CustomerReview';
 import BusinessMediaGallery from './pages/BusinessMediaGallery';
 import FAQ from './pages/FAQ';
 import Preloader from './components/Preloader';
+import WelcomePopup from './components/WelcomePopup';
 import ScrollToTop from './components/ScrollToTop';
 import { useState, useEffect } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     // Premium preloader timing
     const timer = setTimeout(() => {
       setLoading(false);
+      setShowPopup(true);
     }, 3700);
     return () => clearTimeout(timer);
   }, []);
@@ -53,6 +56,7 @@ function App() {
         </Route>
       </Routes>
       {loading && <Preloader />}
+      <WelcomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </Router>
   );
 }

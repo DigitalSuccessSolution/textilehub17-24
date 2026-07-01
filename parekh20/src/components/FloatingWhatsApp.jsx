@@ -27,9 +27,9 @@ const FloatingWhatsApp = () => {
       <div
         className="w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110"
         style={{
-          background: 'linear-gradient(135deg, #5F6F5E 0%, #3B4A32 100%)',
+          background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
           border: '2px solid rgba(255,255,255,0.3)',
-          boxShadow: '0 6px 20px rgba(95,111,94,0.35)',
+          boxShadow: '0 6px 20px rgba(37,211,102,0.4)',
         }}
       >
         <svg

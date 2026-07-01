@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 
 // ── Same categories as parekh19 in same order ──
 const shopCategories = [
@@ -18,28 +19,25 @@ const shopCategories = [
   { name: 'Home Upholstery & Furnishing', imageUrl: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=300&fit=crop&q=80' },
 ];
 
-// Hero slides — 4 image panels like the reference image
-const heroImagePanels = [
-  {
-    label: 'Women',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=500&fit=crop&q=80',
-    path: '/products?category=Women+Wear',
-  },
-  {
-    label: 'Fabrics',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop&q=80',
-    path: '/products?category=Dress+Suits',
-  },
-  {
-    label: 'Kids Wear',
-    image: 'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&h=500&fit=crop&q=80',
-    path: '/products?category=Children+Wear',
-  },
-  {
-    label: 'Bedsheets',
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&h=500&fit=crop&q=80',
-    path: '/products?category=Bedsheets',
-  },
+// All 8 hero images flat
+const allHeroImages = [
+  { label: 'Sarees',      image: '/images/hero1.png' },
+  { label: 'Fabrics',     image: '/images/hero2.png' },
+  { label: 'Kids Wear',   image: '/images/hero3.png' },
+  { label: 'Bedsheets',   image: '/images/hero4.png' },
+  { label: 'Women Wear',  image: 'https://images.pexels.com/photos/5418894/pexels-photo-5418894.jpeg?auto=compress&cs=tinysrgb&w=600' },
+  { label: 'Ethnic Wear', image: 'https://images.pexels.com/photos/30916976/pexels-photo-30916976.jpeg?auto=compress&cs=tinysrgb&w=600' },
+  { label: 'Collection',  image: 'https://images.pexels.com/photos/37420545/pexels-photo-37420545.jpeg?auto=compress&cs=tinysrgb&w=600' },
+  { label: 'Furnishing',  image: 'https://images.pexels.com/photos/30324297/pexels-photo-30324297.jpeg?auto=compress&cs=tinysrgb&w=600' },
+];
+// Desktop: 2 groups of 4
+const desktopGroups = [allHeroImages.slice(0, 4), allHeroImages.slice(4, 8)];
+// Mobile: 4 groups of 2
+const mobileGroups = [
+  allHeroImages.slice(0, 2),
+  allHeroImages.slice(2, 4),
+  allHeroImages.slice(4, 6),
+  allHeroImages.slice(6, 8),
 ];
 
 const stats = [
@@ -70,70 +68,218 @@ const COLORS = {
 };
 
 export default function Home() {
+  // ── DESKTOP SLIDER (2 groups of 4) ──
+  const deskExtended = [...desktopGroups, desktopGroups[0]];
+  const [dIdx, setDIdx] = useState(0);
+  const [dTr, setDTr]   = useState(true);
+  const dBusy = useRef(false);
+
+  // ── MOBILE SLIDER (4 groups of 2) ──
+  const mobExtended = [...mobileGroups, mobileGroups[0]];
+  const [mIdx, setMIdx] = useState(0);
+  const [mTr, setMTr]   = useState(true);
+  const mBusy = useRef(false);
+
+  // ── Shared helper: make slider ──
+  const makeSlider = (extended, idx, setIdx, tr, setTr, busy) => ({
+    goNext: () => {
+      if (busy.current) return;
+      busy.current = true;
+      setTr(true);
+      setIdx(p => p + 1);
+    },
+    goPrev: () => {
+      if (busy.current) return;
+      busy.current = true;
+      setTr(true);
+      setIdx(p => (p <= 0 ? extended.length - 2 : p - 1));
+    },
+    onEnd: () => {
+      if (idx === extended.length - 1) {
+        setTr(false);
+        setIdx(0);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          setTr(true);
+          busy.current = false;
+        }));
+      } else {
+        busy.current = false;
+      }
+    },
+  });
+
+  const desk = makeSlider(deskExtended, dIdx, setDIdx, dTr, setDTr, dBusy);
+  const mob  = makeSlider(mobExtended,  mIdx, setMIdx, mTr, setMTr, mBusy);
+
+  // Auto-play both in sync
+  useEffect(() => {
+    const t = setInterval(() => {
+      desk.goNext();
+      mob.goNext();
+    }, 4000);
+    return () => clearInterval(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const dActiveDot = dIdx % desktopGroups.length;
+  const mActiveDot = mIdx % mobileGroups.length;
+
+  // Chevron button style
+  const chevBtn = (onClick, side) => (
+    <button
+      onClick={onClick}
+      className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center
+                 w-9 h-9 sm:w-11 sm:h-11 rounded-full
+                 transition-all duration-200 hover:scale-110 active:scale-95"
+      style={{
+        [side]: '10px',
+        background: 'rgba(255,255,255,0.82)',
+        backdropFilter: 'blur(6px)',
+        border: '1.5px solid rgba(197,168,128,0.35)',
+        boxShadow: '0 4px 16px rgba(42,51,37,0.18)',
+      }}
+      aria-label={side === 'left' ? 'Previous' : 'Next'}
+    >
+      {side === 'left'
+        ? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B4A32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        : <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B4A32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      }
+    </button>
+  );
+
   return (
     <div className="w-full pb-10" style={{ background: COLORS.bg, fontFamily: "'Outfit', sans-serif" }}>
 
-      {/* ══════════════════════════════════════════
-          HERO SECTION
-      ══════════════════════════════════════════ */}
+      {/* ══ HERO INFINITE SLIDER ══ */}
       <section className="w-full" style={{ background: '#F8F5EF' }}>
-        <div className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 pt-4 pb-6 sm:py-10">
+        <div className="max-w-[85rem] mx-auto px-3 sm:px-6 lg:px-8 pt-4 pb-2 sm:pb-3 sm:pt-10">
 
-          {/* ── MOBILE HERO (< sm) — 4 vertical pill cards in a row ── */}
+          {/* ── MOBILE SLIDER (< sm): 2 images per slide ── */}
           <div className="sm:hidden">
-            <div className="flex gap-2 h-[340px]">
-              {[
-                { label: 'Sarees', image: '/images/hero1.png', path: '/products?category=Sarees' },
-                { label: 'Fabrics', image: '/images/hero2.png', path: '/products?category=Dress+Suits' },
-                { label: 'Kids', image: '/images/hero3.png', path: '/products?category=Children+Wear' },
-                { label: 'Bedsheets', image: '/images/hero4.png', path: '/products?category=Bedsheets+%26+Linen' },
-              ].map((panel, idx) => (
-                <Link
-                  key={idx}
-                  to={panel.path}
-                  className="relative flex-1 rounded-[20px] overflow-hidden block shadow-sm active:scale-[0.98] transition-transform duration-200"
-                >
-                  <img
-                    src={panel.image}
-                    alt={panel.label}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                  />
-                  {/* Dark gradient at bottom for label */}
-                  <div className="absolute inset-x-0 bottom-0 h-24 rounded-b-[20px]"
-                    style={{ background: 'linear-gradient(to top, rgba(42,51,37,0.75) 0%, transparent 100%)' }} />
-                  {/* Label */}
-                  <div className="absolute bottom-3 left-0 right-0 text-center">
-                    <span className="text-white text-[9px] font-black uppercase tracking-widest leading-none drop-shadow">
-                      {panel.label}
-                    </span>
-                  </div>
-                </Link>
+            {/* Outer relative — buttons sit here, OUTSIDE overflow-hidden */}
+            <div className="relative">
+              {/* Left chevron — outside images */}
+              <button onClick={mob.goPrev}
+                className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ left: '-4px', background: 'rgba(255,255,255,0.9)', border: '1.5px solid rgba(197,168,128,0.4)', boxShadow: '0 3px 12px rgba(42,51,37,0.18)' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B4A32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+
+              {/* Track — overflow hidden, slightly inset for chevrons */}
+              <div className="overflow-hidden rounded-2xl mx-5">
+                <div className="flex" onTransitionEnd={mob.onEnd}
+                  style={{
+                    width: `${mobExtended.length * 100}%`,
+                    transform: `translateX(-${(mIdx * 100) / mobExtended.length}%)`,
+                    transition: mTr ? 'transform 0.72s cubic-bezier(0.86,0,0.07,1)' : 'none',
+                    willChange: 'transform',
+                  }}>
+                  {mobExtended.map((group, si) => (
+                    <div key={si} style={{ width: `${100 / mobExtended.length}%` }} className="flex-shrink-0">
+                      <div className="flex gap-2 h-[310px]">
+                        {group.map((panel, idx) => (
+                          <div key={idx} className="relative flex-1 rounded-[18px] overflow-hidden shadow-sm">
+                            <img src={panel.image} alt={panel.label}
+                              className="absolute inset-0 w-full h-full object-cover object-top" />
+                            <div className="absolute inset-x-0 bottom-0 h-20 rounded-b-[18px]"
+                              style={{ background: 'linear-gradient(to top,rgba(42,51,37,0.8) 0%,transparent 100%)' }} />
+                            <div className="absolute bottom-2.5 left-0 right-0 text-center">
+                              <span className="text-white text-[9px] font-black uppercase tracking-widest drop-shadow">
+                                {panel.label}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right chevron — outside images */}
+              <button onClick={mob.goNext}
+                className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ right: '-4px', background: 'rgba(255,255,255,0.9)', border: '1.5px solid rgba(197,168,128,0.4)', boxShadow: '0 3px 12px rgba(42,51,37,0.18)' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B4A32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            {/* Mobile dots — BELOW images, centered */}
+            <div className="flex justify-center gap-2 mt-3">
+              {mobileGroups.map((_, i) => (
+                <span key={i} className="rounded-full transition-all duration-300 block"
+                  style={{
+                    width: mActiveDot === i ? '18px' : '7px',
+                    height: '7px',
+                    background: mActiveDot === i ? '#C5A880' : '#D4C9BD',
+                  }} />
               ))}
             </div>
           </div>
 
-          {/* ── DESKTOP HERO (sm+) — 5 panel grid ── */}
-          <div className="hidden sm:grid grid-cols-5 gap-3 h-[350px] lg:h-[450px]">
-            {[
-              { label: 'Sarees', image: '/images/hero1.png', path: '/products?category=Sarees' },
-              { label: 'Fabrics', image: '/images/hero2.png', path: '/products?category=Dress+Suits' },
-              { label: 'Kids Wear', image: '/images/hero3.png', path: '/products?category=Children+Wear' },
-              { label: 'Bedsheets', image: '/images/hero4.png', path: '/products?category=Bedsheets+%26+Linen' },
-              { label: 'Women Wear', image: '/images/hero5.png', path: '/products?category=Women+Wear' },
-            ].map((panel, idx) => (
-              <Link
-                key={idx}
-                to={panel.path}
-                className="group relative rounded-2xl overflow-hidden block w-full h-full shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <img
-                  src={panel.image}
-                  alt={panel.label}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </Link>
-            ))}
+          {/* ── DESKTOP SLIDER (sm+): 4 images per slide ── */}
+          <div className="hidden sm:block">
+            {/* Outer relative — buttons outside overflow-hidden */}
+            <div className="relative">
+              {/* Left chevron — outside images */}
+              <button onClick={desk.goPrev}
+                className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ left: '-6px', background: 'rgba(255,255,255,0.92)', border: '1.5px solid rgba(197,168,128,0.4)', boxShadow: '0 4px 16px rgba(42,51,37,0.18)' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B4A32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+
+              {/* Track — overflow hidden, inset from chevrons */}
+              <div className="overflow-hidden rounded-3xl mx-6">
+                <div className="flex" onTransitionEnd={desk.onEnd}
+                  style={{
+                    width: `${deskExtended.length * 100}%`,
+                    transform: `translateX(-${(dIdx * 100) / deskExtended.length}%)`,
+                    transition: dTr ? 'transform 0.75s cubic-bezier(0.86,0,0.07,1)' : 'none',
+                    willChange: 'transform',
+                  }}>
+                  {deskExtended.map((group, si) => (
+                    <div key={si} style={{ width: `${100 / deskExtended.length}%` }} className="flex-shrink-0">
+                      <div className="grid grid-cols-4 gap-3 h-[350px] lg:h-[450px]">
+                        {group.map((panel, idx) => (
+                          <div key={idx} className="relative rounded-2xl overflow-hidden w-full h-full shadow-sm">
+                            <img src={panel.image} alt={panel.label}
+                              className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="absolute inset-x-0 bottom-0 h-20"
+                              style={{ background: 'linear-gradient(to top,rgba(42,51,37,0.65) 0%,transparent 100%)' }} />
+                            <div className="absolute bottom-3 left-0 right-0 text-center">
+                              <span className="text-white text-[11px] font-black uppercase tracking-widest drop-shadow">
+                                {panel.label}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right chevron — outside images */}
+              <button onClick={desk.goNext}
+                className="absolute top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 hover:scale-110 active:scale-95"
+                style={{ right: '-6px', background: 'rgba(255,255,255,0.92)', border: '1.5px solid rgba(197,168,128,0.4)', boxShadow: '0 4px 16px rgba(42,51,37,0.18)' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B4A32" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            {/* Desktop dots — BELOW images, centered */}
+            <div className="flex justify-center gap-2 mt-4">
+              {desktopGroups.map((_, i) => (
+                <span key={i} className="rounded-full transition-all duration-300 block"
+                  style={{
+                    width: dActiveDot === i ? '22px' : '8px',
+                    height: '8px',
+                    background: dActiveDot === i ? '#C5A880' : '#D4C9BD',
+                  }} />
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
