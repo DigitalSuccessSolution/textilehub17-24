@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Bell, ChevronRight } from 'lucide-react';
+import { Bell } from 'lucide-react';
 
 const C = { 
   primary: '#6E64B4', 
@@ -14,15 +14,35 @@ const C = {
 };
 
 const notices = [
-  { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', isNew: true },
-  { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026', isNew: true },
-  { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', isNew: true },
-  { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', isNew: true },
+  { 
+    id: 1, 
+    title: 'Annual General Meeting 2026', 
+    date: 'Nov 01, 2026', 
+    description: 'The Annual General Meeting of Aura Loom is scheduled to be held to discuss the annual financial performance, audit reports, and future expansion plans.' 
+  },
+  { 
+    id: 2, 
+    title: 'Warehouse Closure Notice for Maintenance', 
+    date: 'Oct 20, 2026', 
+    description: 'Our primary warehouse facility in Mumbai will undergo routine annual maintenance and inventory audit. Dispatch schedules will be adjusted accordingly.' 
+  },
+  { 
+    id: 3, 
+    title: 'Introduction of e-Way Bill Integration in Partner Portal', 
+    date: 'Sep 15, 2026', 
+    description: 'We are launching direct API integration for e-Way bills within the partner portal to streamline supply chain logistics and billing processes.' 
+  },
+  { 
+    id: 4, 
+    title: 'Recruitment Drive for Zonal Sales Managers', 
+    date: 'Aug 22, 2026', 
+    description: 'Applications are open for Zonal Sales Managers across North and South divisions. Interested candidates can apply through the official career portal.' 
+  },
 ];
 
 const NoticeBoard = () => {
   return (
-    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg }}>
+    <div style={{ fontFamily: "'Urbanist', sans-serif", background: C.bg, minHeight: '100vh' }}>
 
       {/* Hero Banner */}
       <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center"
@@ -33,15 +53,15 @@ const NoticeBoard = () => {
         </div>
       </div>
 
-      <div className="pb-16 max-w-7xl mx-auto px-4 py-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+      <div className="pb-16 max-w-7xl mx-auto px-4 py-12">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
           {notices.map((notice) => (
             <div
               key={notice.id}
-              className="group rounded-2xl p-5 bg-white cursor-pointer flex flex-col justify-between transition-all duration-300 hover:shadow-md border"
+              className="group rounded-2xl p-6 bg-white cursor-pointer flex flex-col justify-between transition-all duration-300 hover:shadow-md border"
               style={{
-                borderColor: notice.isNew ? 'rgba(110, 100, 180, 0.3)' : C.border,
-                borderTop: notice.isNew ? `4px solid ${C.primary}` : `1px solid ${C.border}`,
+                borderColor: C.border,
+                borderTop: `1px solid ${C.border}`,
               }}
             >
               <div>
@@ -50,23 +70,16 @@ const NoticeBoard = () => {
                     style={{ background: 'rgba(110, 100, 180, 0.08)', borderColor: 'rgba(110, 100, 180, 0.2)' }}>
                     <Bell size={18} color={C.primary} />
                   </div>
-                  {notice.isNew && (
-                    <span className="text-[9px] px-2.5 py-1 rounded-full font-black uppercase tracking-widest"
-                      style={{ color: C.primary, background: C.bg }}>
-                      NEW
-                    </span>
-                  )}
                 </div>
-                <div className="flex flex-col mb-4">
+                <div className="flex flex-col">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider mb-2 opacity-70" style={{ color: C.textDark }}>{notice.date}</span>
-                  <h3 className="text-[14px] font-bold leading-snug line-clamp-3" style={{ color: C.textDark }}>
+                  <h3 className="text-lg font-bold leading-snug mb-3 serif-title" style={{ color: C.textDark }}>
                     {notice.title}
                   </h3>
+                  <p className="text-sm opacity-80 leading-relaxed" style={{ color: C.textDark }}>
+                    {notice.description}
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-center justify-between pt-4 mt-auto border-t" style={{ borderColor: C.border }}>
-                <span className="text-[11px] font-black tracking-wide" style={{ color: C.primary }}>Read More</span>
-                <ChevronRight size={16} className="shrink-0 transition-transform group-hover:translate-x-1" color={C.primary} />
               </div>
             </div>
           ))}

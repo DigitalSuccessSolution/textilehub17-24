@@ -92,7 +92,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="relative text-[12px] font-bold tracking-wider transition-colors duration-200 py-2"
+                  className="relative text-[14px] font-bold tracking-wider transition-colors duration-200 py-2"
                   style={{ color: isActive ? '#6E64B4' : '#252131' }}
                   onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#6E64B4'; }}
                   onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#252131'; }}
@@ -112,7 +112,7 @@ export default function Navbar() {
               onMouseLeave={() => setIsMoreOpen(false)}
             >
               <button
-                className="relative flex items-center gap-1 text-[12px] font-bold tracking-wider transition-colors duration-200 py-2"
+                className="relative flex items-center gap-1 text-[14px] font-bold tracking-wider transition-colors duration-200 py-2"
                 style={{ color: isMoreActive ? '#6E64B4' : '#252131' }}
                 onMouseEnter={e => { if (!isMoreActive) e.currentTarget.style.color = '#6E64B4'; }}
                 onMouseLeave={e => { if (!isMoreActive) e.currentTarget.style.color = '#252131'; }}
@@ -136,7 +136,7 @@ export default function Navbar() {
                       <Link
                         key={link.name}
                         to={link.path}
-                        className="block px-5 py-2.5 text-[11px] font-bold tracking-wider transition-all duration-150 text-left"
+                        className="block px-5 py-2.5 text-[13px] font-bold tracking-wider transition-all duration-150 text-left"
                         style={{
                           background: isActive ? '#FAF9F5' : 'transparent',
                           color: isActive ? '#6E64B4' : '#252131',
@@ -189,7 +189,7 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between px-5 py-3.5 rounded-xl text-[13px] font-bold tracking-wider transition-all duration-200 bg-white shadow-sm border"
+                  className="flex items-center justify-between px-5 py-3.5 rounded-xl text-[15px] font-bold tracking-wider transition-all duration-200 bg-white shadow-sm border"
                   style={{
                     borderColor: isActive ? '#6E64B4' : '#E1DFEB',
                     color: isActive ? '#6E64B4' : '#252131',
@@ -211,7 +211,7 @@ export default function Navbar() {
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center px-5 py-3 rounded-lg text-[12px] font-bold tracking-wider transition-all duration-200 border"
+                    className="flex items-center px-5 py-3 rounded-lg text-[14px] font-bold tracking-wider transition-all duration-200 border"
                     style={{
                       background: isActive ? '#FFFFFF' : 'transparent',
                       color: isActive ? '#6E64B4' : '#252131',

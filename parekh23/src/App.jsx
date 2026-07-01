@@ -78,7 +78,7 @@ function WelcomePopup() {
             {/* Left banner image */}
             <div className="w-full md:w-1/2 h-40 md:h-auto relative bg-[#252131]">
               <img 
-                src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=60" 
+                src="https://images.pexels.com/photos/6850451/pexels-photo-6850451.jpeg" 
                 alt="Artisan loom threads"
                 className="absolute inset-0 w-full h-full object-cover opacity-85"
               />
@@ -104,13 +104,6 @@ function WelcomePopup() {
                 Explore our fine range of sustainable fabrics, handcrafted silks, and premium textiles curated with heritage techniques.
               </p>
 
-              <div className="p-4 rounded-xl border border-dashed border-[#6E64B4] bg-[#6E64B4]/5 text-center mb-5">
-                <span className="text-[9px] uppercase tracking-widest font-extrabold opacity-60 block text-[#252131]">Exclusive Launch Offer</span>
-                <span className="text-sm font-black tracking-widest text-[#6E64B4] uppercase block mt-1">15% Off Your First Order</span>
-                <span className="text-[11.5px] font-black tracking-widest text-[#252131] uppercase block mt-2.5 bg-white/60 py-1.5 rounded border border-[#E1DFEB]">
-                  CODE: AURALOOM15
-                </span>
-              </div>
 
               <button 
                 onClick={() => {

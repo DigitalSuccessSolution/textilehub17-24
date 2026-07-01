@@ -65,50 +65,17 @@ const EQuotation = () => {
                 className="p-6 rounded-2xl bg-white border transition-all duration-300 hover:shadow-md"
                 style={{ borderColor: C.border }}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest font-black px-2.5 py-1 rounded bg-[#6E64B4]/10" style={{ color: C.primary }}>
-                      {item.id}
-                    </span>
-                    <h3 className="font-bold text-[16px] mt-2 serif-title" style={{ color: C.textDark }}>
-                      {item.title}
-                    </h3>
-                  </div>
-                  <div className="text-left sm:text-right">
-                    <span className="text-[11px] uppercase tracking-widest font-bold block" style={{ color: C.primary }}>
-                      Closing Date
-                    </span>
-                    <span className="text-xs font-extrabold" style={{ color: C.textDark }}>
-                      {item.closingDate}
-                    </span>
-                  </div>
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+                  <h3 className="font-bold text-[16px] serif-title" style={{ color: C.textDark }}>
+                    {item.title}
+                  </h3>
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest mt-1 sm:mt-0 shrink-0" style={{ color: C.primary }}>
+                    {item.closingDate}
+                  </span>
                 </div>
-                
-                <p className="text-xs opacity-80 leading-relaxed mb-4" style={{ color: C.textDark }}>
+                <p className="text-xs opacity-80 leading-relaxed" style={{ color: C.textDark }}>
                   {item.specifications}
                 </p>
-
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t" style={{ borderColor: C.border }}>
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest font-extrabold block opacity-60" style={{ color: C.textDark }}>
-                      Quantity Required
-                    </span>
-                    <span className="text-sm font-black" style={{ color: C.textDark }}>
-                      {item.quantity}
-                    </span>
-                  </div>
-                  <button 
-                    onClick={() => {
-                      document.getElementById('quote-form-section')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="px-4 py-2 rounded-lg text-xs font-bold transition-all text-white cursor-pointer"
-                    style={{ background: C.primary }}
-                    onMouseEnter={e => e.currentTarget.style.background = C.primaryDark}
-                    onMouseLeave={e => e.currentTarget.style.background = C.primary}
-                  >
-                    Submit Bid Now
-                  </button>
-                </div>
               </div>
             ))}
           </div>
@@ -136,7 +103,7 @@ const EQuotation = () => {
                 {[
                   { label: 'Name of the Trader *', type: 'text', req: true },
                   { label: 'Business Name *', type: 'text', req: true },
-                  { label: 'Business Address with PIN Code *', type: 'text', req: true },
+                  { label: 'Business Address with Pin Code *', type: 'text', req: true },
                   { label: 'GST No.', type: 'text', req: false },
                   { label: 'Mobile No. *', type: 'tel', req: true },
                   { label: 'Email ID *', type: 'email', req: true },
@@ -184,15 +151,6 @@ const EQuotation = () => {
               >
                 <Send size={16} /> Submit Quotation Request
               </button>
-
-              <div className="pt-2 text-center flex items-center justify-center gap-2">
-                <Mail size={14} color={C.primary} />
-                <a href="mailto:info@auraloom.com"
-                  className="text-[11px] font-black tracking-widest hover:underline"
-                  style={{ color: C.primary }}>
-                  info@auraloom.com
-                </a>
-              </div>
             </form>
           </div>
         </motion.div>

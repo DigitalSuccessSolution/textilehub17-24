@@ -17,7 +17,7 @@ const sliderSlides = [
     tag: 'Artisan Handlooms',
     title: 'Timeless Weaves for Modern Living',
     desc: 'Experience the finest range of sustainable fabrics, handcrafted silks, and premium textiles curated with heritage techniques.',
-    image: '/images/hero1.png',
+    image: 'https://images.pexels.com/photos/5709631/pexels-photo-5709631.jpeg',
   },
   {
     tag: 'Heritage Sarees',
@@ -70,10 +70,10 @@ export default function Home() {
     <div className="w-full pb-10" style={{ background: COLORS.bg, fontFamily: "'Urbanist', sans-serif" }}>
       
       {/* ── HERO SLIDER SECTION ── */}
-      <section className="relative w-full max-w-[90rem] mx-auto flex flex-col md:flex-row items-stretch h-auto min-h-[500px] md:h-[460px] lg:h-[500px] bg-[#FAF9F5] border-b" style={{ borderColor: COLORS.border }}>
+      <section className="relative w-full max-w-[90rem] mx-auto flex flex-col-reverse md:flex-row items-stretch h-auto min-h-[500px] md:h-[460px] lg:h-[500px] bg-[#FAF9F5] border-b" style={{ borderColor: COLORS.border }}>
         
         {/* Left Side: Content Div (Pure light theme, no overlay on images) */}
-        <div className="w-full md:w-[42%] flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 md:py-8 bg-[#FAF9F5] z-10 relative text-left">
+        <div className="w-full md:w-[42%] flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 md:py-8 bg-[#FAF9F5] z-10 relative text-center md:text-left">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -82,7 +82,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 15 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col"
+              className="flex flex-col items-center md:items-start"
             >
               <p className="text-[12px] font-extrabold tracking-[0.25em] uppercase mb-2" style={{ color: COLORS.primary }}>
                 {sliderSlides[currentSlide].tag}
@@ -92,7 +92,7 @@ export default function Home() {
                 {sliderSlides[currentSlide].title}
               </h1>
 
-              <div className="h-[1.5px] w-16 mb-4 rounded-full" style={{ background: COLORS.primary }} />
+              <div className="h-[1.5px] w-16 mb-4 rounded-full mx-auto md:mx-0" style={{ background: COLORS.primary }} />
 
               <p className="text-xs sm:text-sm mb-6 leading-relaxed opacity-80 font-medium" style={{ color: COLORS.textDark }}>
                 {sliderSlides[currentSlide].desc}
@@ -109,8 +109,26 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
 
+          {/* Mobile Navigation Arrows (Just above dots) */}
+          <div className="flex md:hidden justify-center gap-3 mt-8 mb-4">
+            <button 
+              onClick={handlePrev}
+              className="w-8 h-8 rounded-full flex items-center justify-center border transition-all bg-white border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] shadow-sm cursor-pointer"
+              aria-label="Previous Slide"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button 
+              onClick={handleNext}
+              className="w-8 h-8 rounded-full flex items-center justify-center border transition-all bg-white border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] shadow-sm cursor-pointer"
+              aria-label="Next Slide"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+
           {/* Slide Indicator Dots inside content panel */}
-          <div className="flex gap-2 mt-8">
+          <div className="flex justify-center md:justify-start gap-2 mt-2 md:mt-8">
             {sliderSlides.map((_, index) => (
               <button
                 key={index}
@@ -154,32 +172,37 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Arrows on Image Side */}
-          <button 
-            onClick={handlePrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center border transition-all bg-[#FAF9F5]/90 border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] cursor-pointer shadow-sm"
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <button 
-            onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center border transition-all bg-[#FAF9F5]/90 border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] cursor-pointer shadow-sm"
-            aria-label="Next Slide"
-          >
-            <ChevronRight size={18} />
-          </button>
         </div>
+
+        {/* Navigation Arrows on Hero Section (Desktop only) */}
+        <button 
+          onClick={handlePrev}
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full items-center justify-center border transition-all bg-white border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] cursor-pointer shadow-md"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft size={16} />
+        </button>
+        <button 
+          onClick={handleNext}
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full items-center justify-center border transition-all bg-white border-[#E1DFEB] text-[#252131] hover:bg-[#6E64B4] hover:text-white hover:border-[#6E64B4] cursor-pointer shadow-md"
+          aria-label="Next Slide"
+        >
+          <ChevronRight size={16} />
+        </button>
       </section>
 
       {/* ── EXPLORE OUR CATEGORIES ── */}
       <section className="max-w-[90rem] mx-auto px-6 lg:px-12 py-16">
-        <div className="text-center mb-12 flex items-center justify-center gap-4">
-          <div className="h-px w-16" style={{ background: COLORS.primary }} />
-          <h2 className="text-xl font-bold tracking-widest uppercase serif-title" style={{ color: COLORS.textDark }}>
-            EXPLORE OUR COLLECTIONS
-          </h2>
-          <div className="h-px w-16" style={{ background: COLORS.primary }} />
+        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-4 mb-10">
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:block h-px w-12" style={{ background: COLORS.primary }} />
+            <h2 className="text-xl sm:text-2xl font-bold tracking-widest uppercase serif-title" style={{ color: COLORS.textDark }}>
+              Explore Our Collections
+            </h2>
+          </div>
+          <Link to="/products" className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase hover:opacity-80 transition-all" style={{ color: COLORS.primary }}>
+            View All <ArrowRight size={14} />
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">

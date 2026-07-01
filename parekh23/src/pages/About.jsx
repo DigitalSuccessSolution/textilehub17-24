@@ -46,7 +46,7 @@ export default function About() {
               style={{ borderColor: COLORS.border }}
             >
               <img
-                src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&auto=format&fit=crop&q=60"
+                src="https://images.pexels.com/photos/6850458/pexels-photo-6850458.jpeg"
                 alt="Artisan Loom Threads"
                 className="w-full h-full object-cover block filter saturate-[0.95] hover:scale-105 transition-transform duration-700"
               />
