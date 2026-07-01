@@ -12,10 +12,38 @@ const C = {
 };
 
 const posts = [
-  { title: "The Future of Sustainable Weaving", date: "June 10, 2026", category: "Innovation", author: "Priya Sharma", readTime: "5 min read", image: "https://images.unsplash.com/photo-1705412877691-70f6913aaa1e?w=600&auto=format&fit=crop&q=60" },
-  { title: "Elegance in Threads: The Fall Collection", date: "May 28, 2026", category: "Collections", author: "Rajiv Kapoor", readTime: "4 min read", image: "https://images.unsplash.com/photo-1599753931952-654e960af582?w=600&auto=format&fit=crop&q=60" },
-  { title: "Behind the Scenes: Crafting the Perfect Saree", date: "May 15, 2026", category: "Craftsmanship", author: "Ananya Patel", readTime: "6 min read", image: "https://plus.unsplash.com/premium_photo-1669977749819-d8737b4408f7?w=600&auto=format&fit=crop&q=60" },
-  { title: "Trends to Watch in Home Furnishing", date: "Apr 22, 2026", category: "Trends", author: "Neha Gupta", readTime: "4 min read", image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&auto=format&fit=crop&q=60" },
+  { 
+    title: "The Art of Handwoven Silk: A Heritage Revived", 
+    date: "June 28, 2026", 
+    category: "Craftsmanship", 
+    author: "Priya Sharma", 
+    description: "Discover the intricate techniques of traditional Indian silk weaving, preserving ancient heritage while adapting to modern styles.",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=60" 
+  },
+  { 
+    title: "Why Sustainable Fabrics are the Future of Fashion", 
+    date: "June 15, 2026", 
+    category: "Sustainability", 
+    author: "Rajiv Kapoor", 
+    description: "How eco-friendly materials like organic cotton and bamboo linen are transforming the clothing industry one loom at a time.",
+    image: "https://images.pexels.com/photos/5264914/pexels-photo-5264914.jpeg" 
+  },
+  { 
+    title: "Choosing the Perfect Fabric for Home Furnishing", 
+    date: "May 20, 2026", 
+    category: "Home Decor", 
+    author: "Neha Gupta", 
+    description: "Guide to selecting high-durability, premium textures for bedsheets, upholstery, and curtains to elevate your living space.",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=60" 
+  },
+  { 
+    title: "Innovations in Smart Textiles", 
+    date: "July 10, 2026", 
+    category: "Innovation", 
+    author: "Ananya Patel", 
+    description: "An overview of how integrating technology into fabrics is revolutionizing both fashion and functional wear.",
+    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&auto=format&fit=crop&q=60" 
+  },
 ];
 
 export default function Blog() {
@@ -23,31 +51,21 @@ export default function Blog() {
     <div style={{ fontFamily: "'Jost', sans-serif", background: C.bg }}>
 
       {/* Hero Banner */}
-      <div className="relative pt-16 sm:pt-24 pb-10 flex flex-col items-center justify-center text-center animate-fade-in"
+      <div className="relative h-36 sm:h-44 overflow-hidden flex items-center justify-center text-center animate-fade-in"
         style={{ background: 'linear-gradient(135deg, #F6F1EA 0%, #E8E2D7 100%)', borderBottom: `1px solid ${C.border}` }}>
-        <div className="max-w-4xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center">
-          <h1 className="font-normal text-4xl sm:text-5xl mb-6 serif-title" style={{ color: C.textDark }}>
-            Blog Page
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center">
+          <h1 className="font-normal text-4xl sm:text-5xl serif-title" style={{ color: C.textDark }}>
+            Blog & Insights
           </h1>
-          <p className="text-[16px] sm:text-[18px] italic mb-8 leading-relaxed max-w-3xl font-semibold opacity-80" style={{ color: C.textDark }}>
-            "Join and participate in our nation-wide campaign to digitalize the Textile<br className="hidden md:block"/>
-            Sector, one of the largest sectors of India."
-          </p>
-          <h2 className="text-base sm:text-lg font-bold tracking-widest mb-2 uppercase serif-title" style={{ color: C.textDark }}>
-            Shree Textile Mall
-          </h2>
-          <p className="text-[11px] sm:text-[13px] font-bold tracking-wide mb-1" style={{ color: C.accent }}>
-            Textile Manufacturer & Entrepreneur
-          </p>
-          <p className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-8 opacity-70" style={{ color: C.textDark }}>
-            INDIA
-          </p>
-          <div className="w-32 sm:w-48 h-[1px]" style={{ background: C.border }} />
+          <div className="w-12 h-[2px] mx-auto mt-4 rounded-full" style={{ background: C.primary }} />
         </div>
       </div>
 
       <div className="pb-20 max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <p className="text-center text-[14px] mb-10 font-semibold opacity-80" style={{ color: C.textDark }}>
+          Explore our curated stories and expert insights from the world of premium Indian textiles.
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {posts.map((post, idx) => (
             <motion.article
               key={idx}
@@ -66,23 +84,19 @@ export default function Blog() {
                   {post.category}
                 </div>
               </div>
-              <div className="p-5 flex flex-col flex-1 text-left">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[11px] font-semibold opacity-70" style={{ color: C.textDark }}>{post.date}</span>
-                  <span className="w-1 h-1 rounded-full" style={{ background: C.primary }} />
-                  <span className="text-[11px] font-semibold opacity-70" style={{ color: C.textDark }}>{post.readTime}</span>
+              <div className="p-3 sm:p-5 flex flex-col flex-1 text-left">
+                <div className="flex items-center gap-3 mb-2 sm:mb-3">
+                  <span className="text-[9px] sm:text-[11px] font-semibold opacity-70 uppercase tracking-widest line-clamp-1" style={{ color: C.textDark }}>Publish Date: {post.date}</span>
                 </div>
-                <h3 className="font-bold text-lg mb-2 leading-snug transition-colors serif-title cursor-pointer" style={{ color: C.textDark }}
+                <h3 className="font-bold text-[13px] sm:text-lg mb-2 leading-snug transition-colors serif-title cursor-pointer line-clamp-2" style={{ color: C.textDark }}
                   onMouseEnter={e => e.currentTarget.style.color = C.primary}
                   onMouseLeave={e => e.currentTarget.style.color = C.textDark}>
                   {post.title}
                 </h3>
-                <p className="text-[12px] mb-4 font-semibold opacity-85" style={{ color: C.textDark }}>By {post.author}</p>
-                <div className="mt-auto pt-3 border-t" style={{ borderColor: C.border }}>
-                  <span className="flex items-center gap-1.5 text-[12px] font-black tracking-wide cursor-pointer" style={{ color: C.primary }}>
-                    Read More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-200" />
-                  </span>
-                </div>
+                <p className="text-[9px] sm:text-[12px] mb-2 sm:mb-3 font-semibold opacity-85" style={{ color: C.primary }}>By {post.author}</p>
+                <p className="text-[10px] sm:text-xs opacity-80 leading-relaxed line-clamp-3" style={{ color: C.textDark }}>
+                  {post.description}
+                </p>
               </div>
             </motion.article>
           ))}

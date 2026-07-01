@@ -39,129 +39,54 @@ const EAuction = () => {
             <h2 className="font-bold text-lg tracking-wide serif-title " style={{ color: C.textDark }}>Active e-Auctions</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
-                id: "AUC-2026-009",
-                title: "Surplus Organic Linen Stock",
-                description: "Lot of premium surplus dyed and organic linen fabrics. Total quantity of approx. 4,500 meters of various color rolls in pristine condition.",
-                quantity: "4,500 Meters (approx.)",
-                reservePrice: "₹2,50,000",
-                currentBid: "₹2,80,000",
-                bidsCount: 8,
-                closingTime: "June 20, 2026 · 17:00 IST",
-                image: "https://images.unsplash.com/photo-1576016770956-debb63d90029?w=600&auto=format&fit=crop&q=60"
+                title: "Surplus Cotton Yarn Liquidation",
+                description: "Online bidding for 2,500 kg of premium grade carded cotton yarn. Starting bid ₹180/kg.",
+                date: "July 05, 2026",
+                image: "https://images.unsplash.com/photo-1606744824163-985d376605aa?w=600&auto=format&fit=crop&q=60"
               },
               {
-                id: "AUC-2026-010",
-                title: "Premium Jacquard Weaving Warp Yarns",
-                description: "High-grade industrial warp & weft jacquard yarns. 100% natural wool-cotton textures, surplus stock from our high-end winter line.",
-                quantity: "1,200 Kilograms",
-                reservePrice: "₹1,80,000",
-                currentBid: "₹1,95,000",
-                bidsCount: 4,
-                closingTime: "June 24, 2026 · 14:00 IST",
-                image: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600&auto=format&fit=crop&q=60"
-              },
-              {
-                id: "AUC-2026-011",
-                title: "Eco-Luxe Mercerized Cotton Cones",
-                description: "Mercerized carded cotton warp cones, assorted colors, high tensile strength, perfect for weaving machinery warp setup.",
-                quantity: "3,000 Kilograms",
-                reservePrice: "₹3,20,000",
-                currentBid: "₹3,20,000",
-                bidsCount: 0,
-                closingTime: "June 28, 2026 · 11:00 IST",
-                image: "https://images.unsplash.com/photo-1605697040924-852290f6768a?w=600&auto=format&fit=crop&q=60"
+                title: "Unused Jacquard Fabric Rolls",
+                description: "Liquidation of 450 meters of high-end jacquard brocade fabrics. Starting bid ₹320/meter.",
+                date: "July 08, 2026",
+                image: "https://images.unsplash.com/photo-1574169208507-84376144848b?w=600&auto=format&fit=crop&q=60"
               }
-            ].map((auction) => (
+            ].map((auction, idx) => (
               <div 
-                key={auction.id} 
+                key={idx} 
                 className="flex flex-col rounded-2xl bg-white border overflow-hidden transition-all duration-300 hover:shadow-md"
                 style={{ borderColor: C.border }}
               >
                 {/* Item Image */}
-                <div className="w-full h-48 relative overflow-hidden bg-[#F6F1EA]">
+                <div className="w-full h-32 sm:h-48 relative overflow-hidden bg-[#F6F1EA]">
                   <img 
                     src={auction.image} 
                     alt={auction.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     loading="lazy"
                   />
-                  <span className="absolute top-3 left-3 text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-[#3D3025] text-white">
-                    {auction.id}
-                  </span>
                 </div>
 
                 {/* Content Area */}
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <div className="mb-4">
-                    <h3 className="font-bold text-[16px] mb-2 serif-title" style={{ color: C.textDark }}>
+                <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
+                  <div className="mb-2 sm:mb-4">
+                    <h3 className="font-bold text-[13px] sm:text-[16px] mb-2 serif-title line-clamp-2" style={{ color: C.textDark }}>
                       {auction.title}
                     </h3>
                     
-                    <p className="text-xs opacity-80 leading-relaxed mb-4 min-h-[48px]" style={{ color: C.textDark }}>
+                    <p className="text-[10px] sm:text-xs opacity-80 leading-relaxed mb-3 sm:mb-4 min-h-[48px] line-clamp-3 sm:line-clamp-none" style={{ color: C.textDark }}>
                       {auction.description}
                     </p>
 
-                    <div className="text-left pt-3 border-t border-dashed" style={{ borderColor: C.border }}>
+                    <div className="text-left pt-2 sm:pt-3 border-t border-dashed" style={{ borderColor: C.border }}>
                       <span className="text-[9px] uppercase tracking-widest font-bold block" style={{ color: C.primary }}>
-                        Closing Time
+                        Date
                       </span>
-                      <span className="text-xs font-bold" style={{ color: C.textDark }}>
-                        {auction.closingTime}
+                      <span className="text-[10px] sm:text-xs font-bold" style={{ color: C.textDark }}>
+                        {auction.date}
                       </span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-3 py-3 border-t border-b mb-4" style={{ borderColor: C.border }}>
-                      <div>
-                        <span className="text-[9px] uppercase tracking-widest font-bold opacity-60 block" style={{ color: C.textDark }}>
-                          Lot Quantity
-                        </span>
-                        <span className="text-xs font-bold" style={{ color: C.textDark }}>
-                          {auction.quantity}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-[9px] uppercase tracking-widest font-bold opacity-60 block" style={{ color: C.textDark }}>
-                          Reserve Price
-                        </span>
-                        <span className="text-xs font-bold" style={{ color: C.textDark }}>
-                          {auction.reservePrice}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-[9px] uppercase tracking-widest font-bold opacity-60 block" style={{ color: C.textDark }}>
-                          Current Bid
-                        </span>
-                        <span className="text-xs font-bold" style={{ color: C.primary }}>
-                          {auction.currentBid}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-[9px] uppercase tracking-widest font-bold opacity-60 block" style={{ color: C.textDark }}>
-                          Bids Placed
-                        </span>
-                        <span className="text-xs font-bold" style={{ color: C.textDark }}>
-                          {auction.bidsCount} bids
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-center">
-                      <button 
-                        onClick={() => {
-                          document.getElementById('auction-reg-form')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="w-full py-2.5 rounded-lg text-xs font-bold transition-all text-white cursor-pointer"
-                        style={{ background: C.primary }}
-                        onMouseEnter={e => { e.currentTarget.style.background = C.primaryDark; e.currentTarget.style.color = '#F6F1EA'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = '#3D3025'; }}
-                      >
-                        Register to Bid
-                      </button>
                     </div>
                   </div>
                 </div>

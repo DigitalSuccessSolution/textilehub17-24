@@ -60,7 +60,7 @@ export default function Navbar() {
       <div className={`w-full bg-[#FAF9F5] transition-all duration-300 ${scrolled ? 'shadow-md py-2' : 'border-b py-4'}`}
         style={{ borderColor: '#E1DFEB' }}>
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
-          
+
           {/* Logo & Brand Name */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <div
@@ -176,46 +176,22 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── MOBILE DRAWER NAVIGATION (All 15 sequential links) ── */}
+      {/* ── MOBILE DRAWER NAVIGATION ── */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-[76px] bg-[#FAF9F5] z-40 flex flex-col" style={{ fontFamily: "'Urbanist', sans-serif" }}>
-          <div className="flex-1 overflow-y-auto px-6 py-8 pb-24 space-y-1.5 text-left">
-            
-            <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#252131' }}>Main Navigation</p>
-            {mainLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between px-5 py-3.5 rounded-xl text-[15px] font-bold tracking-wider transition-all duration-200 bg-white shadow-sm border"
-                  style={{
-                    borderColor: isActive ? '#6E64B4' : '#E1DFEB',
-                    color: isActive ? '#6E64B4' : '#252131',
-                  }}
-                >
-                  <span>{link.name}</span>
-                </Link>
-              );
-            })}
-
-            <div className="h-px my-6" style={{ background: '#E1DFEB' }} />
-            <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#252131' }}>More Pages</p>
-
-            <div className="space-y-1.5 text-left">
-              {moreLinks.map((link) => {
+        <div className="lg:hidden absolute top-full left-0 right-0 h-[100vh] bg-[#FAF9F5] z-40 flex flex-col border-t border-[#E1DFEB]" style={{ fontFamily: "'Urbanist', sans-serif" }}>
+          <div className="flex-1 overflow-y-auto px-4 py-4 pb-32 text-left">
+            <div className="flex flex-col space-y-0.5">
+              {[...mainLinks, ...moreLinks].map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center px-5 py-3 rounded-lg text-[14px] font-bold tracking-wider transition-all duration-200 border"
+                    className="flex items-center justify-between px-4 py-2.5 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200"
                     style={{
-                      background: isActive ? '#FFFFFF' : 'transparent',
+                      background: isActive ? 'rgba(110, 100, 180, 0.08)' : 'transparent',
                       color: isActive ? '#6E64B4' : '#252131',
-                      borderColor: isActive ? '#6E64B4' : 'transparent',
                     }}
                   >
                     <span>{link.name}</span>
@@ -224,11 +200,11 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="pt-8">
+            <div className="pt-4 mt-2 border-t border-[#E1DFEB]">
               <Link
                 to="/trade-enquiry"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-md w-full btn-accent"
+                className="flex items-center justify-center gap-2 py-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-sm w-full btn-accent"
               >
                 <Phone size={14} />
                 Trade Enquiry

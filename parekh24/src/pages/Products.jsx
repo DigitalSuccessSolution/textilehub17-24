@@ -39,7 +39,7 @@ const allProducts = [
     id: 105,
     name: "Luxurious Egyptian Cotton Bedsheet",
     category: "Bedsheets & Linen",
-    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60"
+    image: "https://images.pexels.com/photos/7746574/pexels-photo-7746574.jpeg"
   },
   {
     id: 106,
@@ -63,7 +63,7 @@ const allProducts = [
     id: 109,
     name: "Designer Georgette Lehenga Choli",
     category: "Formal & Ethnic Wear for Women",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60"
+    image: "https://images.pexels.com/photos/16803130/pexels-photo-16803130.jpeg"
   },
   {
     id: 110,
@@ -81,7 +81,7 @@ const allProducts = [
     id: 112,
     name: "Premium Velvet Upholstery Fabric",
     category: "Home Upholstery & Furnishing",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=60"
+    image: "https://images.pexels.com/photos/35009336/pexels-photo-35009336.jpeg"
   }
 ];
 
@@ -161,7 +161,7 @@ export default function Products() {
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-left">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 text-left">
             {filteredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -171,7 +171,7 @@ export default function Products() {
                 className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white border"
                 style={{ borderColor: C.border }}
               >
-                <div className="h-64 w-full relative overflow-hidden">
+                <div className="h-48 sm:h-64 w-full relative overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}

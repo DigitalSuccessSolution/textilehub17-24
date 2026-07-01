@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer style={{ background: '#3D3025', fontFamily: "'Jost', sans-serif" }}>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-left">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-6 text-left">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
 
           {/* Brand Column */}
@@ -97,7 +97,7 @@ export default function Footer() {
                 { name: 'e-Quotation', path: '/e-quotation' },
                 { name: 'e-Auction', path: '/e-auction' },
                 { name: 'Trade Circular', path: '/trade-circular' },
-                { name: 'Blog Page', path: '/blog' },
+                { name: 'Blog', path: '/blog' },
               ].map(link => (
                 <li key={link.name}>
                   <Link
@@ -138,12 +138,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="mt-16 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-10 pt-5 border-t flex flex-col sm:flex-row justify-between items-center gap-4"
           style={{ borderColor: 'rgba(255,255,255,0.08)' }}
         >
-          <a href="tel:+916353778329" className="hover:underline text-xs font-bold flex items-center gap-1.5 transition-colors" style={{ color: '#C5A377' }}>
-            <Phone size={12} /> Call Us: +91 6353778329
-          </a>
+    
           
           <div className="flex gap-5 items-center">
              <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#C5A377] transition-colors"><FacebookIcon /></a>

@@ -14,10 +14,10 @@ const C = {
 };
 
 const notices = [
-  { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', isNew: true },
-  { id: 2, title: 'Warehouse Closure Notice for Maintenance (Ahmedabad Depot)', date: 'Oct 20, 2026', isNew: true },
-  { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', isNew: true },
-  { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', isNew: true },
+  { title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', description: 'The Annual General Meeting will be held at the corporate headquarters to discuss yearly performance and future strategies.' },
+  { title: 'Warehouse Closure Notice for Maintenance (Ahmedabad Depot)', date: 'Oct 20, 2026', description: 'Please be informed that the Ahmedabad Depot will be closed for scheduled maintenance for 3 days.' },
+  { title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', description: 'We have integrated the new e-Way Bill system into the partner portal to streamline logistics.' },
+  { title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', description: 'We are expanding our sales team across multiple zones. Interested candidates are requested to apply online.' },
 ];
 
 const NoticeBoard = () => {
@@ -46,28 +46,15 @@ const NoticeBoard = () => {
             >
               {/* Content */}
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border"
-                    style={{ background: 'rgba(197, 163, 119, 0.08)', borderColor: 'rgba(197, 163, 119, 0.2)' }}>
-                    <Bell size={18} color={C.primary} />
-                  </div>
-                  {notice.isNew && (
-                    <span className="text-[9px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest"
-                      style={{ color: C.primary, background: C.bg }}>
-                      NEW
-                    </span>
-                  )}
-                </div>
                 <div className="flex flex-col mb-4">
                   <span className="text-[11px] font-bold uppercase tracking-wider mb-2 opacity-70" style={{ color: C.textDark }}>{notice.date}</span>
-                  <h3 className="text-[14px] font-bold leading-snug line-clamp-3" style={{ color: C.textDark }}>
+                  <h3 className="text-[16px] font-bold leading-snug line-clamp-3 mb-2" style={{ color: C.textDark }}>
                     {notice.title}
                   </h3>
+                  <p className="text-xs opacity-80 leading-relaxed" style={{ color: C.textDark }}>
+                    {notice.description}
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-center justify-between pt-4 mt-auto border-t" style={{ borderColor: C.border }}>
-                <span className="text-[11px] font-bold tracking-wide" style={{ color: C.primary }}>Read More</span>
-                <ChevronRight size={16} className="shrink-0 transition-transform group-hover:translate-x-1" color={C.primary} />
               </div>
             </div>
           ))}

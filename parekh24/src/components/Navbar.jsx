@@ -43,9 +43,9 @@ export default function Navbar() {
     { name: 'e-Quotation', path: '/e-quotation' },
     { name: 'e-Auction', path: '/e-auction' },
     { name: 'Trade Circular', path: '/trade-circular' },
-    { name: 'Blog Page', path: '/blog' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Notice Board', path: '/notice-board' },
-    { name: 'Career Page', path: '/career' },
+    { name: 'Career', path: '/career' },
     { name: 'Customer Review', path: '/reviews' },
     { name: 'Business Media Gallery', path: '/gallery' },
     { name: 'FAQ', path: '/faq' },
@@ -57,7 +57,7 @@ export default function Navbar() {
     <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300" style={{ fontFamily: "'Jost', sans-serif" }}>
 
       {/* ── SINGLE NAVBAR ROW ── */}
-      <div className={`w-full bg-[#F6F1EA] transition-all duration-300 border-b py-4 ${scrolled ? 'shadow-md' : ''}`}
+      <div className={`w-full relative z-10 bg-[#F6F1EA] transition-all duration-300 border-b py-4 ${scrolled ? 'shadow-md' : ''}`}
         style={{ borderColor: '#E8E2D7' }}>
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
           
@@ -178,7 +178,7 @@ export default function Navbar() {
 
       {/* ── MOBILE DRAWER NAVIGATION (All 15 sequential links) ── */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-[76px] bg-[#F6F1EA] z-40 flex flex-col" style={{ fontFamily: "'Jost', sans-serif" }}>
+        <div className="lg:hidden fixed inset-0 pt-[73px] bg-[#F6F1EA] z-0 flex flex-col" style={{ fontFamily: "'Jost', sans-serif" }}>
           <div className="flex-1 overflow-y-auto px-6 py-8 pb-24 space-y-1.5 text-left">
             
             <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#3D3025' }}>Main Navigation</p>
@@ -203,7 +203,7 @@ export default function Navbar() {
             <div className="h-px my-6" style={{ background: '#E8E2D7' }} />
             <p className="px-5 text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-opacity-70" style={{ color: '#3D3025' }}>More Pages</p>
 
-            <div className="space-y-1.5 text-left">
+            <div className="grid grid-cols-2 gap-2 text-left px-1">
               {moreLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -211,11 +211,10 @@ export default function Navbar() {
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center px-5 py-3 rounded-lg text-[13px] font-bold tracking-wider transition-all duration-200 border"
+                    className="flex items-center justify-center text-center px-3 py-3.5 rounded-lg text-[11px] font-bold tracking-wider transition-all duration-200 border bg-white shadow-sm"
                     style={{
-                      background: isActive ? '#FFFFFF' : 'transparent',
+                      borderColor: isActive ? '#C5A377' : '#E8E2D7',
                       color: isActive ? '#C5A377' : '#3D3025',
-                      borderColor: isActive ? '#C5A377' : 'transparent',
                     }}
                   >
                     <span>{link.name}</span>

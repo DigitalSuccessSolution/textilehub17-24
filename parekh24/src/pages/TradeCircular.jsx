@@ -34,26 +34,26 @@ const TradeCircular = () => {
       </div>
 
       <div className="pb-16 max-w-7xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-left">
           {circulars.map((circular) => (
             <motion.div
               key={circular.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group rounded-2xl p-5 bg-white flex flex-col justify-between transition-all duration-300 hover:shadow-md border"
+              className="group rounded-2xl p-3 sm:p-5 bg-white flex flex-col justify-between transition-all duration-300 hover:shadow-md border"
               style={{ borderColor: C.border }}
             >
-              <div className="flex flex-col items-start gap-4 mb-5">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border"
+              <div className="flex flex-col items-start gap-2 sm:gap-4 mb-3 sm:mb-5">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 border"
                   style={{ background: 'rgba(197, 163, 119, 0.08)', borderColor: 'rgba(197, 163, 119, 0.2)' }}>
-                  <FileText size={20} color={C.primary} />
+                  <FileText size={20} color={C.primary} className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base mb-1.5 leading-snug text-dark-800" style={{ color: C.textDark }}>
+                  <h3 className="font-bold text-[12px] sm:text-base mb-1 sm:mb-1.5 leading-snug text-dark-800 line-clamp-2" style={{ color: C.textDark }}>
                     {circular.title}
                   </h3>
-                  <div className="text-[11px] font-semibold opacity-70" style={{ color: C.textDark }}>
+                  <div className="text-[9px] sm:text-[11px] font-semibold opacity-70" style={{ color: C.textDark }}>
                     Date: {circular.date}
                   </div>
                 </div>

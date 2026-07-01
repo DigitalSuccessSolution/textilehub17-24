@@ -104,13 +104,6 @@ function WelcomePopup() {
                 Explore our fine range of sustainable fabrics, handcrafted silks, and premium textiles curated with heritage techniques.
               </p>
 
-              <div className="p-4 rounded-xl border border-dashed border-[#C5A377] bg-[#C5A377]/5 text-center mb-5">
-                <span className="text-[9px] uppercase tracking-widest font-extrabold opacity-60 block text-[#3D3025]">Exclusive Launch Offer</span>
-                <span className="text-sm font-black tracking-widest text-[#C5A377] uppercase block mt-1">10% Off Your First Order</span>
-                <span className="text-[11.5px] font-black tracking-widest text-[#3D3025] uppercase block mt-2.5 bg-white/60 py-1.5 rounded border border-[#E8E2D7]">
-                  CODE: SHREETEXTILE10
-                </span>
-              </div>
 
               <button 
                 onClick={() => {

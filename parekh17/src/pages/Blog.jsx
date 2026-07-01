@@ -26,7 +26,6 @@ export default function Blog() {
       title: "Luxury Silk Care: Keeping the Sheen Alive",
       date: "June 05, 2026",
       category: "Care Guide",
-      author: "Rajesh Parekh",
       excerpt: "A comprehensive guide on preserving the gloss, texture, and durability of your Kanjivaram and Banarasi silk sarees for generations to come.",
       readTime: "6 Mins Read",
       image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"

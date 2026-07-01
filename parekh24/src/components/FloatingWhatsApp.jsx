@@ -32,10 +32,9 @@ const FloatingWhatsApp = () => {
 
       {/* Button */}
       <div
-        className="w-[52px] h-[52px] rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer border"
+        className="w-[52px] h-[52px] rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer shadow-lg"
         style={{
-          background: COLORS.primary,
-          borderColor: COLORS.border,
+          background: '#25D366',
         }}
       >
         <svg

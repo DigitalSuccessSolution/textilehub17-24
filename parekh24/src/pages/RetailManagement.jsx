@@ -40,16 +40,16 @@ const RetailManagement = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto text-left px-4"
+          className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto text-left px-2 sm:px-4"
         >
           {teamMembers.map((member) => (
             <div key={member.id}
-              className="group flex flex-col items-center p-6 bg-white border rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 text-center"
+              className="group flex flex-col items-center p-3 sm:p-6 bg-white border rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 text-center"
               style={{ borderColor: C.border }}
             >
               {/* Smaller Rounded Image container */}
               <div 
-                className="relative w-24 h-24 rounded-full overflow-hidden border-2 mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 shadow-sm"
+                className="relative w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 shadow-sm"
                 style={{ borderColor: C.primary }}
               >
                 <img

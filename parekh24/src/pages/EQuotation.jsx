@@ -42,43 +42,34 @@ const EQuotation = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                id: "EQ-2026-004",
                 title: "Premium Combed Cotton Fabric",
-                specifications: "100% Cotton, 60/60 Count, 180 GSM, plain weave, dyed white. Required certificate of quality standard.",
-                quantity: "15,000 Meters",
-                closingDate: "June 25, 2026",
+                description: "100% Cotton, 60/60 Count, 180 GSM, plain weave, dyed white. Required certificate of quality standard.",
+                date: "June 25, 2026",
               },
               {
-                id: "EQ-2026-005",
                 title: "Organic Mulberry Silk Yarn",
-                specifications: "Grade A Mulberry Silk Yarn, count: 20/22 D, unbleached, ready for custom dyeing process.",
-                quantity: "2,000 Kilograms",
-                closingDate: "June 30, 2026",
+                description: "Grade A Mulberry Silk Yarn, count: 20/22 D, unbleached, ready for custom dyeing process.",
+                date: "June 30, 2026",
               },
               {
-                id: "EQ-2026-006",
                 title: "Linen Polyester Upholstery Blend",
-                specifications: "55% Linen / 45% Polyester blend fabric, 320 GSM, textured weave, fire retardant coated.",
-                quantity: "8,500 Meters",
-                closingDate: "July 05, 2026",
+                description: "55% Linen / 45% Polyester blend fabric, 320 GSM, textured weave, fire retardant coated.",
+                date: "July 05, 2026",
               }
-            ].map((item) => (
+            ].map((item, idx) => (
               <div 
-                key={item.id} 
+                key={idx} 
                 className="p-5 rounded-2xl bg-white border flex flex-col justify-between transition-all duration-300 hover:shadow-md"
                 style={{ borderColor: C.border }}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded bg-[#C5A377]/10" style={{ color: C.primary }}>
-                      {item.id}
-                    </span>
-                    <div className="text-right">
+                    <div className="text-left">
                       <span className="text-[9px] uppercase tracking-widest font-bold block opacity-60" style={{ color: C.textDark }}>
-                        Closing Date
+                        Date
                       </span>
                       <span className="text-xs font-bold" style={{ color: C.textDark }}>
-                        {item.closingDate}
+                        {item.date}
                       </span>
                     </div>
                   </div>
@@ -88,30 +79,8 @@ const EQuotation = () => {
                   </h3>
                   
                   <p className="text-xs opacity-80 leading-relaxed mb-6 min-h-[48px]" style={{ color: C.textDark }}>
-                    {item.specifications}
+                    {item.description}
                   </p>
-                </div>
-                
-                <div className="pt-4 border-t flex items-center justify-between gap-4" style={{ borderColor: C.border }}>
-                  <div>
-                    <span className="text-[9px] uppercase tracking-widest font-bold block opacity-60" style={{ color: C.textDark }}>
-                      Quantity Required
-                    </span>
-                    <span className="text-sm font-bold" style={{ color: C.textDark }}>
-                      {item.quantity}
-                    </span>
-                  </div>
-                  <button 
-                    onClick={() => {
-                      document.getElementById('quote-form-section')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="px-4 py-2 rounded-lg text-xs font-bold transition-all text-white cursor-pointer"
-                    style={{ background: C.primary }}
-                    onMouseEnter={e => { e.currentTarget.style.background = C.primaryDark; e.currentTarget.style.color = '#F6F1EA'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = C.primary; e.currentTarget.style.color = '#3D3025'; }}
-                  >
-                    Submit Bid
-                  </button>
                 </div>
               </div>
             ))}

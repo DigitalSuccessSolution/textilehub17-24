@@ -12,7 +12,7 @@ const categories = [
   { name: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&auto=format&fit=crop&q=80', path: '/products?category=Hosiery+Items' },
   { name: 'Suiting', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format&fit=crop&q=80', path: '/products?category=Suiting' },
   { name: 'Shirting', image: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&auto=format&fit=crop&q=80', path: '/products?category=Shirting' },
-  { name: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80', path: '/products?category=Formal+%26+Ethnic+Wear+for+Women' },
+  { name: 'Formal & Ethnic Wear for Women', image: 'https://images.pexels.com/photos/8367850/pexels-photo-8367850.jpeg', path: '/products?category=Formal+%26+Ethnic+Wear+for+Women' },
   { name: 'Formal & Ethnic Wear for Men', image: 'https://images.unsplash.com/photo-1724856604249-ca73680262e8?w=400&auto=format&fit=crop&q=80', path: '/products?category=Formal+%26+Ethnic+Wear+for+Men' },
   { name: 'Formal & Ethnic Wear for Children', image: 'https://images.unsplash.com/photo-1741992556912-3b2d62461e75?w=400&auto=format&fit=crop&q=80', path: '/products?category=Formal+%26+Ethnic+Wear+for+Children' },
   { name: 'Home Upholstery & Furnishing', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&auto=format&fit=crop&q=80', path: '/products?category=Home+Upholstery+%26+Furnishing' },
@@ -21,7 +21,7 @@ const categories = [
 const sliderSlides = [
   {
     tag: 'Artisan Handlooms',
-    title: 'Timeless Weaves for Modern Living',
+    title: 'Timeless Weaves \nfor Modern Living',
     desc: 'Experience the finest range of sustainable fabrics, handcrafted silks, and premium textiles curated with heritage techniques.',
     image: '/images/heroimages/hero.png',
     position: 'object-top',
@@ -29,7 +29,7 @@ const sliderSlides = [
   },
   {
     tag: 'Heritage Sarees',
-    title: 'Exquisite Elegance in Silk & Cotton',
+    title: 'Exquisite Elegance\nin Silk & Cotton',
     desc: 'Adorn yourself with designer sarees and ethnic ensembles woven by India\'s master artisans.',
     image: '/images/heroimages/hero1.png',
     position: 'object-top',
@@ -37,7 +37,7 @@ const sliderSlides = [
   },
   {
     tag: 'Royal Suiting',
-    title: 'Sophisticated Men\'s Suiting Fabrics',
+    title: 'Sophisticated Men\'s\nSuiting Fabrics',
     desc: 'Crafted for weddings, formal affairs, and heritage celebrations with premium longevity and soft textures.',
     image: '/images/heroimages/hero2.png',
     position: 'object-center',
@@ -45,7 +45,7 @@ const sliderSlides = [
   },
   {
     tag: 'Luxe Home Linen',
-    title: 'Premium Linens & Bedding Collections',
+    title: 'Premium Linens &\nBedding Collections',
     desc: 'Transform your space with organic home textiles, designer upholstery, and luxury linen bedsheets.',
     image: '/images/heroimages/hero3.png',
     position: 'object-center',
@@ -100,7 +100,7 @@ export default function Home() {
     <div className="w-full pb-10" style={{ background: COLORS.bg, fontFamily: "'Jost', sans-serif" }}>
 
       {/* ── HERO SLIDER SECTION (Full width banner, content overlaid) ── */}
-      <section className="relative w-full h-[400px] sm:h-[460px] lg:h-[520px] overflow-hidden flex items-center justify-center bg-[#3D3025]">
+      <section className="relative w-full h-[300px] sm:h-[460px] lg:h-[520px] overflow-hidden flex items-center justify-center bg-[#3D3025]">
 
         {/* Animated Background Image */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -127,7 +127,7 @@ export default function Home() {
         </div>
 
         {/* Content Overlaid */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-center max-w-[90rem] mx-auto px-6 sm:px-12 lg:px-16 text-left">
+        <div className="absolute inset-0 z-20 flex flex-col justify-center max-w-[90rem] mx-auto px-6 sm:px-12 lg:px-16 text-left pb-12 sm:pb-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -141,20 +141,20 @@ export default function Home() {
                 {sliderSlides[currentSlide].tag}
               </p>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-normal leading-[1.12] mb-5 serif-title tracking-tight text-white max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+              <h1 className="text-3xl sm:text-5xl lg:text-[58px] font-normal leading-[1.12] mb-3 sm:mb-5 serif-title tracking-tight text-white max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] whitespace-pre-line">
                 {sliderSlides[currentSlide].title}
               </h1>
 
-              <div className="h-[2px] w-16 mb-5 rounded-full shadow-sm" style={{ background: COLORS.primary }} />
+              <div className="h-[2px] w-12 sm:w-16 mb-3 sm:mb-5 rounded-full shadow-sm" style={{ background: COLORS.primary }} />
 
-              <p className="text-xs sm:text-sm lg:text-base mb-8 leading-relaxed max-w-xl text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+              <p className="hidden sm:block text-sm lg:text-base mb-8 leading-relaxed max-w-xl text-white font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
                 {sliderSlides[currentSlide].desc}
               </p>
 
               <div>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-3 px-8 py-3.5 rounded-lg text-[10px] font-bold tracking-widest text-[#3D3025] bg-[#C5A377] hover:bg-white hover:text-[#3D3025] hover:border-white transition-all shadow-md btn-accent uppercase border border-[#C5A377]"
+                  className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg text-[10px] font-bold tracking-widest text-[#3D3025] bg-[#C5A377] hover:bg-white hover:text-[#3D3025] hover:border-white transition-all shadow-md btn-accent uppercase border border-[#C5A377] w-max"
                 >
                   Explore Now <ArrowRight size={14} />
                 </Link>
@@ -163,7 +163,7 @@ export default function Home() {
           </AnimatePresence>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        <div className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20 gap-2">
           {sliderSlides.map((_, index) => (
             <button
               key={index}
@@ -177,17 +177,35 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Mobile Navigation Arrows (Bottom Center) */}
+        <div className="sm:hidden absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+          <button
+            onClick={handlePrev}
+            className="w-10 h-10 rounded-full flex items-center justify-center border transition-all bg-black/30 hover:bg-[#C5A377] border-white/30 text-white hover:border-[#C5A377] cursor-pointer backdrop-blur-sm"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={handleNext}
+            className="w-10 h-10 rounded-full flex items-center justify-center border transition-all bg-black/30 hover:bg-[#C5A377] border-white/30 text-white hover:border-[#C5A377] cursor-pointer backdrop-blur-sm"
+            aria-label="Next Slide"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Desktop Navigation Arrows (Absolute Middle) */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-25 w-11 h-11 rounded-full flex items-center justify-center border transition-all bg-white/10 hover:bg-[#C5A377] border-white/20 text-white hover:border-[#C5A377] cursor-pointer shadow-sm"
+          className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 z-25 w-11 h-11 rounded-full items-center justify-center border transition-all bg-white/10 hover:bg-[#C5A377] border-white/20 text-white hover:border-[#C5A377] cursor-pointer shadow-sm"
           aria-label="Previous Slide"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-25 w-11 h-11 rounded-full flex items-center justify-center border transition-all bg-white/10 hover:bg-[#C5A377] border-white/20 text-white hover:border-[#C5A377] cursor-pointer shadow-sm"
+          className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-25 w-11 h-11 rounded-full items-center justify-center border transition-all bg-white/10 hover:bg-[#C5A377] border-white/20 text-white hover:border-[#C5A377] cursor-pointer shadow-sm"
           aria-label="Next Slide"
         >
           <ChevronRight size={20} />
