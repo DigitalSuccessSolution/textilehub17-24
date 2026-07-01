@@ -4,6 +4,21 @@ import { ClipboardCheck, Inbox, FileText, Send, Mail } from 'lucide-react';
 const C = { primary: '#721C2B', primaryDark: '#4A0E17', accent: '#CDA75E', bg: '#FAF6F0', bgLight: '#EFF3EB', border: '#E6D8C5', textDark: '#330A10', textMid: '#554447', textMuted: '#7D6A6D' };
 const inputStyle = { background: C.bg, border: `1.5px solid ${C.border}`, color: C.textDark };
 
+const activeQuotations = [
+  {
+    id: 1,
+    title: "Wholesale Cotton Shirting Fabrics Supply",
+    description: "Requesting competitive price quotes for premium grade long-staple cotton fabrics, 150-180 GSM, multiple color weaves.",
+    date: "Published: 2026-06-25",
+  },
+  {
+    id: 2,
+    title: "Bulk Designer Kurti Set Manufacturing",
+    description: "Inviting quotations for contract manufacturing of 5,000 units of handloom cotton kurti sets. Technical specs attached.",
+    date: "Published: 2026-06-28",
+  }
+];
+
 const EQuotation = () => {
   return (
     <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
@@ -20,16 +35,29 @@ const EQuotation = () => {
       <div className="pb-20 max-w-3xl mx-auto px-4 md:px-8 py-10">
 
         {/* Active Quotations */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8 text-left">
-          <div className="flex items-center gap-3 mb-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-left">
+          <div className="flex items-center gap-3 mb-5">
             <ClipboardCheck size={20} color={C.primary} />
             <h2 className="font-black text-lg uppercase tracking-wide" style={{ color: C.textDark }}>Active Quotation Requests</h2>
           </div>
-          <div className="rounded-2xl py-16 flex flex-col items-center justify-center bg-white" style={{ border: `1.5px solid ${C.border}` }}>
-            <Inbox size={40} className="mb-4" color={C.primary} strokeWidth={1} />
-            <p className="text-[12px] font-black tracking-widest" style={{ color: '#4B5563' }}>
-              ( At present, No e-Quotation request published )
-            </p>
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            {activeQuotations.map((quote) => (
+              <div 
+                key={quote.id} 
+                className="bg-white p-3.5 sm:p-6 border rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row items-start gap-3 sm:gap-4 text-left"
+                style={{ borderColor: C.border }}
+              >
+                {/* Logo file icon remains */}
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(114,28,43,0.08)', border: '1px solid rgba(114,28,43,0.2)' }}>
+                  <FileText size={18} className="sm:w-[22px] sm:h-[22px]" color={C.primary} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider block mb-1.5" style={{ color: C.accent }}>{quote.date}</span>
+                  <h3 className="text-[12.5px] sm:text-[14px] font-black mb-2 leading-snug line-clamp-2" style={{ color: C.textDark }}>{quote.title}</h3>
+                  <p className="text-[11.5px] sm:text-[12.5px] leading-relaxed font-medium line-clamp-3" style={{ color: C.textMid }}>{quote.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -103,14 +131,7 @@ const EQuotation = () => {
                 <Send size={16} /> Submit Quotation Request
               </button>
 
-              <div className="pt-2 text-center flex items-center justify-center gap-2">
-                <Mail size={14} color={C.primary} />
-                <a href="mailto:info@grandtextilemart.com"
-                  className="text-[11px] font-black tracking-widest hover:underline"
-                  style={{ color: C.primary }}>
-                  info@grandtextilemart.com
-                </a>
-              </div>
+
             </form>
           </div>
         </motion.div>

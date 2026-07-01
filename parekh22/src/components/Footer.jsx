@@ -72,7 +72,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { name: 'About Us', path: '/about' },
-                { name: 'Product Page', path: '/products' },
+                { name: 'Product', path: '/products' },
                 { name: 'Trade Enquiry', path: '/trade-enquiry' },
                 { name: 'Contact Us', path: '/contact' },
               ].map(link => (
@@ -100,7 +100,7 @@ export default function Footer() {
                 { name: 'e-Quotation', path: '/e-quotation' },
                 { name: 'e-Auction', path: '/e-auction' },
                 { name: 'Trade Circular', path: '/trade-circular' },
-                { name: 'Blog Page', path: '/blog' },
+                { name: 'Blog', path: '/blog' },
               ].map(link => (
                 <li key={link.name}>
                   <Link
@@ -145,10 +145,7 @@ export default function Footer() {
           className="mt-12 pt-6 border-t flex flex-col sm:flex-row justify-between items-center gap-4"
           style={{ borderColor: 'rgba(255,255,255,0.08)' }}
         >
-          <a href="tel:+916353778329" className="hover:underline text-xs font-black flex items-center gap-1.5 transition-colors" style={{ color: '#CDA75E' }}>
-            <Phone size={12} /> Call Us: +91 6353778329
-          </a>
-          
+     
           <div className="flex gap-5 items-center">
              <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#CDA75E] transition-colors"><FacebookIcon /></a>
              <a href="#" className="text-white opacity-60 hover:opacity-100 hover:text-[#CDA75E] transition-colors"><TwitterIcon /></a>

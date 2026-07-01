@@ -1,16 +1,44 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const C = { primary: '#721C2B', accent: '#CDA75E', bg: '#FAF6F0', border: '#E6D8C5', textDark: '#330A10', textMid: '#554447', textMuted: '#7D6A6D' };
 
 const posts = [
-  { title: "The Future of Sustainable Weaving", date: "June 10, 2026", category: "Innovation", author: "Priya Sharma", readTime: "5 min read", image: "https://images.unsplash.com/photo-1705412877691-70f6913aaa1e?w=600&auto=format&fit=crop&q=60" },
-  { title: "Elegance in Threads: The Fall Collection", date: "May 28, 2026", category: "Collections", author: "Rajiv Kapoor", readTime: "4 min read", image: "https://images.unsplash.com/photo-1599753931952-654e960af582?w=600&auto=format&fit=crop&q=60" },
-  { title: "Behind the Scenes: Crafting the Perfect Saree", date: "May 15, 2026", category: "Craftsmanship", author: "Ananya Patel", readTime: "6 min read", image: "https://plus.unsplash.com/premium_photo-1669977749819-d8737b4408f7?w=600&auto=format&fit=crop&q=60" },
-  { title: "Trends to Watch in Home Furnishing", date: "Apr 22, 2026", category: "Trends", author: "Neha Gupta", readTime: "4 min read", image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&auto=format&fit=crop&q=60" },
+  {
+    title: "The Art of Banarasi Silk Weaving",
+    date: "Jun 28, 2026",
+    category: "Craftsmanship",
+    author: "Ananya Iyer",
+    description: "Delve deep into the centuries-old heritage of Banarasi weavers. Discover how fine silk threads are intertwined with real gold and silver zari to create timeless masterpieces.",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    title: "Modern Trends in Indian Ethnic Fusion Wear",
+    date: "Jun 15, 2026",
+    category: "Trends",
+    author: "Rajesh Sen",
+    description: "Explore how contemporary silhouettes are blending with traditional Indian handlooms to reshape ethnic fashion for the modern generation.",
+    image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    title: "Sustainable Fashion: The Handloom Revolution",
+    date: "Jun 05, 2026",
+    category: "Sustainability",
+    author: "Priya Das",
+    description: "Hand-spun, hand-woven, and naturally dyed. Learn why switching to handloom apparel supports local weavers and promotes an eco-friendly wardrobe.",
+    image: "https://images.unsplash.com/photo-1599753931952-654e960af582?w=600&auto=format&fit=crop&q=80"
+  }
 ];
 
+const categories = ["All", "Craftsmanship", "Trends", "Sustainability"];
+
 export default function Blog() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredPosts = activeCategory === "All"
+    ? posts
+    : posts.filter(p => p.category === activeCategory);
   return (
     <div style={{ fontFamily: "'Outfit', sans-serif", background: C.bg }}>
 
@@ -21,26 +49,42 @@ export default function Blog() {
           <h1 className="font-black text-4xl sm:text-5xl mb-6" style={{ color: C.textDark }}>
             Blog
           </h1>
-          <p className="text-[16px] sm:text-[18px] italic mb-8 leading-relaxed max-w-3xl font-medium" style={{ color: '#4B5563' }}>
-            "Join and participate in our nation-wide campaign to digitalize the Textile<br className="hidden md:block"/>
-            Sector, one of the largest sectors of India."
-          </p>
-          <h2 className="text-base sm:text-lg font-black tracking-widest mb-2 uppercase" style={{ color: C.textDark }}>
-            Elite Threads
-          </h2>
-          <p className="text-[11px] sm:text-[13px] font-black tracking-wide mb-1" style={{ color: C.accent }}>
-            Textile Manufacturer & Entrepreneur
-          </p>
-          <p className="text-[10px] sm:text-[11px] font-black tracking-widest uppercase mb-8" style={{ color: '#6B7280' }}>
-            INDIA
-          </p>
+       
           <div className="w-32 sm:w-48 h-[1px]" style={{ background: C.border }} />
         </div>
       </div>
 
-      <div className="pb-20 max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {posts.map((post, idx) => (
+      <div className="pb-20 max-w-7xl mx-auto px-4 py-8">
+        
+        {/* Categories Paragraph and Tabs above cards */}
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <p className="text-xs uppercase tracking-widest font-black mb-4" style={{ color: C.accent }}>
+            Explore our latest articles, insights and stories from the world of premium fabrics and traditional handlooms.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 border-b pb-4" style={{ borderColor: `${C.border}60` }}>
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className="px-5 py-2 text-[11px] font-black uppercase tracking-wider rounded-full transition-all duration-200"
+                  style={{
+                    background: isActive ? C.primary : 'transparent',
+                    color: isActive ? '#FFFFFF' : C.textMid,
+                    border: `1.5px solid ${isActive ? C.primary : C.border}`,
+                  }}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Blog Post Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          {filteredPosts.map((post, idx) => (
             <motion.article
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -54,24 +98,26 @@ export default function Blog() {
                 <img src={post.image} alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[9px] font-black tracking-widest uppercase"
-                  style={{ background: 'rgba(95,111,94,0.15)', border: `1px solid rgba(95,111,94,0.3)`, color: C.primary, backdropFilter: 'blur(6px)' }}>
+                  style={{ background: 'rgba(255,255,255,0.9)', border: `1px solid ${C.border}`, color: C.primary, backdropFilter: 'blur(6px)' }}>
                   {post.category}
                 </div>
               </div>
-              <div className="p-5 flex flex-col flex-1 text-left">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[11px] font-semibold" style={{ color: '#6B7280' }}>{post.date}</span>
-                  <span className="w-1 h-1 rounded-full" style={{ background: C.primary }} />
-                  <span className="text-[11px] font-semibold" style={{ color: '#6B7280' }}>{post.readTime}</span>
+              <div className="p-3.5 sm:p-6 flex flex-col flex-1 text-left">
+                <div className="flex items-center gap-2 sm:gap-3 mb-2.5">
+                  <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest" style={{ color: C.accent }}>{post.date}</span>
+                  <span className="w-1 h-1 rounded-full" style={{ background: C.accent }} />
+                  <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-gray-400">By {post.author}</span>
                 </div>
-                <h3 className="font-black text-lg mb-2 leading-snug transition-colors" style={{ color: C.textDark }}
+                <h3 className="font-black text-[12.5px] sm:text-base mb-2 leading-snug transition-colors line-clamp-2" style={{ color: C.textDark }}
                   onMouseEnter={e => e.currentTarget.style.color = C.primary}
                   onMouseLeave={e => e.currentTarget.style.color = C.textDark}>
                   {post.title}
                 </h3>
-                <p className="text-[12px] mb-4 font-semibold" style={{ color: '#4B5563' }}>By {post.author}</p>
-                <div className="mt-auto pt-3" style={{ borderTop: `1px solid ${C.border}60` }}>
-                  <span className="flex items-center gap-1.5 text-[12px] font-black tracking-wide" style={{ color: C.primary }}>
+                <p className="text-[11.5px] sm:text-[13px] leading-relaxed mb-3 font-medium text-gray-500 line-clamp-3" style={{ color: C.textMid }}>
+                  {post.description}
+                </p>
+                <div className="mt-auto pt-2.5" style={{ borderTop: `1px solid ${C.border}60` }}>
+                  <span className="flex items-center gap-1.5 text-[11px] font-black tracking-widest uppercase cursor-pointer" style={{ color: C.primary }}>
                     Read More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </span>
                 </div>

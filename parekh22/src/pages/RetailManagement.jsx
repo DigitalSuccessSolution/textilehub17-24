@@ -4,9 +4,9 @@ import { Mail } from 'lucide-react';
 const C = { primary: '#721C2B', primaryDark: '#4A0E17', accent: '#CDA75E', bg: '#FAF6F0', bgLight: '#EFF3EB', border: '#E6D8C5', textDark: '#330A10', textMid: '#554447', textMuted: '#7D6A6D' };
 
 const teamMembers = [
-  { id: 1, name: 'Rajesh Sharma', role: 'Managing Director', image: null },
-  { id: 2, name: 'Ananya Sharma', role: 'Head of Retail Operations', image: null },
-  { id: 3, name: 'Vikram Mehta', role: 'Supply Chain Director', image: null },
+  { id: 1, name: 'Rajesh Sharma', role: 'Managing Director', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces&q=80' },
+  { id: 2, name: 'Ananya Sharma', role: 'Head of Retail Operations', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces&q=80' },
+  { id: 3, name: 'Vikram Mehta', role: 'Supply Chain Director', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces&q=80' },
 ];
 
 const RetailManagement = () => {
@@ -30,32 +30,30 @@ const RetailManagement = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto text-left"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
         >
           {teamMembers.map((member) => (
             <div key={member.id}
-              className="group overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-md bg-white"
-              style={{ border: `1px solid ${C.border}` }}
+              className="group rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center p-5 relative overflow-hidden"
+              style={{ border: `1.5px solid ${C.border}` }}
             >
-              <div className="relative overflow-hidden aspect-[4/5]">
+              {/* Profile Image (Avatar) */}
+              <div className="w-20 h-20 rounded-full border-2 overflow-hidden shadow-sm bg-white shrink-0 mb-3" style={{ borderColor: C.accent }}>
                 <img
-                  src={member.image || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'}
+                  src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
-                  style={{ background: 'rgba(0,0,0,0.5)' }}>
-                  <a href={`mailto:${member.name.toLowerCase().replace(' ', '')}@grandtextilemart.com`}
-                    className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-                    style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)' }}
-                  >
-                    <Mail size={15} className="text-white" />
-                  </a>
-                </div>
               </div>
-              <div className="p-4 text-center" style={{ borderTop: `1px solid ${C.border}` }}>
-                <h3 className="text-base font-black mb-0.5" style={{ color: C.textDark }}>{member.name}</h3>
-                <p className="text-[9px] uppercase tracking-widest font-black" style={{ color: C.accent }}>{member.role}</p>
+
+              {/* Card Body */}
+              <div className="text-center">
+                <h3 className="text-sm font-black mb-0.5" style={{ color: C.textDark }}>
+                  {member.name}
+                </h3>
+                <p className="text-[9px] uppercase tracking-widest font-black" style={{ color: C.accent }}>
+                  {member.role}
+                </p>
               </div>
             </div>
           ))}

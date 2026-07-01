@@ -10,7 +10,7 @@ const categories = [
 ];
 
 const COLORS = {
-  primary: '#8B5A2B', 
+  primary: '#8B5A2B',
   primaryDark: '#5A3A1F',
   primaryDarker: '#3E2B21',
   accent: '#A67853',
@@ -24,10 +24,10 @@ const COLORS = {
 export default function Home() {
   return (
     <div className="w-full pb-10" style={{ background: COLORS.bg, fontFamily: "'Outfit', sans-serif" }}>
-      
+
       {/* ── HERO SECTION ── */}
       <section className="relative w-full max-w-[90rem] mx-auto overflow-hidden bg-[#FAF6F0] flex flex-col md:flex-row items-stretch">
-        
+
         {/* Left Decorative Floral Element */}
         <div className="absolute left-0 top-1/4 bottom-0 w-[120px] opacity-40 pointer-events-none hidden xl:block">
           <svg viewBox="0 0 100 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#A67853]">
@@ -42,12 +42,12 @@ export default function Home() {
         </div>
 
         {/* Left Text */}
-        <div className="w-full md:w-5/12 flex flex-col justify-center z-10 relative px-6 lg:px-12 py-10 md:py-14">
+        <div className="w-full md:w-5/12 flex flex-col justify-center z-10 relative px-6 lg:px-12 py-10 md:py-14 order-2 md:order-1">
           <p className="text-[15px] mb-3 font-medium" style={{ color: COLORS.accent }}>Tradition Woven</p>
           <h1 className="text-5xl lg:text-[64px] font-semibold leading-[1.1] mb-5 serif-title tracking-tight" style={{ color: COLORS.textDark }}>
             Timeless Textiles<br />for Every Generation
           </h1>
-          
+
           {/* Decorative Divider */}
           <div className="flex items-center gap-3 my-5">
             <div className="h-[1px] w-12" style={{ background: COLORS.accent }}></div>
@@ -66,18 +66,18 @@ export default function Home() {
         </div>
 
         {/* Right Images (Diagonal Split with Clip-path) */}
-        <div className="w-full md:w-[58%] relative h-[320px] md:h-auto md:absolute md:top-0 md:right-0 md:bottom-0 overflow-hidden">
+        <div className="w-full md:w-[58%] relative h-[320px] md:h-auto md:absolute md:top-0 md:right-0 md:bottom-0 overflow-hidden order-1 md:order-2">
           {/* Image 1 */}
           <div className="absolute inset-0" style={{ clipPath: 'polygon(10% 0, 39.5% 0, 19.5% 100%, -10% 100%)' }}>
-            <img src="/images/hero_fabric_trees.png" alt="Fabric Trees" className="w-full h-full object-cover scale-110" />
+            <img src="https://images.pexels.com/photos/7679682/pexels-photo-7679682.jpeg" alt="Fabric Trees" className="w-full h-full object-cover scale-110" />
           </div>
           {/* Image 2 */}
           <div className="absolute inset-0" style={{ clipPath: 'polygon(40.5% 0, 70% 0, 50% 100%, 20.5% 100%)' }}>
-            <img src="/images/hero_fabric_stack.png" alt="Fabric Stack" className="w-full h-full object-cover scale-110" />
+            <img src="https://images.pexels.com/photos/7679682/pexels-photo-7679682.jpeg" alt="Fabric Stack" className="w-full h-full object-cover scale-110" />
           </div>
           {/* Image 3 */}
           <div className="absolute inset-0" style={{ clipPath: 'polygon(71% 0, 110% 0, 90% 100%, 51% 100%)' }}>
-            <img src="/images/hero_fabric_draped.png" alt="Fabric Draped" className="w-full h-full object-cover scale-110" />
+            <img src="https://images.pexels.com/photos/7679682/pexels-photo-7679682.jpeg" alt="Fabric Draped" className="w-full h-full object-cover scale-110" />
           </div>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             {/* Image on Right */}
             <div className="hidden sm:block w-[300px] h-full absolute right-0 top-0 bottom-0 z-0 opacity-80" style={{ maskImage: 'linear-gradient(to right, transparent, black)' }}>
               <img src="https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=500&q=80" alt="Stacked Fabrics" className="w-full h-full object-cover" />

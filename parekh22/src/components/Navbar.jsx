@@ -31,31 +31,31 @@ export default function Navbar() {
 
   const mainLinks = [
     { name: 'HOME', path: '/' },
-    { name: 'ABOUT', path: '/about' },
+    { name: 'ABOUT US', path: '/about' },
+    { name: 'CONTACT US', path: '/contact' },
     { name: 'PRODUCT', path: '/products' },
-    { name: 'CONTACT', path: '/contact' },
+    { name: 'OUR RETAIL MANAGEMENT', path: '/retail-management' },
   ];
 
   const moreLinks = [
-    { name: 'RETAIL MANAGEMENT', path: '/retail-management' },
     { name: 'e-QUOTATION', path: '/e-quotation' },
     { name: 'e-AUCTION', path: '/e-auction' },
     { name: 'TRADE CIRCULAR', path: '/trade-circular' },
     { name: 'BLOG', path: '/blog' },
     { name: 'NOTICE BOARD', path: '/notice-board' },
     { name: 'CAREER', path: '/career' },
-    { name: 'REVIEWS', path: '/reviews' },
-    { name: 'GALLERY', path: '/gallery' },
+    { name: 'CUSTOMER REVIEW', path: '/reviews' },
+    { name: 'BUSINESS MEDIA GALLERY', path: '/gallery' },
     { name: 'FAQ', path: '/faq' },
   ];
 
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);
 
   return (
-    <header className="w-full sticky top-0 z-50 transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+    <header className="w-full sticky top-0 z-[100] transition-all duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
 
       {/* ── SINGLE NAVBAR ROW ── */}
-      <div className={`w-full bg-[#FAF6F0] transition-all duration-300 ${scrolled ? 'shadow-md py-2' : 'border-b py-4'}`}
+      <div className={`w-full bg-[#FAF6F0] relative z-20 transition-all duration-300 ${scrolled ? 'shadow-md py-2' : 'border-b py-4'}`}
         style={{ borderColor: '#E6D8C5' }}>
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
           
@@ -179,7 +179,7 @@ export default function Navbar() {
 
       {/* ── MOBILE DRAWER NAVIGATION ── */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-[76px] bg-[#FAF6F0] z-40 flex flex-col" style={{ fontFamily: "'Outfit', sans-serif" }}>
+        <div className="lg:hidden fixed inset-0 top-[60px] bg-[#FAF6F0] z-10 flex flex-col" style={{ fontFamily: "'Outfit', sans-serif" }}>
           <div className="flex-1 overflow-y-auto px-6 py-8 pb-24 space-y-1 text-left">
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;

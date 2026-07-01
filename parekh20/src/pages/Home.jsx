@@ -6,15 +6,15 @@ import { useState, useEffect, useRef } from 'react';
 // ── Same categories as parekh19 in same order ──
 const shopCategories = [
   { name: 'Sarees', imageUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=300&fit=crop&q=80' },
-  { name: 'Leggings', imageUrl: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=400&h=300&fit=crop&q=80' },
-  { name: 'Kurtis', imageUrl: 'https://images.unsplash.com/photo-1608748010899-18f300247112?w=400&h=300&fit=crop&q=80' },
+  { name: 'Leggings', imageUrl: 'https://images.pexels.com/photos/16701769/pexels-photo-16701769.jpeg' },
+  { name: 'Kurtis', imageUrl: 'https://images.pexels.com/photos/28213774/pexels-photo-28213774.jpeg' },
   { name: 'Dress Suits', imageUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=400&h=300&fit=crop&q=80' },
-  { name: 'Bedsheets & Linen', imageUrl: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&h=300&fit=crop&q=80' },
+  { name: 'Bedsheets & Linen', imageUrl: 'https://images.pexels.com/photos/22711513/pexels-photo-22711513.jpeg' },
   { name: 'Hosiery Items', imageUrl: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=400&h=300&fit=crop&q=80' },
   { name: 'Suiting', imageUrl: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=300&fit=crop&q=80' },
   { name: 'Shirting', imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop&q=80' },
   { name: 'Formal & Ethnic Wear for Women', imageUrl: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&h=300&fit=crop&q=80' },
-  { name: 'Formal & Ethnic Wear for Men', imageUrl: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=300&fit=crop&q=80' },
+  { name: 'Formal & Ethnic Wear for Men', imageUrl: 'https://images.pexels.com/photos/1096849/pexels-photo-1096849.jpeg' },
   { name: 'Formal & Ethnic Wear for Children', imageUrl: 'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&h=300&fit=crop&q=80' },
   { name: 'Home Upholstery & Furnishing', imageUrl: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=300&fit=crop&q=80' },
 ];
