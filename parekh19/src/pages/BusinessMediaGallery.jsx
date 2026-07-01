@@ -81,7 +81,7 @@ export default function BusinessMediaGallery() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
           {filteredItems.map((item, idx) => (
             <motion.div
               key={idx}
@@ -104,12 +104,14 @@ export default function BusinessMediaGallery() {
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col flex-1">
-                <span className="text-[9px] text-[#C5A880] font-bold block mb-1 uppercase tracking-widest">{item.date}</span>
-                <h3 className="font-bold text-sm mb-1 leading-snug transition-colors text-[#152E47]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {item.title}
-                </h3>
+              <div className="p-3 sm:p-4 flex flex-col flex-grow justify-between">
+                <div>
+                  <span className="text-[9px] text-[#C5A880] font-bold block mb-1 uppercase tracking-widest">{item.date}</span>
+                  <h3 className="font-bold text-xs sm:text-sm mb-1 leading-snug transition-colors text-[#152E47]"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {item.title}
+                  </h3>
+                </div>
               </div>
             </motion.div>
           ))}

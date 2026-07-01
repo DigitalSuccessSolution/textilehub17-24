@@ -85,7 +85,7 @@ export default function Blog() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
           {filteredPosts.map((post, idx) => (
             <motion.article
               key={idx}
@@ -99,27 +99,29 @@ export default function Blog() {
               <div className="relative w-full aspect-[16/10] overflow-hidden">
                 <img src={post.image} alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter saturate-[0.95]" />
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase"
+                <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-[9px] font-bold tracking-widest uppercase"
                   style={{ background: 'rgba(95,111,94,0.1)', border: '1px solid rgba(95,111,94,0.3)', color: '#244C73', backdropFilter: 'blur(6px)' }}>
                   {post.category}
                 </div>
               </div>
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center justify-between mb-3 text-[10px] uppercase tracking-wider font-extrabold text-[#C5A880]">
-                  <span>{post.category}</span>
-                  <span className="text-[#6B7280]">{post.date}</span>
+              <div className="p-3 sm:p-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-2 text-[8px] sm:text-[10px] uppercase tracking-wider font-extrabold text-[#C5A880]">
+                    <span>{post.category}</span>
+                    <span className="text-[#6B7280]">{post.date}</span>
+                  </div>
+                  <h3 className="font-bold text-xs sm:text-base mb-1.5 leading-snug group-hover:text-[#244C73] transition-colors text-[#152E47]"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {post.title}
+                  </h3>
+                  <p className="text-[10px] sm:text-[12px] mb-3 text-[#4B5563] leading-relaxed font-semibold line-clamp-2 sm:line-clamp-4">
+                    {post.description}
+                  </p>
                 </div>
-                <h3 className="font-bold text-base mb-2.5 leading-snug group-hover:text-[#244C73] transition-colors text-[#152E47]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {post.title}
-                </h3>
-                <p className="text-[12px] mb-4 text-[#4B5563] leading-relaxed font-semibold line-clamp-4">
-                  {post.description}
-                </p>
-                <div className="mt-auto pt-3 border-t border-[#E8E5DC]/60 flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-[#6B7280] uppercase tracking-wide">By {post.author}</span>
-                  <span className="flex items-center gap-1.5 text-[11px] font-bold tracking-wide text-[#244C73]">
-                    Read More <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform duration-200" />
+                <div className="pt-2 border-t border-[#E8E5DC]/60 flex items-center justify-between mt-auto">
+                  <span className="text-[9px] sm:text-[11px] font-bold text-[#6B7280] uppercase tracking-wide">By {post.author}</span>
+                  <span className="flex items-center gap-1 text-[9px] sm:text-[11px] font-bold tracking-wide text-[#244C73]">
+                    Read More <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </span>
                 </div>
               </div>

@@ -58,7 +58,7 @@ const EAuction = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="rounded-3xl shadow-md overflow-hidden bg-white text-left"
           style={{ border: `1.5px solid ${C.border}` }}>
-          <div className="p-8 md:p-12">
+          <div className="p-4 sm:p-8 md:p-12">
             <div className="flex items-center gap-4 mb-8 pb-5" style={{ borderBottom: `1px solid ${C.border}60` }}>
               <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                 style={{ background: 'rgba(114,28,43,0.08)', border: '1px solid rgba(114,28,43,0.2)' }}>
@@ -110,12 +110,12 @@ const EAuction = () => {
               </div>
 
               <button type="submit"
-                className="w-full py-4 rounded-xl font-black tracking-widest uppercase text-white text-sm flex items-center justify-center gap-3 transition-all hover:opacity-95 hover:-translate-y-0.5 shadow-sm"
+                className="w-full py-3.5 sm:py-4 rounded-xl font-black tracking-widest uppercase text-white text-[12px] sm:text-sm flex items-center justify-center gap-2 sm:gap-3 transition-all hover:opacity-95 hover:-translate-y-0.5 shadow-sm cursor-pointer"
                 style={{ background: C.primary }}
                 onMouseEnter={e => e.currentTarget.style.background = C.primaryDark}
                 onMouseLeave={e => e.currentTarget.style.background = C.primary}
               >
-                <Send size={16} /> Submit Registration
+                <Send size={15} className="shrink-0" /> Submit Registration
               </button>
 
 

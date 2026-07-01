@@ -83,7 +83,7 @@ export default function Home() {
             Discover luxury textiles crafted with tradition, passion and perfection. Weaving heritage craftsmanship with contemporary designs to define your personal style.
           </p>
 
-          <div className="flex flex-wrap gap-3 sm:gap-4 font-sans">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 font-sans items-start">
             <Link
               to="/products"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-[10.5px] sm:text-[11px] font-bold tracking-[0.15em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg bg-[#244C73] hover:bg-[#1E3A5F] border border-[#244C73]/20"

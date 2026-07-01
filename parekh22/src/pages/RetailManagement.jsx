@@ -30,11 +30,11 @@ const RetailManagement = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
+          className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-center"
         >
           {teamMembers.map((member) => (
             <div key={member.id}
-              className="group rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center p-5 relative overflow-hidden"
+              className="group rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center p-4 sm:p-5 relative overflow-hidden"
               style={{ border: `1.5px solid ${C.border}` }}
             >
               {/* Profile Image (Avatar) */}
